@@ -642,6 +642,10 @@ if (canvas) {
       emoji: '🗺️',
       text: `The glowing dots are countries where robot taxis <strong>already drive around every day</strong>. See the red ✕? That's India — millions of taxi rides a day, and not a single robot taxi. It's like every city in the world got an ice-cream shop except the city with the most kids. We're opening that shop.`
     },
+    whynot: {
+      emoji: '🧩',
+      text: `Quick puzzle! Everyone else built robot taxis — why not India? Hint: it's <strong>not</strong> because the robot brain is hard to write (those recipes are basically free now). It's the two things you can't download: <strong>videos of Indian roads</strong>, and a way to <strong>prove the robot is safe</strong> in Indian chaos. Pick the two right cards and the answer unlocks!`
+    },
     thesis: {
       emoji: '📖',
       text: `The <strong>recipe</strong> for making a car drive itself used to be a big secret. Now it's basically in free cookbooks anyone can read. But you can't download the <strong>ingredients</strong>: what Indian roads actually look like — the cows, the potholes, the traffic. Whoever collects those ingredients first wins. That's our whole plan.`
@@ -656,7 +660,7 @@ if (canvas) {
     },
     traffic: {
       emoji: '🚁',
-      text: `How do we film all of India's traffic without buying thousands of cars? Three tricks: <strong>1)</strong> flying drones watch the road from above, like a bird that never blinks. <strong>2)</strong> we made a game where players drive through real Indian streets — every move secretly teaches our robot. <strong>3)</strong> we buy videos from little cameras people already have in their cars. Fast, cheap, clever.`
+      text: `Remember Pokémon Go? Millions of people walked <strong>everywhere</strong> playing it — and all those walks secretly drew a super-accurate map for someone else. We're doing that, but for India, and keeping the treasure: drones film from the sky, a fun game lets players teach our robot, and dashcams already riding in cars send us their videos. Way faster and cheaper than buying thousands of robot cars!`
     },
     simulation: {
       emoji: '🕹️',
@@ -688,11 +692,11 @@ if (canvas) {
     },
     roadmap: {
       emoji: '🗓️',
-      text: `Our plan works like game levels. <strong>Level 1:</strong> get the money and the team. <strong>Level 2:</strong> collect a million kilometres of Indian driving video. <strong>Level 3:</strong> build the practice-world. <strong>Level 4:</strong> teach the robot brain. <strong>Boss level:</strong> a real car drives itself on a test track — then we raise more money to go bigger.`
+      text: `Our plan works like game levels — and you get to guess how fast we clear them! <strong>Level 1:</strong> get the money and the team. <strong>Level 2:</strong> collect a million kilometres of Indian driving video. <strong>Level 3:</strong> build the practice-world. <strong>Level 4:</strong> teach the robot brain. <strong>Boss level (end of 2027):</strong> a real car drives itself on a test track — then we raise more money to go bigger.`
     },
     ask: {
       emoji: '🫙',
-      text: `We're asking investors for the first pot of money. Most of it pays brilliant engineers; the rest buys driving videos, drones, and computer power. In exchange, investors own a <strong>slice of the company</strong> — and if the robot-taxi dream works, that slice becomes worth much, much more.`
+      text: `We're asking investors for about <strong>$3 million</strong>. Most pays brilliant engineers for 3 whole years; the rest builds a cool robot bot, buys computer power to teach the brain, collects driving videos, and builds the practice-world — plus a safety jar in case things take longer. Try the switches: you can see exactly what breaks if we spend less on something!`
     }
   };
 

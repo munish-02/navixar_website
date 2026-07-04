@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700;900&family=Rozha+One&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link href="css/immersive.css" rel="stylesheet">
+  <link href="css/interactive.css" rel="stylesheet">
 </head>
 <body>
 
@@ -53,6 +54,7 @@
     <div class="rail-dots">
       <a href="#hero"       data-sec="hero"><span>Navixar</span></a>
       <a href="#market"     data-sec="market"><span>The Opportunity</span></a>
+      <a href="#whynot"     data-sec="whynot"><span>The Question</span></a>
       <a href="#thesis"     data-sec="thesis"><span>Thesis</span></a>
       <a href="#problem"    data-sec="problem"><span>The Problem</span></a>
       <a href="#datagap"    data-sec="datagap"><span>The Data Gap</span></a>
@@ -273,11 +275,57 @@
       </svg>
     </div>
 
-    <!-- ════════════════ CH 02 · THESIS ════════════════ -->
-    <section class="sec" id="thesis" data-chapter="02" data-label="Our Thesis">
+    <!-- ════════════════ CH 02 · THE QUESTION (interactive gate) ════════════════ -->
+    <section class="sec" id="whynot" data-chapter="02" data-label="The Question">
+      <div class="hindi-watermark right">प्रश्न</div>
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">02</span><span class="chl">The Question</span></div>
+        <h2 class="headline js-reveal">$21B Everywhere Else. Zero In India. <span class="grad-blue">Why?</span></h2>
+        <div class="sub js-reveal">
+          It's not because nobody noticed 1.4 billion people. Before we show you our thesis, take a guess:
+          <strong>what are the two hardest technical problems in bringing autonomy to India?</strong> Pick two.
+        </div>
+
+        <div class="quiz-grid js-reveal" id="quizGrid">
+          <button class="quiz-opt" data-correct="false" data-why="Foundation driving policies, open-source stacks, and VLA architectures are converging fast. The algorithms are becoming table stakes — anyone can get them.">
+            <span class="qo-letter">A</span>
+            <span class="qo-title">Writing The Algorithms</span>
+            <span class="qo-desc">Building the self-driving AI stack itself</span>
+            <span class="qo-verdict"></span>
+          </button>
+          <button class="quiz-opt" data-correct="true" data-why="No dataset on earth contains Indian traffic. 99% of AV training data is Western. You cannot download the ingredients — someone has to collect them.">
+            <span class="qo-letter">B</span>
+            <span class="qo-title">Indian Data</span>
+            <span class="qo-desc">Capturing what Indian roads actually look like</span>
+            <span class="qo-verdict"></span>
+          </button>
+          <button class="quiz-opt" data-correct="false" data-why="Training is a compute bill, not a bottleneck. GPUs get cheaper every quarter, and the training recipes are published. What you train ON is the hard part.">
+            <span class="qo-letter">C</span>
+            <span class="qo-title">AI Training</span>
+            <span class="qo-desc">The compute to train the models</span>
+            <span class="qo-verdict"></span>
+          </button>
+          <button class="quiz-opt" data-correct="true" data-why="No simulator on earth models lane-less Indian chaos. Without India-specific validation, no model can ever be proven safe enough to deploy.">
+            <span class="qo-letter">D</span>
+            <span class="qo-title">Testing &amp; Validation</span>
+            <span class="qo-desc">Proving the system safe for Indian roads</span>
+            <span class="qo-verdict"></span>
+          </button>
+        </div>
+
+        <div class="quiz-status js-reveal" id="quizStatus">
+          <span id="quizStatusText">Select your two answers to unlock our thesis</span>
+          <span class="quiz-progress"><span class="qp-dot" id="qpd1"></span><span class="qp-dot" id="qpd2"></span></span>
+        </div>
+        <div class="quiz-skip js-reveal"><button id="quizSkip">I give up — show me the answer ↓</button></div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 03 · THESIS (gated) ════════════════ -->
+    <section class="sec gated" id="thesis" data-chapter="03" data-label="Our Thesis">
       <div class="hindi-watermark left">सिद्धांत</div>
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">02</span><span class="chl">Our Thesis</span></div>
+        <div class="chapter js-reveal"><span class="chn">03</span><span class="chl">Our Thesis</span></div>
         <h2 class="headline js-reveal">Algorithms (AI Models) are becoming more accessible. <span class="grad-blue">Data and Validation are not.</span></h2>
         <div class="sub js-reveal">Open-source stacks, foundation driving policies, and VLA architectures are converging fast, making the tech table stakes. What nobody has is Indian data, an India Compliant Simulator, and a real path to deploy in Indian traffic. That's the actual bottleneck, and it's the whole company.</div>
       </div>
@@ -305,9 +353,9 @@
     </section>
 
     <!-- ════════════════ CH 03 · PROBLEM ════════════════ -->
-    <section class="sec" id="problem" data-chapter="03" data-label="The Problem">
+    <section class="sec" id="problem" data-chapter="04" data-label="The Problem">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">03</span><span class="chl">The Problem</span></div>
+        <div class="chapter js-reveal"><span class="chn">04</span><span class="chl">The Problem</span></div>
         <h2 class="headline js-reveal">The World Solved Autonomy For Everywhere Except India.</h2>
         <div class="sub js-reveal">India's roads and traffic are unlike anywhere else, and no existing autonomous stack, dataset, or simulator was engineered to navigate them.</div>
       </div>
@@ -334,10 +382,10 @@
     </section>
 
     <!-- ════════════════ CH 04 · DATA GAP ════════════════ -->
-    <section class="sec" id="datagap" data-chapter="04" data-label="Gap 01 · Data">
+    <section class="sec" id="datagap" data-chapter="05" data-label="Gap 01 · Data">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">04</span><span class="chl">Gap 01 · Data</span></div>
-        <h2 class="headline js-reveal">Advanced AV Models Rely on<br>Accurate Data. India Has None.</h2>
+        <div class="chapter js-reveal"><span class="chn">05</span><span class="chl">Gap 01 · Data</span></div>
+        <h2 class="headline js-reveal">Let's Brake It Down.<br>Here's What Makes India Unique.</h2>
         <div class="hindi-watermark center">डेटा</div>
 
         <div class="dgl">
@@ -391,22 +439,29 @@
           </div>
         </div>
         
-        <!-- The Unpredictable Cow (Edge Case) -->
-        <img src="images/cow.png" id="cow-walker" alt="Indian Cow" />
-        
+        <!-- The Unpredictable Cow — live point-cloud edge case -->
+        <div id="cow-cloud-wrap" aria-hidden="true">
+          <canvas id="cowCanvas"></canvas>
+          <div id="cow-label"><span class="cl-tag">UNPREDICTABLE ACTOR</span><span class="cl-sub">class: cattle · trajectory: unknown · present in 0% of Western datasets</span></div>
+        </div>
+
       </div>
     </section>
 
     <!-- ════════════════ CH 05 · DATA COLLECTION ════════════════ -->
-    <section class="sec" id="traffic" data-chapter="05" data-label="Pillar 01 · Data Collection">
+    <section class="sec" id="traffic" data-chapter="06" data-label="Pillar 01 · Data Collection">
       <div class="tc-bg" id="tcbg"></div>
       <div class="tc-grad" id="tcgrad"></div>
 
       <div class="inner tc-top">
-        <div class="chapter js-reveal"><span class="chn">05</span><span class="chl">Pillar 01 · Data Collection</span></div>
-        <h2 class="headline js-reveal">Three Ways To Get Data No One Else Has</h2>
+        <div class="chapter js-reveal"><span class="chn">06</span><span class="chl">Pillar 01 · Data Collection</span></div>
+        <h2 class="headline js-reveal">We Will Innovate And Collect Data.</h2>
         <div class="sub js-reveal">
-          Waiting for a sensor fleet to rack up miles is slow and expensive. Navixar collects Indian driving data in three faster, cheaper ways, starting with the view a bumper-mounted camera can never get.
+          India runs on the world's largest digital public infrastructure: a billion smartphones, UPI, cheap data. Navixar leverages that to <strong>crowdsource and gamify data collection</strong>, because the goal isn't just kilometres. It's <strong>diversity</strong>: every vehicle type, every merge, every impossible intersection. Diversity in traffic is the dataset nobody else can build.
+        </div>
+        <div class="pokemon-box js-reveal glass-card">
+          <div class="pk-tag">Remember Pokémon Go?</div>
+          <p>Millions of Indians walked every street, alley, and corner of this country chasing Pokémon — and every step fed mapping data to a foreign company building the world's most accurate maps. <strong>India already crowdsourced a country-scale dataset once. It just didn't own it.</strong> This time, the game is ours, the streets are ours, and the data stays ours.</p>
         </div>
       </div>
 
@@ -561,21 +616,31 @@
         </div>
       </div>
 
+      <!-- Speed & cost: fleet vs crowdsourced -->
       <div class="inner js-reveal" style="margin-top: 64px;">
-        <div class="visual-showcase">
-          <img src="images/navixar_img2.png" alt="Navixar's drone-based and dashcam data collection strategy for dense, unstructured Indian traffic" loading="lazy">
+        <div class="speedcost glass-card">
+          <div class="minihead" style="margin-bottom:24px">Same Dataset. Two Ways To Get There.</div>
+          <div class="sc-row">
+            <div class="sc-meta"><span class="sc-label">Traditional sensor fleet <em>(Waymo playbook)</em></span><span class="sc-val">~$20M+ per city · 3–5 years</span></div>
+            <div class="sc-track"><div class="sc-fill sc-them" data-w="100"></div></div>
+          </div>
+          <div class="sc-row">
+            <div class="sc-meta"><span class="sc-label sc-us-label">Navixar crowdsourced pipeline</span><span class="sc-val sc-us-val">&lt;$1M · months, not years</span></div>
+            <div class="sc-track"><div class="sc-fill sc-us" data-w="5"></div></div>
+          </div>
+          <div class="sc-note">Every rupee goes into <strong>diversity of traffic</strong>, not metal on wheels. A crowd of a million phones sees more of India in a month than a fleet of ten sensor cars sees in a decade.</div>
         </div>
       </div>
-      
+
       <!-- Chai Walla Easter Egg -->
       <img src="images/chai_walla.png" id="chai-walla" alt="Chai Walla" />
       
     </section>
 
     <!-- ════════════════ CH 06 · SIMULATION ════════════════ -->
-    <section class="sec" id="simulation" data-chapter="06" data-label="Pillar 02 · Simulation">
+    <section class="sec" id="simulation" data-chapter="07" data-label="Pillar 02 · Simulation">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">06</span><span class="chl">Pillar 02 · Simulation</span></div>
+        <div class="chapter js-reveal"><span class="chn">07</span><span class="chl">Pillar 02 · Simulation</span></div>
         <h2 class="headline js-reveal">Gaussian Splats Make Large-Scale Validation Possible.</h2>
         <div class="sub js-reveal">Mesh-based simulators approximate the world with hand-built polygons. Gaussian splats reconstruct it from real captured footage, keeping every pothole, glare, and reflection intact. That fidelity gap is what lets Navixar validate millions of scenarios before a single physical deployment.</div>
 
@@ -651,19 +716,13 @@
           <div class="sim-instruction">Move mouse to explore environment</div>
         </div>
 
-        <div class="inner js-reveal" style="padding:0; margin-top: 32px;">
-          <div class="visual-showcase">
-            <img src="images/navixar_simulation.png" alt="Navixar Gaussian-splat simulation of dense Mumbai traffic with full perception, prediction, and risk overlay used for large-scale validation" loading="lazy">
-          </div>
-          <div class="src">Illustrative capture: full-stack perception, prediction, and risk overlay running against a splat-reconstructed dense Mumbai scene.</div>
-        </div>
       </div>
     </section>
 
     <!-- ════════════════ CH 07 · SIM ENV ════════════════ -->
-    <section class="sec" id="simenv" data-chapter="07" data-label="Built for India">
+    <section class="sec" id="simenv" data-chapter="08" data-label="Built for India">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">07</span><span class="chl">Our Solution · Simulation</span></div>
+        <div class="chapter js-reveal"><span class="chn">08</span><span class="chl">Our Solution · Simulation</span></div>
         <h2 class="headline js-reveal">The Simulation Environment Tailored for India</h2>
         <div class="sub js-reveal">Current simulators focus on lanes and structured traffic. India brings challenges in roads, textures, and unknown objects that no existing tool handles.</div>
       </div>
@@ -705,9 +764,9 @@
     </section>
 
     <!-- ════════════════ CH 08 · TEAM ════════════════ -->
-    <section class="sec" id="team" data-chapter="08" data-label="Why This Team">
+    <section class="sec" id="team" data-chapter="09" data-label="Why This Team">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">08</span><span class="chl">Why This Team</span></div>
+        <div class="chapter js-reveal"><span class="chn">09</span><span class="chl">Why This Team</span></div>
         <h2 class="headline js-reveal">Built By Someone Who's Already Sold This To India's OEMs.</h2>
         <div class="sub js-reveal">Data collection and processing isn't a hypothesis for Navixar's founder: it represents seven years of shipped work.</div>
       </div>
@@ -741,9 +800,9 @@
     </section>
 
     <!-- ════════════════ CH 09 · MOMENTUM ════════════════ -->
-    <section class="sec" id="momentum" data-chapter="09" data-label="Why Now: The Evidence">
+    <section class="sec" id="momentum" data-chapter="10" data-label="Why Now: The Evidence">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">09</span><span class="chl">Why Now: The Evidence</span></div>
+        <div class="chapter js-reveal"><span class="chn">10</span><span class="chl">Why Now: The Evidence</span></div>
         <h2 class="headline js-reveal">The Robotaxi Race Just Went Global.<br>India Is The Exception.</h2>
         <div class="sub js-reveal">Signals from across the industry over the last few months show that the race is accelerating everywhere but here.</div>
       </div>
@@ -782,10 +841,10 @@
     </section>
 
     <!-- ════════════════ CH 10 · MARKET SIZE ════════════════ -->
-    <section class="sec" id="marketsize" data-chapter="10" data-label="The Market">
+    <section class="sec" id="marketsize" data-chapter="11" data-label="The Market">
       <div class="hindi-watermark right">बाज़ार</div>
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">10</span><span class="chl">The Market</span></div>
+        <div class="chapter js-reveal"><span class="chn">11</span><span class="chl">The Market</span></div>
         <h2 class="headline js-reveal">India Is Moving. Fast.</h2>
         <div class="sub js-reveal">3M+ daily rides, zero autonomous deployments. The market gap is absolute, and it is closing.</div>
       </div>
@@ -832,12 +891,12 @@
     </div>
 
     <!-- ════════════════ CH 11 · VISION / BUSINESS MODEL ════════════════ -->
-    <section class="sec" id="vision" data-chapter="11" data-label="The Business">
+    <section class="sec" id="vision" data-chapter="12" data-label="The Business">
       <div class="hindi-watermark left">दृष्टि</div>
       <!-- Floating Diyas -->
       <div class="diya-container" id="vision-diyas"></div>
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">11</span><span class="chl">The Vision</span></div>
+        <div class="chapter js-reveal"><span class="chn">12</span><span class="chl">The Vision</span></div>
         <h2 class="vhl js-reveal">In a Country Where Chaos Is Structural,<br><span>Robotaxis Will Prove There Is Order in Chaos.</span></h2>
         <div class="vsub js-reveal">Navixar is India's answer to the robotaxi revolution: the same technology the world is racing to build, tuned for Indian roads, opening multiple revenue streams from day one.</div>
 
@@ -872,9 +931,9 @@
     </section>
 
     <!-- ════════════════ CH 12 · TAILWINDS ════════════════ -->
-    <section class="sec" id="tailwinds" data-chapter="12" data-label="Tailwinds">
+    <section class="sec" id="tailwinds" data-chapter="13" data-label="Tailwinds">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">12</span><span class="chl">Tailwinds</span></div>
+        <div class="chapter js-reveal"><span class="chn">13</span><span class="chl">Tailwinds</span></div>
         <h2 class="headline js-reveal">Here Is What Else Is Going for Us</h2>
         <div class="sub js-reveal">The infrastructure is in place. The talent exists. The regulation is moving. The capital is arriving. We are timing this exactly right.</div>
       </div>
@@ -918,97 +977,167 @@
     </section>
 
     <!-- ════════════════ CH 13 · ROADMAP ════════════════ -->
-    <section class="sec" id="roadmap" data-chapter="13" data-label="Roadmap">
+    <section class="sec" id="roadmap" data-chapter="14" data-label="Roadmap">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">13</span><span class="chl">The Next 24 Months</span></div>
-        <h2 class="headline js-reveal">From Raise To Road: A Milestone-Gated Plan.</h2>
-        <div class="sub js-reveal">Every phase de-risks the next. Data before simulation, simulation before models, models before metal.</div>
+        <div class="chapter js-reveal"><span class="chn">14</span><span class="chl">The Next 24 Months</span></div>
+        <h2 class="headline js-reveal">From Raise To Road: <span class="grad-blue">Guess The Timeline.</span></h2>
+        <div class="sub js-reveal">Every phase de-risks the next. Data before simulation, simulation before models, models before metal. But how fast? <strong>For each milestone, guess when we hit it</strong> — then see the actual plan.</div>
+
+        <div class="rm-scorebar js-reveal" id="rmScorebar">
+          <span id="rmScore">0 / 5 guessed</span>
+          <button id="rmRevealAll">Just show me the plan →</button>
+        </div>
 
         <div class="timeline" id="timeline">
           <div class="tl-line" aria-hidden="true"><div class="tl-line-fill" id="tlfill"></div></div>
 
-          <div class="tl-item js-reveal">
+          <div class="tl-item js-reveal" data-actual="Q4 2026">
             <div class="tl-node"></div>
-            <div class="tl-date">Q4 2026</div>
+            <div class="tl-date">??</div>
             <div class="tl-card glass-card">
               <div class="tl-title">Close Pre-Seed · Assemble The Core</div>
               <p class="tl-desc">Founding team of 5 focusing on perception, simulation, and data engineering. First dashcam-footage acquisition partnerships signed. Drone capture pilots begin in one city corridor.</p>
               <span class="tl-tag">Foundation</span>
+              <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
 
-          <div class="tl-item js-reveal">
+          <div class="tl-item js-reveal" data-actual="Q1 2027">
             <div class="tl-node"></div>
-            <div class="tl-date">Q1–Q2 2027</div>
+            <div class="tl-date">??</div>
             <div class="tl-card glass-card">
               <div class="tl-title">1M+ km Of Indian Driving Data</div>
-              <p class="tl-desc">Dashcam pipeline at scale, drone capture across 3 city corridors. First Gaussian-splat reconstructions of real Indian streets, forming the seed of the simulator.</p>
+              <p class="tl-desc">Dashcam pipeline at scale, drone capture across 3 city corridors, gamified crowdsourcing loops live. First Gaussian-splat reconstructions of real Indian streets, forming the seed of the simulator.</p>
               <span class="tl-tag">Data Moat Begins</span>
+              <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
 
-          <div class="tl-item js-reveal">
+          <div class="tl-item js-reveal" data-actual="Q2 2027">
             <div class="tl-node"></div>
-            <div class="tl-date">Q3 2027</div>
+            <div class="tl-date">??</div>
             <div class="tl-card glass-card">
               <div class="tl-title">Simulation Engine v1 + Gamified Beta</div>
-              <p class="tl-desc">Splat-based simulator running Indian chaos scenarios. Gamified data app in public beta, initiating the crowdsourced flywheel.</p>
+              <p class="tl-desc">Splat-based simulator running Indian chaos scenarios. Gamified data app in public beta, accelerating the crowdsourced flywheel.</p>
               <span class="tl-tag">Simulation Moat</span>
+              <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
 
-          <div class="tl-item js-reveal">
+          <div class="tl-item js-reveal" data-actual="Q3 2027">
             <div class="tl-node"></div>
-            <div class="tl-date">Q4 2027</div>
+            <div class="tl-date">??</div>
             <div class="tl-card glass-card">
               <div class="tl-title">India-Native Driving Model v1</div>
               <p class="tl-desc">First VLA policy trained on the proprietary Indian dataset, validated against millions of simulated scenarios. OEM pilot conversations formalised into an LOI.</p>
               <span class="tl-tag">Model Milestone</span>
+              <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
 
-          <div class="tl-item js-reveal">
+          <div class="tl-item js-reveal" data-actual="Q4 2027">
             <div class="tl-node"></div>
-            <div class="tl-date">2028</div>
+            <div class="tl-date">??</div>
             <div class="tl-card glass-card">
               <div class="tl-title">Closed-Course Demo → Seed Round</div>
               <p class="tl-desc">Autonomous demonstration on a closed Indian course. MoRTHS testing application filed. Raise the seed on proof, not promise.</p>
               <span class="tl-tag">Proof Of Autonomy</span>
+              <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
+        </div>
+
+        <div class="rm-summary glass-card" id="rmSummary">
+          <div class="rms-big" id="rmsBig"></div>
+          <div class="rms-text" id="rmsText"></div>
         </div>
       </div>
     </section>
 
     <!-- ════════════════ CH 14 · THE ASK ════════════════ -->
-    <section class="sec" id="ask" data-chapter="14" data-label="The Ask">
+    <section class="sec" id="ask" data-chapter="15" data-label="The Ask">
       <div class="inner">
-        <div class="chapter js-reveal"><span class="chn">14</span><span class="chl">The Ask</span></div>
-        <h2 class="headline js-reveal">Pre-Seed: <span class="grad-blue">₹XX Cr</span> To Build The Moat.</h2>
-        <div class="sub js-reveal">SAFE instrument, targeting close in Q4 2026. Every rupee goes toward the two assets nobody can copy: the dataset and the simulator.</div>
+        <div class="chapter js-reveal"><span class="chn">15</span><span class="chl">The Ask</span></div>
+        <h2 class="headline js-reveal">Pre-Seed: <span class="grad-blue" id="askTotalHead">$3.2M</span> To Build The Moat.</h2>
+        <div class="sub js-reveal">SAFE instrument, targeting close in Q4 2026. Every dollar goes toward the assets nobody can copy: the dataset, the simulator, and the bot. <strong>This budget is interactive</strong> — flip the toggles, watch the total move, and see exactly what takes a hit.</div>
 
-        <div class="funds" id="funds">
-          <div class="fund-row js-reveal">
-            <div class="fund-meta"><span class="fund-label">Engineering Team</span><span class="fund-pct" data-pct="45">45%</span></div>
-            <div class="fund-track"><div class="fund-fill" data-w="45"></div></div>
-            <div class="fund-desc">Perception, simulation, and VLA engineers (5 founding hires from India's ADAS and robotics talent pool).</div>
+        <div class="budget-wrap" id="funds">
+          <div class="budget-rows">
+
+            <div class="brow-item js-reveal" data-key="eng">
+              <div class="bi-head"><span class="bi-label">Engineering Team <em>· 3 years</em></span><span class="bi-amt" data-amt="1000">$1.0M</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">Perception, simulation, and VLA engineers from India's ADAS and robotics talent pool. Three full years of the only asset that builds everything else.</div>
+            </div>
+
+            <div class="brow-item js-reveal" data-key="bot">
+              <div class="bi-head"><span class="bi-label">The Robotaxi Bot</span><span class="bi-amt">$150k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">Battery pack, compute hardware, and an attention-grabbing bot India can't ignore. Pillar 03 made physical.</div>
+              <div class="bi-toggle" data-toggle="bot">
+                <button class="bt-opt on" data-cost="150" data-hit="">Attention-Grabbing Bot · $150k</button>
+                <button class="bt-opt" data-cost="80" data-hit="Saves $70k — but the bot IS the brand moment. A bare test mule demos autonomy and nobody films it.">Bare Test Mule · $80k</button>
+              </div>
+            </div>
+
+            <div class="brow-item js-reveal" data-key="train">
+              <div class="bi-head"><span class="bi-label">Model Training</span><span class="bi-amt">$500k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">The VLA policy trained on the proprietary Indian dataset. The classic trade-off: rent the compute or own it.</div>
+              <div class="bi-toggle" data-toggle="train">
+                <button class="bt-opt on" data-cost="500" data-hit="Elastic and fast to start — but every retraining run costs again, forever. At scale, the meter never stops.">Train On Cloud · $500k</button>
+                <button class="bt-opt" data-cost="750" data-hit="+$250k upfront for an in-house cluster — slower start, but retraining becomes nearly free and no cloud vendor owns our cadence.">In-House Compute · $750k</button>
+              </div>
+            </div>
+
+            <div class="brow-item js-reveal" data-key="data">
+              <div class="bi-head"><span class="bi-label">Data Collection</span><span class="bi-amt">$500k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">Cloud ingestion costs, drone permissions, and deploying the gamified crowdsourcing loops across Indian cities.</div>
+              <div class="bi-toggle" data-toggle="data">
+                <button class="bt-opt on" data-cost="500" data-hit="">Full Pipeline · $500k</button>
+                <button class="bt-opt" data-cost="250" data-hit="Saves $250k — but drops the gamified loops. Diversity of traffic collapses to whatever dashcams happen to see. The thesis IS diversity.">Dashcam-Only · $250k</button>
+              </div>
+            </div>
+
+            <div class="brow-item js-reveal" data-key="sim">
+              <div class="bi-head"><span class="bi-label">Simulator</span><span class="bi-amt">$500k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">The Gaussian-splat simulation engine: India's chaos, reconstructed and replayable at validation scale.</div>
+              <div class="bi-toggle" data-toggle="sim">
+                <button class="bt-opt on" data-cost="500" data-hit="">Build In-House · $500k</button>
+                <button class="bt-opt" data-cost="300" data-hit="Saves $200k adapting open-source — but validation depth caps out, and a rented simulator is a rented moat.">Adapt Open-Source · $300k</button>
+              </div>
+            </div>
+
+            <div class="brow-item js-reveal" data-key="ops">
+              <div class="bi-head"><span class="bi-label">Office, Legal &amp; Misc <em>· 2 years</em></span><span class="bi-amt" data-amt="100">$100k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">Office space, company setup, MoRTHS engagement, drone-operation compliance, and everything unglamorous that keeps the lights on.</div>
+            </div>
+
+            <div class="brow-item buffer js-reveal" data-key="buffer">
+              <div class="bi-head"><span class="bi-label">Runway Buffer <em>· 15% contingency</em></span><span class="bi-amt" id="bufferAmt">$413k</span></div>
+              <div class="bi-track"><div class="bi-fill"></div></div>
+              <div class="bi-desc">Deep tech never ships on schedule. The buffer guarantees two full years of runway even when it doesn't.</div>
+            </div>
           </div>
-          <div class="fund-row js-reveal">
-            <div class="fund-meta"><span class="fund-label">Data Acquisition</span><span class="fund-pct" data-pct="25">25%</span></div>
-            <div class="fund-track"><div class="fund-fill" data-w="25"></div></div>
-            <div class="fund-desc">Drone operations, bulk dashcam footage purchase, and the gamified collection app.</div>
-          </div>
-          <div class="fund-row js-reveal">
-            <div class="fund-meta"><span class="fund-label">Compute &amp; Infrastructure</span><span class="fund-pct" data-pct="20">20%</span></div>
-            <div class="fund-track"><div class="fund-fill" data-w="20"></div></div>
-            <div class="fund-desc">GPU training runs and the splat-reconstruction pipeline.</div>
-          </div>
-          <div class="fund-row js-reveal">
-            <div class="fund-meta"><span class="fund-label">Operations, Legal &amp; Regulatory</span><span class="fund-pct" data-pct="10">10%</span></div>
-            <div class="fund-track"><div class="fund-fill" data-w="10"></div></div>
-            <div class="fund-desc">Company setup, MoRTHS engagement, and drone-operation compliance.</div>
-          </div>
-          <div class="src js-reveal">Illustrative allocation; final figures confirmed with the round.</div>
+
+          <aside class="budget-summary js-reveal" id="budgetSummary">
+            <div class="bs-label">Total Ask</div>
+            <div class="bs-total" id="bsTotal">$3.16M</div>
+            <div class="bs-inr" id="bsInr">≈ ₹27 Cr <em>(at ₹85/$)</em></div>
+            <div class="bs-runway">
+              <div class="bs-rw-label">Runway secured</div>
+              <div class="bs-rw-track"><div class="bs-rw-fill" id="bsRunwayFill"></div></div>
+              <div class="bs-rw-val" id="bsRunwayVal">36 months engineering · 24 months ops + buffer</div>
+            </div>
+            <div class="bs-hits" id="bsHits">
+              <div class="bs-hits-label">What takes a hit</div>
+              <div class="bs-hits-list" id="bsHitsList"><div class="bs-hit none">Nothing — this is the recommended configuration.</div></div>
+            </div>
+            <div class="src" style="margin-top:18px">Illustrative allocation; final figures confirmed with the round.</div>
+          </aside>
         </div>
       </div>
 
@@ -1019,7 +1148,7 @@
             <div class="ctasub">India's answer to the robotaxi revolution: VLA-powered, simulation-first, built ground-up for India's roads.</div>
           </div>
           <div class="cta-right">
-            <div class="ctav">₹XX Cr · SAFE · Pre-Seed · Q4 2026</div>
+            <div class="ctav"><span id="ctaTotal">$3.2M</span> · SAFE · Pre-Seed · Q4 2026</div>
             <div class="ctac">Munish Raj · munish02@gmail.com</div>
             <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed">Get in touch</a>
           </div>
@@ -1033,8 +1162,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/mapdots.js"></script>
+  <script src="js/cowpoints.js"></script>
   <script src="js/hero3d.js"></script>
   <script src="js/main.js"></script>
   <script src="js/immersive.js"></script>
+  <script src="js/interactive.js"></script>
 </body>
 </html>
