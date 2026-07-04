@@ -279,11 +279,19 @@ ScrollTrigger.create({
 });
 
 // ════════════════════════════════════
-// 10. WORLD MAP HOVER CARDS
+// 10. WORLD MAP HOVER & CLICK CARDS
 // ════════════════════════════════════
 const cards = document.querySelectorAll('.ccard');
+let activeCardId = null;
 
 function showCard(cardId) {
+  if (activeCardId === cardId && cardId !== null) {
+    // If already active, toggle off
+    cards.forEach(c => c.classList.remove('show'));
+    activeCardId = null;
+    return;
+  }
+  
   cards.forEach(c => c.classList.remove('show'));
   if (cardId) {
     const card = document.getElementById(cardId);
@@ -295,19 +303,36 @@ function showCard(cardId) {
         card.style.right = '24px';
       }
     }
+    activeCardId = cardId;
+  } else {
+    activeCardId = null;
   }
 }
 
 document.querySelectorAll('.cmarker').forEach(marker => {
+  const cardId = marker.getAttribute('data-card');
+
   marker.addEventListener('mouseenter', () => {
-    showCard(marker.getAttribute('data-card'));
-    const dot = marker.querySelector('.dot');
-    if (dot) gsap.to(dot, { scale: 1.3, duration: 0.2, ease: 'power2.out', transformOrigin: 'center' });
+    if (window.matchMedia('(pointer: fine)').matches && !activeCardId) {
+      const card = document.getElementById(cardId);
+      if (card) card.classList.add('show');
+      const dot = marker.querySelector('.dot');
+      if (dot) gsap.to(dot, { scale: 1.3, duration: 0.2, ease: 'power2.out', transformOrigin: 'center' });
+    }
   });
+
   marker.addEventListener('mouseleave', () => {
-    showCard(null);
-    const dot = marker.querySelector('.dot');
-    if (dot) gsap.to(dot, { scale: 1, duration: 0.2, ease: 'power2.out' });
+    if (window.matchMedia('(pointer: fine)').matches && !activeCardId) {
+      const card = document.getElementById(cardId);
+      if (card) card.classList.remove('show');
+      const dot = marker.querySelector('.dot');
+      if (dot) gsap.to(dot, { scale: 1, duration: 0.2, ease: 'power2.out' });
+    }
+  });
+
+  marker.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showCard(cardId);
   });
 });
 
@@ -315,14 +340,34 @@ const indiaDots = document.getElementById('indiaDots');
 if (indiaDots) {
   indiaDots.style.cursor = 'pointer';
   indiaDots.addEventListener('mouseenter', () => {
-    showCard('card-in');
-    gsap.to(indiaDots, { fill: '#ff6b61', duration: 0.25 });
+    if (window.matchMedia('(pointer: fine)').matches && !activeCardId) {
+      const card = document.getElementById('card-in');
+      if (card) card.classList.add('show');
+      gsap.to(indiaDots, { fill: '#ff6b61', duration: 0.25 });
+    }
   });
   indiaDots.addEventListener('mouseleave', () => {
-    showCard(null);
-    gsap.to(indiaDots, { fill: '#2997ff', duration: 0.35 });
+    if (window.matchMedia('(pointer: fine)').matches && !activeCardId) {
+      const card = document.getElementById('card-in');
+      if (card) card.classList.remove('show');
+      gsap.to(indiaDots, { fill: '#2997ff', duration: 0.35 });
+    }
+  });
+  indiaDots.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showCard('card-in');
   });
 }
+
+// Global click outside to dismiss cards
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.cmarker') && !e.target.closest('#indiaDots') && !e.target.closest('.ccard')) {
+    if (activeCardId) {
+      cards.forEach(c => c.classList.remove('show'));
+      activeCardId = null;
+    }
+  }
+});
 
 // ════════════════════════════════════
 // 11. SENSOR DIAGRAM SWITCH (ground vs drone capture)

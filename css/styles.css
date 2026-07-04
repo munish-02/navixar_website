@@ -1774,5 +1774,52 @@ body::before {
   .tl-node { left: -38px; }
   .flywheel-card { padding: 32px; }
   .hindi-watermark { font-size: clamp(80px, 15vw, 150px); }
+
+  /* Mobile Map Pop-Up Card Position */
+  .ccard {
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 16px !important;
+    transform: translateX(-50%) translateY(20px) scale(0.95);
+    width: calc(100% - 32px);
+    max-width: 320px;
+    z-index: 100;
+  }
+  .ccard.show {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* ════════════════ PILLAR 3 CRASHING BOT ════════════════ */
+.pillar3-card {
+  position: relative;
+  overflow: visible !important;
+  z-index: 10;
+}
+
+.pillar-crash-img {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 250px;
+  height: auto;
+  pointer-events: none;
+  z-index: 25;
+  filter: drop-shadow(0 15px 35px rgba(0, 113, 227, 0.45));
+  transform: rotate(5deg);
+}
+
+@media (max-width: 900px) {
+  .pillar-crash-img {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: block;
+    margin: 16px auto 0;
+    width: 100%;
+    max-width: 240px;
+    transform: rotate(0deg);
+  }
 }
 
