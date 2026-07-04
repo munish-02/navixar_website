@@ -6,14 +6,37 @@
   <title>Navixar — India's Answer to the Robotaxi Revolution</title>
   <meta name="description" content="Every robotaxi company in the world skipped India. Navixar is building India's autonomous vehicle stack — drone and dashcam-sourced data, Gaussian-splat simulation, purpose-built for unstructured Indian roads.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700;900&family=Rozha+One&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="css/immersive.css" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Audio Elements -->
+  <audio id="audio-hero" loop src="https://actions.google.com/sounds/v1/science_fiction/space_engine_hum.ogg"></audio>
+  <audio id="audio-traffic" loop src="https://actions.google.com/sounds/v1/transportation/city_traffic_and_horns.ogg"></audio>
+  <audio id="audio-sitar" loop src="https://actions.google.com/sounds/v1/foley/rhythmic_wood_pegs.ogg"></audio> <!-- Sitar/Tabla proxy -->
+  <audio id="audio-mantra" src="https://actions.google.com/sounds/v1/human_voices/choir_singing_dark_vowel.ogg"></audio> <!-- Mantra proxy -->
+
+  <!-- Weather / Terrain Overlay -->
+  <div id="weather-overlay"></div>
+
+  <!-- Audio Start Button (Browsers require interaction) -->
+  <button id="start-audio-btn">🔊 Start Audio Journey</button>
+
+  <!-- Custom cursor trails (Peacock eyes) -->
+  <div id="cur-trail-1" class="peacock-eye"></div>
+  <div id="cur-trail-2" class="peacock-eye"></div>
+  <div id="cur-trail-3" class="peacock-eye"></div>
 
   <!-- Custom cursor -->
   <div id="cur"></div>
   <div id="cur2"></div>
+
+  <!-- Marigold Garland Header -->
+  <div class="marigold-garland" id="marigold-garland">
+    <div class="marigold-garland-inner" id="garland-inner"></div>
+  </div>
 
   <!-- Topbar -->
   <header id="tb">
@@ -49,6 +72,7 @@
   <main>
     <!-- ════════════════ HERO ════════════════ -->
     <section class="sec" id="hero">
+      <div class="hindi-watermark right">नाविक्सर</div>
       <div id="hero3d" aria-hidden="true"></div>
       <div class="hero-vignette" aria-hidden="true"></div>
 
@@ -75,7 +99,7 @@
           <div class="vsep"></div>
           <div class="ri"><span class="rl">Instrument</span><span class="rv">SAFE</span></div>
           <div class="vsep"></div>
-          <div class="ri"><span class="rl">Current Raise</span><span class="rv">₹XX Cr</span></div>
+          <div class="ri"><span class="rl">Current Raise</span><span class="rv fare-meter">₹<span id="fare-ticker">00</span> Cr</span></div>
           <div class="vsep"></div>
           <div class="ri"><span class="rl">Target Close</span><span class="rv">Q4 2026</span></div>
         </div>
@@ -124,44 +148,44 @@
 
             <!-- USA: Waymo + Zoox (San Francisco) -->
             <g id="g-usa" class="cmarker" data-card="card-usa">
-              <circle cx="127" cy="340" r="26" class="ring" stroke="#0071e3"/>
-              <circle cx="127" cy="340" r="26" fill="rgba(0, 113, 227, 0.12)"/>
-              <circle cx="127" cy="340" r="9" class="dot" fill="#0071e3"/>
+              <circle cx="127" cy="340" r="26" class="ring" stroke="#ff9933"/>
+              <circle cx="127" cy="340" r="26" fill="rgba(255, 153, 51, 0.12)"/>
+              <circle cx="127" cy="340" r="9" class="dot" fill="#ff9933"/>
               <circle cx="127" cy="340" r="4.5" fill="#fff" opacity=".9"/>
-              <circle cx="127" cy="340" r="26" fill="none" stroke="#0071e3" stroke-width=".8" opacity=".4">
+              <circle cx="127" cy="340" r="26" fill="none" stroke="#ff9933" stroke-width=".8" opacity=".4">
                 <animate attributeName="r" values="26;42;26" dur="2.5s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values=".4;0;.4" dur="2.5s" repeatCount="indefinite"/>
               </circle>
             </g>
             <!-- Canada: Waabi (Toronto) -->
             <g id="g-ca" class="cmarker" data-card="card-ca">
-              <circle cx="249" cy="318" r="15" class="ring" stroke="#0071e3"/>
-              <circle cx="249" cy="318" r="15" fill="rgba(0, 113, 227, 0.1)"/>
-              <circle cx="249" cy="318" r="6.5" class="dot" fill="#0071e3"/>
+              <circle cx="249" cy="318" r="15" class="ring" stroke="#ffb300"/>
+              <circle cx="249" cy="318" r="15" fill="rgba(255, 179, 0, 0.1)"/>
+              <circle cx="249" cy="318" r="6.5" class="dot" fill="#ffb300"/>
               <circle cx="249" cy="318" r="3.2" fill="#fff" opacity=".9"/>
-              <circle cx="249" cy="318" r="15" fill="none" stroke="#0071e3" stroke-width=".8" opacity=".35">
+              <circle cx="249" cy="318" r="15" fill="none" stroke="#ffb300" stroke-width=".8" opacity=".35">
                 <animate attributeName="r" values="15;25;15" dur="2.8s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values=".35;0;.35" dur="2.8s" repeatCount="indefinite"/>
               </circle>
             </g>
             <!-- UK/Europe: Wayve (London) -->
             <g id="g-uk" class="cmarker" data-card="card-uk">
-              <circle cx="474" cy="289" r="20" class="ring" stroke="#ff9f0a"/>
-              <circle cx="474" cy="289" r="20" fill="rgba(255, 159, 10, 0.12)"/>
-              <circle cx="474" cy="289" r="8" class="dot" fill="#ff9f0a"/>
+              <circle cx="474" cy="289" r="20" class="ring" stroke="#138808"/>
+              <circle cx="474" cy="289" r="20" fill="rgba(19, 136, 8, 0.12)"/>
+              <circle cx="474" cy="289" r="8" class="dot" fill="#138808"/>
               <circle cx="474" cy="289" r="4" fill="#fff" opacity=".9"/>
-              <circle cx="474" cy="289" r="20" fill="none" stroke="#ff9f0a" stroke-width=".8" opacity=".4">
+              <circle cx="474" cy="289" r="20" fill="none" stroke="#138808" stroke-width=".8" opacity=".4">
                 <animate attributeName="r" values="20;34;20" dur="2.3s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values=".4;0;.4" dur="2.3s" repeatCount="indefinite"/>
               </circle>
             </g>
             <!-- China cluster (Beijing) -->
             <g id="g-cn" class="cmarker" data-card="card-cn">
-              <circle cx="804" cy="332" r="28" class="ring" stroke="#af52de"/>
-              <circle cx="804" cy="332" r="28" fill="rgba(175, 82, 222, 0.1)"/>
-              <circle cx="804" cy="332" r="11" class="dot" fill="#af52de"/>
+              <circle cx="804" cy="332" r="28" class="ring" stroke="#e91e63"/>
+              <circle cx="804" cy="332" r="28" fill="rgba(233, 30, 99, 0.1)"/>
+              <circle cx="804" cy="332" r="11" class="dot" fill="#e91e63"/>
               <circle cx="804" cy="332" r="5.5" fill="#fff" opacity=".9"/>
-              <circle cx="804" cy="332" r="28" fill="none" stroke="#af52de" stroke-width=".8" opacity=".4">
+              <circle cx="804" cy="332" r="28" fill="none" stroke="#e91e63" stroke-width=".8" opacity=".4">
                 <animate attributeName="r" values="28;46;28" dur="2.2s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values=".4;0;.4" dur="2.2s" repeatCount="indefinite"/>
               </circle>
@@ -179,11 +203,11 @@
 
             <!-- Legend -->
             <g transform="translate(24,505)">
-              <circle cx="8"   cy="8" r="6" fill="rgba(0, 113, 227, 0.3)"  stroke="#0071e3"  stroke-width="1"/>
+              <circle cx="8"   cy="8" r="6" fill="rgba(255, 153, 51, 0.3)"  stroke="#ff9933"  stroke-width="1"/>
               <text x="18"  y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">USA / Canada</text>
-              <circle cx="108" cy="8" r="6" fill="rgba(255, 159, 10, 0.3)"  stroke="#ff9f0a"  stroke-width="1"/>
+              <circle cx="108" cy="8" r="6" fill="rgba(19, 136, 8, 0.3)"  stroke="#138808"  stroke-width="1"/>
               <text x="118" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">UK / Europe</text>
-              <circle cx="208" cy="8" r="6" fill="rgba(175, 82, 222, 0.3)"   stroke="#af52de"  stroke-width="1"/>
+              <circle cx="208" cy="8" r="6" fill="rgba(233, 30, 99, 0.3)"   stroke="#e91e63"  stroke-width="1"/>
               <text x="218" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">China</text>
               <circle cx="268" cy="8" r="6" fill="rgba(255, 59, 48, 0.3)"   stroke="#ff3b30"  stroke-width="1"/>
               <text x="278" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">India — the gap</text>
@@ -235,8 +259,23 @@
       </div>
     </section>
 
+    <!-- Kolam Divider -->
+    <div class="kolam-divider">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 Q50,0 100,20 T200,20 T300,20 T400,20 T500,20 T600,20 T700,20 T800,20 T900,20 T1000,20 T1100,20 T1200,20" fill="none" stroke="rgba(255,183,77,0.3)" stroke-width="1"/>
+        <path d="M0,20 Q50,40 100,20 T200,20 T300,20 T400,20 T500,20 T600,20 T700,20 T800,20 T900,20 T1000,20 T1100,20 T1200,20" fill="none" stroke="rgba(233,30,99,0.2)" stroke-width="1"/>
+        <circle cx="100" cy="20" r="3" fill="rgba(255,215,0,0.3)"/>
+        <circle cx="300" cy="20" r="3" fill="rgba(233,30,99,0.3)"/>
+        <circle cx="500" cy="20" r="3" fill="rgba(255,215,0,0.3)"/>
+        <circle cx="700" cy="20" r="3" fill="rgba(233,30,99,0.3)"/>
+        <circle cx="900" cy="20" r="3" fill="rgba(255,215,0,0.3)"/>
+        <circle cx="1100" cy="20" r="3" fill="rgba(233,30,99,0.3)"/>
+      </svg>
+    </div>
+
     <!-- ════════════════ CH 02 · THESIS ════════════════ -->
     <section class="sec" id="thesis" data-chapter="02" data-label="Our Thesis">
+      <div class="hindi-watermark left">सिद्धांत</div>
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">02</span><span class="chl">Our Thesis</span></div>
         <h2 class="headline js-reveal">The Algorithms Are Commoditizing. <span class="grad-blue">Data And Validation Are Not.</span></h2>
@@ -298,6 +337,7 @@
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">04</span><span class="chl">Gap 01 · Data</span></div>
         <h2 class="headline js-reveal">Advanced AV Models Rely on<br>Accurate Data. India Has None.</h2>
+        <div class="hindi-watermark center">डेटा</div>
 
         <div class="dgl">
           <div class="js-reveal-left">
@@ -332,7 +372,7 @@
                   <div class="fid">Cattle, pedestrians, and vendors mid-road are routine occurrences, not edge cases.</div>
                 </div>
               </div>
-              <div class="fi">
+              <div class="fi" id="pothole-trigger">
                 <span class="fin">03</span>
                 <div>
                   <div class="fit">Road Surface Variability</div>
@@ -349,6 +389,10 @@
             </div>
           </div>
         </div>
+        
+        <!-- The Unpredictable Cow (Edge Case) -->
+        <img src="images/cow.png" id="cow-walker" alt="Indian Cow" />
+        
       </div>
     </section>
 
@@ -521,6 +565,10 @@
           <img src="images/navixar_img2.png" alt="Navixar's drone-based and dashcam data collection strategy for dense, unstructured Indian traffic" loading="lazy">
         </div>
       </div>
+      
+      <!-- Chai Walla Easter Egg -->
+      <img src="images/chai_walla.png" id="chai-walla" alt="Chai Walla" />
+      
     </section>
 
     <!-- ════════════════ CH 06 · SIMULATION ════════════════ -->
@@ -590,7 +638,14 @@
             </div>
             <button class="sim-btn action-btn" id="btn-add-traffic" onclick="addTraffic()">+ Add Traffic (Chaos)</button>
           </div>
-          <canvas id="splatCanvas"></canvas>
+          
+          <!-- Rangoli Loader -->
+          <div id="rangoli-loader-container">
+            <img src="images/rangoli.png" id="rangoli-loader" alt="Loading Simulation" />
+            <div id="rangoli-text">Processing Environmental Data...</div>
+          </div>
+          
+          <canvas id="splatCanvas" style="opacity: 0;"></canvas>
           <div class="sim-overlay-text" id="sim-status">Rendering structured lanes &amp; basic polygons...</div>
           <div class="sim-instruction">Move mouse to explore environment</div>
         </div>
@@ -727,6 +782,7 @@
 
     <!-- ════════════════ CH 10 · MARKET SIZE ════════════════ -->
     <section class="sec" id="marketsize" data-chapter="10" data-label="The Market">
+      <div class="hindi-watermark right">बाज़ार</div>
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">10</span><span class="chl">The Market</span></div>
         <h2 class="headline js-reveal">India Is Moving. Fast.</h2>
@@ -766,8 +822,19 @@
       </div>
     </section>
 
+    <!-- Kolam Divider -->
+    <div class="kolam-divider">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 Q50,0 100,20 T200,20 T300,20 T400,20 T500,20 T600,20 T700,20 T800,20 T900,20 T1000,20 T1100,20 T1200,20" fill="none" stroke="rgba(255,183,77,0.3)" stroke-width="1"/>
+        <path d="M0,20 Q50,40 100,20 T200,20 T300,20 T400,20 T500,20 T600,20 T700,20 T800,20 T900,20 T1000,20 T1100,20 T1200,20" fill="none" stroke="rgba(233,30,99,0.2)" stroke-width="1"/>
+      </svg>
+    </div>
+
     <!-- ════════════════ CH 11 · VISION / BUSINESS MODEL ════════════════ -->
     <section class="sec" id="vision" data-chapter="11" data-label="The Business">
+      <div class="hindi-watermark left">दृष्टि</div>
+      <!-- Floating Diyas -->
+      <div class="diya-container" id="vision-diyas"></div>
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">11</span><span class="chl">The Vision</span></div>
         <h2 class="vhl js-reveal">In a Country Where Chaos Is Structural,<br><span>Robotaxis Will Prove There Is Order in Chaos.</span></h2>
@@ -956,6 +1023,12 @@
             <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed">Get in touch</a>
           </div>
         </div>
+        <!-- Built for Bharat Footer -->
+        <div class="bharat-footer">
+          <div class="tricolor-bar"></div>
+          <div class="bharat-text">Built for Bharat <span class="bharat-flag">🇮🇳</span></div>
+          <div>जय हिन्द · Jai Hind</div>
+        </div>
       </footer>
     </section>
   </main>
@@ -967,5 +1040,6 @@
   <script src="js/mapdots.js"></script>
   <script src="js/hero3d.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/immersive.js"></script>
 </body>
 </html>

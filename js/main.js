@@ -39,12 +39,12 @@ if (!isTouchDevice && cur && cur2) {
     'button, a, .glass-card, .cc, .ec, .ms, .rc, .tw, .compcard, .cmarker, .tbtn, #indiaPath'
   ).forEach(el => {
     el.addEventListener('mouseenter', () => {
-      gsap.to(cur, { scale: 3, opacity: 0.4, duration: 0.25, backgroundColor: '#0071e3', mixBlendMode: 'normal' });
-      gsap.to(cur2, { scale: 1.5, borderColor: '#0071e3', duration: 0.25 });
+      gsap.to(cur, { scale: 3, opacity: 0.4, duration: 0.25, backgroundColor: '#ff9933', mixBlendMode: 'normal' });
+      gsap.to(cur2, { scale: 1.5, borderColor: '#FFD700', duration: 0.25 });
     });
     el.addEventListener('mouseleave', () => {
       gsap.to(cur, { scale: 1, opacity: 1, duration: 0.25, backgroundColor: '#ffffff', mixBlendMode: 'difference' });
-      gsap.to(cur2, { scale: 1, borderColor: 'rgba(255,255,255,0.2)', duration: 0.25 });
+      gsap.to(cur2, { scale: 1, borderColor: 'rgba(255,183,77,0.3)', duration: 0.25 });
     });
   });
 }
