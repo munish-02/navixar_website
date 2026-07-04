@@ -339,3 +339,151 @@
   #cow-cloud-wrap { height: 190px; }
   .speedcost { padding: 26px 22px; }
 }
+
+/* ════════════════════════════════════════════
+   SCALE PASS — bigger type, full-width layout
+════════════════════════════════════════════ */
+.inner { max-width: 1520px; }
+.sec { padding-left: clamp(24px, 4vw, 72px); padding-right: clamp(24px, 4vw, 72px); }
+.headline { font-size: clamp(40px, 5.4vw, 84px); }
+.sub { font-size: clamp(17px, 1.5vw, 24px); max-width: 1020px; line-height: 1.65; }
+.hstmt { font-size: clamp(16px, 1.6vw, 23px); max-width: 860px; }
+.chl, .minihead { font-size: 13px; }
+.chn { font-size: 15px; }
+
+.et { font-size: 26px; }
+.ed { font-size: 16px; line-height: 1.7; }
+.fit, .ext, .wt, .rt { font-size: 18px; }
+.fid, .exd, .ccdesc, .rd { font-size: 15px; line-height: 1.65; }
+.cb, .wd, .twd, .mcb, .tl-desc { font-size: 16px; line-height: 1.7; }
+.twt { font-size: 21px; }
+.tl-title { font-size: 22px; }
+.msl { font-size: 16px; }
+.mct { font-size: 13px; }
+.insight-box { font-size: 16px; line-height: 1.7; }
+.tw.glass-card, .ec.glass-card { padding-top: 34px; padding-bottom: 34px; }
+.src { font-size: 12px; }
+.etag, .twtag, .tl-tag { font-size: 11px; }
+.eli10-card p, .eli10 p { font-size: 16px !important; line-height: 1.75 !important; }
+
+/* interactive components scale */
+.qo-title { font-size: 25px; }
+.qo-desc { font-size: 15.5px; }
+.qo-verdict { font-size: 14.5px; line-height: 1.6; }
+.quiz-opt { padding: 32px 32px 36px; }
+.quiz-status { font-size: 17px; }
+.pokemon-box { max-width: 1120px; padding: 34px 40px; }
+.pokemon-box p { font-size: 17px; line-height: 1.75; }
+.pokemon-box .pk-tag { font-size: 13px; }
+.sc-label, .sc-val { font-size: 15.5px; }
+.sc-note { font-size: 15.5px; }
+.tg-chip { font-size: 13.5px; padding: 9px 17px; }
+.tg-label { font-size: 12.5px; }
+.tg-verdict { font-size: 15px; }
+.rm-scorebar { font-size: 15px; padding: 18px 26px; }
+.rm-scorebar button { font-size: 14px; padding: 9px 20px; }
+.rms-text { font-size: 17px; }
+.bi-label { font-size: 17px; }
+.bi-amt { font-size: 21px; }
+.bi-desc { font-size: 15px; }
+.bt-opt { font-size: 14px; padding: 13px 16px; }
+.bs-hit { font-size: 14px; }
+.bs-rw-val { font-size: 13px; }
+#cow-label .cl-tag { font-size: 12px; }
+#cow-label .cl-sub { font-size: 12.5px; max-width: 340px; }
+
+/* ════════════════════════════════════════════
+   ATTRACTION PASS — interactive things beg to be touched
+════════════════════════════════════════════ */
+
+/* "Try it" badge, injected by JS */
+.try-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(41,151,255,.55);
+  background: linear-gradient(120deg, rgba(0,113,227,.16), rgba(41,151,255,.06));
+  color: #8ec8ff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  margin: 30px 0 6px;
+  cursor: default;
+  animation: try-pulse 2.2s ease-in-out infinite;
+  position: relative; z-index: 3;
+}
+.try-badge .tb-hand { font-size: 17px; animation: hand-poke 1.6s ease-in-out infinite; display: inline-block; }
+.try-badge .tb-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #2997ff; box-shadow: 0 0 10px #2997ff;
+  animation: tb-blink 1.1s ease-in-out infinite;
+}
+@keyframes try-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(41,151,255,.45); }
+  50%      { box-shadow: 0 0 0 14px rgba(41,151,255,0); }
+}
+@keyframes tb-blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+@keyframes hand-poke { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(4px) rotate(-12deg); } }
+.try-badge.done { animation: none; opacity: .4; }
+.try-badge.done .tb-dot, .try-badge.done .tb-hand { animation: none; }
+
+/* Quiz cards breathe until answered */
+#whynot:not(.solved) .quiz-opt:not(.locked-in):not(.wrong) {
+  animation: card-breathe 3.2s ease-in-out infinite;
+}
+#whynot .quiz-opt:nth-child(2) { animation-delay: .5s; }
+#whynot .quiz-opt:nth-child(3) { animation-delay: 1s; }
+#whynot .quiz-opt:nth-child(4) { animation-delay: 1.5s; }
+@keyframes card-breathe {
+  0%, 100% { border-color: rgba(255,255,255,.1); box-shadow: 0 0 0 rgba(41,151,255,0); }
+  50%      { border-color: rgba(41,151,255,.55); box-shadow: 0 8px 40px rgba(0,113,227,.18), inset 0 0 24px rgba(41,151,255,.05); }
+}
+.quiz-opt:hover .qo-letter { transform: scale(1.15) rotate(-6deg); background: rgba(41,151,255,.15); }
+.qo-letter { transition: transform .25s ease, background .25s ease; }
+
+/* Timeline: the active unguessed card's chips shimmer */
+.tl-item.lit:not(.guessed) .tl-guess {
+  border-top-color: rgba(41,151,255,.35);
+  animation: guess-nudge 2.4s ease-in-out infinite;
+  border-radius: 0 0 10px 10px;
+}
+@keyframes guess-nudge {
+  0%, 100% { background: transparent; }
+  50%      { background: rgba(0,113,227,.06); }
+}
+.tl-item.lit:not(.guessed) .tg-chip {
+  border-color: rgba(41,151,255,.45);
+  color: #9fd0ff;
+}
+.tl-item.lit:not(.guessed) .tg-label { color: #2997ff; }
+
+/* Budget toggles glow until touched */
+.bi-toggle.untouched .bt-opt:not(.on) {
+  animation: opt-glow 2.6s ease-in-out infinite;
+}
+@keyframes opt-glow {
+  0%, 100% { border-color: rgba(255,255,255,.14); }
+  50%      { border-color: rgba(41,151,255,.6); box-shadow: 0 0 18px rgba(0,113,227,.22); color: #cfe6ff; }
+}
+.bt-opt { position: relative; }
+.bi-toggle.untouched::after {
+  content: '⇄ flip me';
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #2997ff;
+  align-self: center;
+  animation: tb-blink 1.4s ease-in-out infinite;
+}
+
+/* Sensor + splat buttons get louder */
+.toggle-bar .tbtn:not(.on), .sim-btn:not(.active):not(.action-btn) {
+  animation: opt-glow 2.6s ease-in-out infinite;
+}
+.interacted .tbtn, .interacted .sim-btn { animation: none !important; }
+
+/* Big cursor affordance on all interactive controls */
+.quiz-opt, .tg-chip, .bt-opt, .tbtn, .sim-btn, .rm-scorebar button { cursor: pointer; }
+
+@media (max-width: 640px) {
+  .try-badge { font-size: 11.5px; padding: 9px 16px; letter-spacing: 1.8px; }
+}

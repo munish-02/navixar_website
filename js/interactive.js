@@ -207,7 +207,7 @@
     window.addEventListener('resize', size);
 
     const COW_H = 170;           // rendered cow height px
-    const SPEED = 55;            // px/sec, ambling pace
+    const SPEED = 130;           // px/sec — a cow with somewhere to be
     let visible = false;
     new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(wrap);
 
@@ -218,8 +218,9 @@
       if (t0 === null) t0 = ts;
       const t = (ts - t0) / 1000;
       const span = W + COW_H * 2.4;
-      // walks right → left (the cow faces left), loops forever
-      const x = W + COW_H * 1.2 - ((t * SPEED) % span);
+      // walks right → left (the cow faces left), loops forever.
+      // Starts 70% of the way across the screen so it's on stage the moment you arrive.
+      const x = W + COW_H * 1.2 - ((W * 0.55 + t * SPEED) % span);
       drawCow(x, ts);
     }
 
@@ -433,6 +434,61 @@
       }, { threshold: 0.2 });
       io.observe(wrap);
     }
+  })();
+
+  /* ════════════════════════════════════
+     6. ATTRACTION LAYER — badges + nudges on everything playable
+  ════════════════════════════════════ */
+  (function () {
+    function addBadge(anchorEl, label, position) {
+      if (!anchorEl) return null;
+      const b = document.createElement('div');
+      b.className = 'try-badge';
+      b.innerHTML = `<span class="tb-dot"></span><span>${label}</span><span class="tb-hand">👆</span>`;
+      anchorEl.insertAdjacentElement(position || 'beforebegin', b);
+      return b;
+    }
+    const done = (badge) => { if (badge) badge.classList.add('done'); };
+
+    // Quiz
+    const quizBadge = addBadge(document.getElementById('quizGrid'), 'Interactive · Pick your two answers');
+    const qg = document.getElementById('quizGrid');
+    if (qg) qg.addEventListener('click', () => done(quizBadge), { once: true });
+
+    // Sensor diagram (drone toggle)
+    const sensorBar = document.querySelector('.sensor-diagram .toggle-bar');
+    const sensorBadge = addBadge(sensorBar, 'Interactive · Toggle the drone');
+    if (sensorBar) sensorBar.addEventListener('click', () => {
+      done(sensorBadge);
+      const sd = document.querySelector('.sensor-diagram');
+      if (sd) sd.classList.add('interacted');
+    }, { once: true });
+
+    // Splat playground
+    const simControls = document.querySelector('#interactive-sim .sim-controls');
+    const simBadge = addBadge(document.getElementById('interactive-sim'), 'Interactive · Switch renderers, add chaos');
+    if (simControls) simControls.addEventListener('click', () => {
+      done(simBadge);
+      const is = document.getElementById('interactive-sim');
+      if (is) is.classList.add('interacted');
+    }, { once: true });
+
+    // Roadmap game
+    const rmBadge = addBadge(document.getElementById('rmScorebar'), 'Interactive · Guess every date');
+    const tlEl = document.getElementById('timeline');
+    if (tlEl) tlEl.addEventListener('click', (e) => {
+      if (e.target.classList.contains('tg-chip')) done(rmBadge);
+    });
+
+    // Budget toggles
+    const budgetBadge = addBadge(document.querySelector('.budget-wrap'), 'Interactive · Flip the toggles, watch the money move');
+    document.querySelectorAll('.bi-toggle').forEach(tg => {
+      tg.classList.add('untouched');
+      tg.addEventListener('click', () => {
+        tg.classList.remove('untouched');
+        done(budgetBadge);
+      }, { once: true });
+    });
   })();
 
 })();
