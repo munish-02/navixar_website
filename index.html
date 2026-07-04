@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navixar — India's Answer to the Robotaxi Revolution</title>
+  <meta name="description" content="Every robotaxi company in the world skipped India. Navixar is building India's autonomous vehicle stack — drone and dashcam-sourced data, Gaussian-splat simulation, purpose-built for unstructured Indian roads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cur"></div>
+  <div id="cur2"></div>
+
+  <!-- Topbar -->
+  <header id="tb">
+    <span class="logo">Navixar</span>
+    <span id="sname">Pre-Seed · Q4 2026</span>
+  </header>
+  <div id="pb"></div>
+
+  <!-- Chapter dot rail -->
+  <nav id="rail" aria-label="Sections">
+    <div class="rail-track">
+      <div class="rail-progress" id="railProgress"></div>
+    </div>
+    <div class="rail-dots">
+      <a href="#hero"       data-sec="hero"><span>Navixar</span></a>
+      <a href="#market"     data-sec="market"><span>The Opportunity</span></a>
+      <a href="#thesis"     data-sec="thesis"><span>Thesis</span></a>
+      <a href="#problem"    data-sec="problem"><span>The Problem</span></a>
+      <a href="#datagap"    data-sec="datagap"><span>The Data Gap</span></a>
+      <a href="#traffic"    data-sec="traffic"><span>Data Collection</span></a>
+      <a href="#simulation" data-sec="simulation"><span>Simulation</span></a>
+      <a href="#simenv"     data-sec="simenv"><span>Built for India</span></a>
+      <a href="#team"       data-sec="team"><span>Team</span></a>
+      <a href="#momentum"   data-sec="momentum"><span>Why Now</span></a>
+      <a href="#marketsize" data-sec="marketsize"><span>Market</span></a>
+      <a href="#vision"     data-sec="vision"><span>Business Model</span></a>
+      <a href="#tailwinds"  data-sec="tailwinds"><span>Tailwinds</span></a>
+      <a href="#roadmap"    data-sec="roadmap"><span>Roadmap</span></a>
+      <a href="#ask"        data-sec="ask"><span>The Ask</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ════════════════ HERO ════════════════ -->
+    <section class="sec" id="hero">
+      <div id="hero3d" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+
+      <div class="inner hero-inner">
+        <div class="hero-kicker js-reveal">
+          <span class="hk-dot"></span> Rebuilding this scene from raw points — the way Navixar rebuilds Indian streets
+        </div>
+        <div class="hlogo js-reveal">NAVIXAR</div>
+        <h1 class="hsub js-reveal">
+          <strong>Every robotaxi company in the world skipped India.</strong><br>
+          Navixar is India's answer to the robotaxi revolution.
+        </h1>
+        <div class="hpills js-reveal">
+          <span class="pill a">India-Native</span>
+          <span class="pill">VLA-Powered</span>
+          <span class="pill">Simulation-First</span>
+        </div>
+        <p class="hstmt js-reveal">
+          The world's robotaxi players have raised <strong>$21B+</strong> and now operate on every continent but one.
+          <strong>India — the world's 3rd-largest auto market — still has zero.</strong> Navixar exists to be first.
+        </p>
+        <div class="rrow js-reveal">
+          <div class="ri"><span class="rl">Round</span><span class="rv">Pre-Seed</span></div>
+          <div class="vsep"></div>
+          <div class="ri"><span class="rl">Instrument</span><span class="rv">SAFE</span></div>
+          <div class="vsep"></div>
+          <div class="ri"><span class="rl">Current Raise</span><span class="rv">₹XX Cr</span></div>
+          <div class="vsep"></div>
+          <div class="ri"><span class="rl">Target Close</span><span class="rv">Q4 2026</span></div>
+        </div>
+        <div class="hero-ctas js-reveal">
+          <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed">Request the data room</a>
+          <a class="btn ghost" href="#market">Read the thesis ↓</a>
+        </div>
+        <div class="hconf js-reveal">
+          Munish Raj · Founder &amp; CEO · munish02@gmail.com · Strictly Confidential
+        </div>
+      </div>
+
+      <div class="scroll-hint" id="shint">
+        <span>Scroll to explore</span>
+        <div class="sarr"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 01 · MARKET MAP ════════════════ -->
+    <section class="sec" id="market" data-chapter="01" data-label="The Opportunity">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">01</span><span class="chl">The Opportunity</span></div>
+        <h2 class="headline js-reveal"><span class="grad-blue count" data-count="21.4" data-prefix="$" data-suffix="B" data-decimals="1">$21.4B</span> Raised. Every Continent Covered. Not One In India.</h2>
+        <div class="sub js-reveal">
+          The world is racing to build robotaxis. Waymo, Zoox, Waabi, Wayve, Baidu Apollo, WeRide, Pony.ai, Momenta — every major geography already has a credible autonomous player.
+          <strong>India — the world's 3rd largest auto market — has none.</strong>
+        </div>
+
+        <div class="map-showcase js-reveal">
+          <svg id="worldmap" viewBox="0 0 1010 545" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="mg" cx="50%" cy="50%" r="65%">
+                <stop offset="0%" stop-color="#0b0b0f" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#020204" stop-opacity="1"/>
+              </radialGradient>
+              <filter id="india-glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="1010" height="545" fill="url(#mg)" rx="16"/>
+
+            <!-- Dot-matrix world (built by JS from js/mapdots.js — real geography, Antarctica cropped) -->
+            <g id="dotmap"></g>
+            <g id="indiaDots" filter="url(#india-glow)"></g>
+
+            <!-- USA: Waymo + Zoox (San Francisco) -->
+            <g id="g-usa" class="cmarker" data-card="card-usa">
+              <circle cx="127" cy="340" r="26" class="ring" stroke="#0071e3"/>
+              <circle cx="127" cy="340" r="26" fill="rgba(0, 113, 227, 0.12)"/>
+              <circle cx="127" cy="340" r="9" class="dot" fill="#0071e3"/>
+              <circle cx="127" cy="340" r="4.5" fill="#fff" opacity=".9"/>
+              <circle cx="127" cy="340" r="26" fill="none" stroke="#0071e3" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="26;42;26" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <!-- Canada: Waabi (Toronto) -->
+            <g id="g-ca" class="cmarker" data-card="card-ca">
+              <circle cx="249" cy="318" r="15" class="ring" stroke="#0071e3"/>
+              <circle cx="249" cy="318" r="15" fill="rgba(0, 113, 227, 0.1)"/>
+              <circle cx="249" cy="318" r="6.5" class="dot" fill="#0071e3"/>
+              <circle cx="249" cy="318" r="3.2" fill="#fff" opacity=".9"/>
+              <circle cx="249" cy="318" r="15" fill="none" stroke="#0071e3" stroke-width=".8" opacity=".35">
+                <animate attributeName="r" values="15;25;15" dur="2.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".35;0;.35" dur="2.8s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <!-- UK/Europe: Wayve (London) -->
+            <g id="g-uk" class="cmarker" data-card="card-uk">
+              <circle cx="474" cy="289" r="20" class="ring" stroke="#ff9f0a"/>
+              <circle cx="474" cy="289" r="20" fill="rgba(255, 159, 10, 0.12)"/>
+              <circle cx="474" cy="289" r="8" class="dot" fill="#ff9f0a"/>
+              <circle cx="474" cy="289" r="4" fill="#fff" opacity=".9"/>
+              <circle cx="474" cy="289" r="20" fill="none" stroke="#ff9f0a" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="20;34;20" dur="2.3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.3s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <!-- China cluster (Beijing) -->
+            <g id="g-cn" class="cmarker" data-card="card-cn">
+              <circle cx="804" cy="332" r="28" class="ring" stroke="#af52de"/>
+              <circle cx="804" cy="332" r="28" fill="rgba(175, 82, 222, 0.1)"/>
+              <circle cx="804" cy="332" r="11" class="dot" fill="#af52de"/>
+              <circle cx="804" cy="332" r="5.5" fill="#fff" opacity=".9"/>
+              <circle cx="804" cy="332" r="28" fill="none" stroke="#af52de" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="28;46;28" dur="2.2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.2s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <!-- India: GAP marker -->
+            <g id="g-in" class="cmarker" data-card="card-in">
+              <circle cx="698" cy="396" r="17" fill="rgba(255,59,48,0.12)" stroke="rgba(255,59,48,0.5)" stroke-width="1.5"/>
+              <circle cx="698" cy="396" r="17" fill="none" stroke="#ff3b30" stroke-width=".8" opacity=".5">
+                <animate attributeName="r" values="17;29;17" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".5;0;.5" dur="1.8s" repeatCount="indefinite"/>
+              </circle>
+              <line x1="690.5" y1="388.5" x2="705.5" y2="403.5" stroke="#ff3b30" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="705.5" y1="388.5" x2="690.5" y2="403.5" stroke="#ff3b30" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- Legend -->
+            <g transform="translate(24,505)">
+              <circle cx="8"   cy="8" r="6" fill="rgba(0, 113, 227, 0.3)"  stroke="#0071e3"  stroke-width="1"/>
+              <text x="18"  y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">USA / Canada</text>
+              <circle cx="108" cy="8" r="6" fill="rgba(255, 159, 10, 0.3)"  stroke="#ff9f0a"  stroke-width="1"/>
+              <text x="118" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">UK / Europe</text>
+              <circle cx="208" cy="8" r="6" fill="rgba(175, 82, 222, 0.3)"   stroke="#af52de"  stroke-width="1"/>
+              <text x="218" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">China</text>
+              <circle cx="268" cy="8" r="6" fill="rgba(255, 59, 48, 0.3)"   stroke="#ff3b30"  stroke-width="1"/>
+              <text x="278" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">India — the gap</text>
+            </g>
+          </svg>
+
+          <!-- Floating hover cards -->
+          <div class="ccard" id="card-usa" style="left:5%;top:30%">
+            <div class="ccard-flag">USA / Canada</div>
+            <div class="ccard-co">Waymo (Alphabet)</div>
+            <div class="ccard-raise">$160B+ Valuation</div>
+            <div class="ccard-desc">3,000+ vehicles, ~500K paid rides/week across 10 US cities. Zero India presence.</div>
+            <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:10px;padding-top:10px">
+              <div class="ccard-co" style="font-size:12px">Zoox (Amazon)</div>
+              <div class="ccard-raise" style="font-size:12px">$1.4B raised · production-intent robotaxi</div>
+            </div>
+          </div>
+          <div class="ccard" id="card-ca" style="left:12%;top:10%">
+            <div class="ccard-flag">Canada</div>
+            <div class="ccard-co">Waabi</div>
+            <div class="ccard-raise">$750M · Uber-backed</div>
+            <div class="ccard-desc">Canadian-founded, US-focused. North American highway AV. No Asia operations.</div>
+          </div>
+          <div class="ccard" id="card-uk" style="left:36%;top:8%">
+            <div class="ccard-flag">UK / Europe</div>
+            <div class="ccard-co">Wayve</div>
+            <div class="ccard-raise">$1.3B · NVIDIA &amp; Microsoft</div>
+            <div class="ccard-desc">Embodied AI approach. UK-focused testing. Emerging market expansion not on roadmap.</div>
+          </div>
+          <div class="ccard" id="card-cn" style="right:8%;top:10%">
+            <div class="ccard-flag">China</div>
+            <div class="ccard-co">Baidu Apollo</div>
+            <div class="ccard-raise">$1.8B · 17M rides</div>
+            <div class="ccard-desc">China-specific. Structured road assumptions. No India presence.</div>
+            <div style="border-top:1px solid rgba(255,255,255,.08);margin:8px 0;"></div>
+            <div class="ccard-co" style="font-size:12px">WeRide &nbsp;·&nbsp; $1.44B Nasdaq</div>
+            <div class="ccard-co" style="font-size:12px;margin-top:4px">Momenta &nbsp;·&nbsp; $1.5B GM/Benz</div>
+            <div class="ccard-co" style="font-size:12px;margin-top:4px">Pony.ai &nbsp;·&nbsp; $1.22B Nasdaq</div>
+          </div>
+          <div class="ccard india-card" id="card-in" style="left:48%;top:42%">
+            <div class="ccard-flag">India</div>
+            <div class="ccard-co">No Credible AV Player</div>
+            <div class="ccard-raise">₹0 Deployed</div>
+            <div class="ccard-desc">3M+ rides/day. Zero autonomous deployments. This is the gap Navixar was built to close.</div>
+          </div>
+        </div>
+
+        <div class="src js-reveal">Sources: Crunchbase Q1 2026 AV Sector Report · TechCrunch · Waymo/NHTSA filings Dec 2025 · Zoox 2026 · Waabi Jan 2026 · Wayve Series D 2026</div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 02 · THESIS ════════════════ -->
+    <section class="sec" id="thesis" data-chapter="02" data-label="Our Thesis">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">02</span><span class="chl">Our Thesis</span></div>
+        <h2 class="headline js-reveal">The Algorithms Are Commoditizing. <span class="grad-blue">Data And Validation Are Not.</span></h2>
+        <div class="sub js-reveal">Open-source stacks, foundation driving policies, and VLA architectures are converging fast — the tech is becoming table stakes. What nobody has is Indian data, an Indian-validated simulator, and a real path to deploy in Indian traffic. That's the actual bottleneck, and it's the whole company.</div>
+      </div>
+      <div class="inner egrid">
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 01 · Data</div>
+          <div class="et">Collect Data No One Else Has</div>
+          <p class="ed">Drone capture, gamified crowdsourcing, and bulk dashcam acquisition — three ways to get Indian driving data fast, without waiting years on a sensor fleet.</p>
+          <span class="etag">Data Moat</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 02 · Simulation</div>
+          <div class="et">Validate At A Scale Roads Can't Match</div>
+          <p class="ed">Gaussian-splat reconstructions of real Indian streets let us stress-test millions of scenarios before a single vehicle drives one of them.</p>
+          <span class="etag">Simulation Moat</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 03 · Deployment</div>
+          <div class="et">Ride The Compute Curve Down</div>
+          <p class="ed">GPUs and edge compute get cheaper and more available every quarter. Waiting doesn't cost us — deploying early does.</p>
+          <span class="etag">Timing Tailwind</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 03 · PROBLEM ════════════════ -->
+    <section class="sec" id="problem" data-chapter="03" data-label="The Problem">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">03</span><span class="chl">The Problem</span></div>
+        <h2 class="headline js-reveal">The World Solved Autonomy For Everywhere Except India.</h2>
+        <div class="sub js-reveal">India's roads and traffic are unlike anywhere else — and no existing autonomous stack, dataset, or simulator was engineered to navigate them.</div>
+      </div>
+      <div class="inner tcol">
+        <div class="cc d glass-card js-reveal">
+          <div class="clb">The Data Gap</div>
+          <div class="cn"><span class="count" data-count="99" data-suffix="%">99%</span></div>
+          <p class="cb">of AV training data is Western. A model trained on San Francisco cannot handle Saidapet — 40+ vehicle types, cattle, lane-less chaos entirely absent from global datasets.</p>
+          <div class="src">Source: Crunchbase 2025</div>
+        </div>
+        <div class="cc s glass-card js-reveal">
+          <div class="clb">Simulation Gap</div>
+          <div class="cn b">Broken</div>
+          <p class="cb">Existing simulators model structured lanes and western traffic with hand-built meshes. India's potholes, unmarked roads, and unstructured intersections do not exist in any current simulation stack.</p>
+          <div class="src">Source: MoRTHS Gazette 2024</div>
+        </div>
+        <div class="cc m glass-card js-reveal">
+          <div class="clb">The Market Gap</div>
+          <div class="cn p">₹0</div>
+          <p class="cb">India has 3M+ Ola/Uber rides per day — the world's ideal robotaxi culture — and zero commercial autonomous vehicle deployments. The whitespace is total.</p>
+          <div class="src">Source: Ola/Uber India 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 04 · DATA GAP ════════════════ -->
+    <section class="sec" id="datagap" data-chapter="04" data-label="Gap 01 · Data">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">04</span><span class="chl">Gap 01 · Data</span></div>
+        <h2 class="headline js-reveal">Advanced AV Models Rely on<br>Accurate Data. India Has None.</h2>
+
+        <div class="dgl">
+          <div class="js-reveal-left">
+            <div class="bigpct"><span class="count" data-count="99" data-suffix="%">99%</span></div>
+            <div class="pdesc">of all AV training data originates in the US or Europe. Indian roads are invisible to every major autonomous driving model on earth.</div>
+            <div class="bars" id="bars">
+              <div class="brow">
+                <div class="bm"><span>Western Training Data</span><span style="color:var(--text-white)">99%</span></div>
+                <div class="btrack"><div class="bfill bf1" id="b1"></div></div>
+              </div>
+              <div class="brow">
+                <div class="bm"><span>India-Specific Data</span><span style="color:var(--text-white)">&lt;1%</span></div>
+                <div class="btrack"><div class="bfill bf2" id="b2"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="js-reveal-right">
+            <div class="minihead">What Makes India Different</div>
+            <div class="fl">
+              <div class="fi">
+                <span class="fin">01</span>
+                <div>
+                  <div class="fit">40+ Vehicle Classes</div>
+                  <div class="fid">Two-wheelers, auto-rickshaws, cattle carts, and BEST buses all sharing a 4-metre lane.</div>
+                </div>
+              </div>
+              <div class="fi">
+                <span class="fin">02</span>
+                <div>
+                  <div class="fit">Livestock and Unpredictable Actors</div>
+                  <div class="fid">Cattle, pedestrians, and vendors mid-road are routine occurrences, not edge cases.</div>
+                </div>
+              </div>
+              <div class="fi">
+                <span class="fin">03</span>
+                <div>
+                  <div class="fit">Road Surface Variability</div>
+                  <div class="fid">Potholes, broken asphalt, flooded lanes, and unmarked speed bumps that no western dataset captures.</div>
+                </div>
+              </div>
+              <div class="fi">
+                <span class="fin">04</span>
+                <div>
+                  <div class="fit">Zero Lane Discipline</div>
+                  <div class="fid">Five vehicles wide on a two-lane road is standard. No model trained on SF can reason about this.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 05 · DATA COLLECTION ════════════════ -->
+    <section class="sec" id="traffic" data-chapter="05" data-label="Pillar 01 · Data Collection">
+      <div class="tc-bg" id="tcbg"></div>
+      <div class="tc-grad" id="tcgrad"></div>
+
+      <div class="inner tc-top">
+        <div class="chapter js-reveal"><span class="chn">05</span><span class="chl">Pillar 01 · Data Collection</span></div>
+        <h2 class="headline js-reveal">Three Ways To Get Data No One Else Has</h2>
+        <div class="sub js-reveal">
+          Waiting for a sensor fleet to rack up miles is slow and expensive. Navixar collects Indian driving data three faster, cheaper ways — starting with the view a bumper-mounted camera can never get.
+        </div>
+      </div>
+
+      <div class="inner sensor-wrap">
+        <div class="sensor-diagram js-reveal-left">
+          <div class="toggle-bar">
+            <button class="tbtn on" id="btn-std" onclick="setSensor('std')">Ground-Only Capture</button>
+            <button class="tbtn"    id="btn-nav" onclick="setSensor('nav')">+ Drone Capture</button>
+          </div>
+
+          <svg class="diag-svg" viewBox="0 0 440 420" xmlns="http://www.w3.org/2000/svg" id="sensorSvg">
+            <defs>
+              <radialGradient id="roadg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#111116"/><stop offset="100%" stop-color="#050508"/>
+              </radialGradient>
+              <filter id="vglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="440" height="420" fill="url(#roadg)" rx="16"/>
+            <line x1="220" y1="0" x2="220" y2="420" stroke="rgba(255,255,255,.03)" stroke-width="1" stroke-dasharray="16,24"/>
+            <path id="zone-front" d="M 220,205 L 91,130 A 148,148,0,0,1,349,130 Z" fill="rgba(48,209,88,.12)" stroke="rgba(48,209,88,.4)" stroke-width="1"/>
+            <path id="zone-rear"  d="M 220,255 L 178,320 A 90,90,0,0,0,262,320 Z"  fill="rgba(48,209,88,.08)"  stroke="rgba(48,209,88,.3)" stroke-width="1"/>
+            <path id="zone-left"  d="M 220,230 L 150,140 A 118,118,0,0,0,150,320 Z" fill="rgba(255,59,48,.12)"  stroke="rgba(255,59,48,.4)"  stroke-width="1.5"/>
+            <path id="zone-right" d="M 220,230 L 290,140 A 118,118,0,0,1,290,320 Z" fill="rgba(255,59,48,.12)"  stroke="rgba(255,59,48,.4)"  stroke-width="1.5"/>
+
+            <!-- Drone (appears in drone mode) -->
+            <g id="drone" opacity="0" transform="translate(220,52)">
+              <rect x="-14" y="-3" width="28" height="6" rx="3" fill="#0a1626" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="-14" y1="0" x2="-26" y2="-8" stroke="#38bdf8" stroke-width="1.4"/>
+              <line x1="14"  y1="0" x2="26" y2="-8"  stroke="#38bdf8" stroke-width="1.4"/>
+              <ellipse cx="-26" cy="-9" rx="8" ry="2.4" fill="none" stroke="#38bdf8" stroke-width="1.2">
+                <animate attributeName="rx" values="8;5;8" dur="0.35s" repeatCount="indefinite"/>
+              </ellipse>
+              <ellipse cx="26" cy="-9" rx="8" ry="2.4" fill="none" stroke="#38bdf8" stroke-width="1.2">
+                <animate attributeName="rx" values="5;8;5" dur="0.35s" repeatCount="indefinite"/>
+              </ellipse>
+              <circle cx="0" cy="5" r="2.4" fill="#38bdf8"/>
+              <text y="-16" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#38bdf8" font-weight="800" letter-spacing="1">AERIAL CAPTURE</text>
+            </g>
+            <path id="drone-cone" d="M 220,60 L 120,330 A 160,60 0 0 0 320,330 Z" fill="rgba(56,189,248,.07)" stroke="rgba(56,189,248,.28)" stroke-width="1" opacity="0"/>
+
+            <!-- Auto-rickshaw FRONT -->
+            <g id="veh-auto" filter="url(#vglow)" transform="translate(220,108)">
+              <rect x="-14" y="-18" width="28" height="26" rx="5" fill="#f59e0b" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="-12" y="-16" width="24" height="10" rx="3" fill="#b45309" opacity=".7"/>
+              <ellipse cx="-10" cy="9" rx="5.5" ry="5.5" fill="#222" stroke="#555" stroke-width="1"/>
+              <ellipse cx="10"  cy="9" rx="5.5" ry="5.5" fill="#222" stroke="#555" stroke-width="1"/>
+              <circle cx="0" cy="0" r="18" fill="none" stroke="rgba(48,209,88,.7)" stroke-width="1.8" stroke-dasharray="4,3" id="det-auto"/>
+              <text y="-26" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#30d158" font-weight="700" id="lbl-auto">DETECTED</text>
+            </g>
+
+            <!-- Car REAR -->
+            <g id="veh-rear" filter="url(#vglow)" transform="translate(220,342)">
+              <rect x="-16" y="-22" width="32" height="44" rx="7" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2"/>
+              <rect x="-13" y="-20" width="26" height="13" rx="3" fill="#1d4ed8" opacity=".5"/>
+              <rect x="-13" y="9"   width="26" height="10" rx="2" fill="#1d4ed8" opacity=".4"/>
+              <ellipse cx="-14" cy="-14" rx="4" ry="7" fill="#222" stroke="#555" stroke-width=".8"/>
+              <ellipse cx="14"  cy="-14" rx="4" ry="7" fill="#222" stroke="#555" stroke-width=".8"/>
+              <ellipse cx="-14" cy="16"  rx="4" ry="7" fill="#222" stroke="#555" stroke-width=".8"/>
+              <ellipse cx="14"  cy="16"  rx="4" ry="7" fill="#222" stroke="#555" stroke-width=".8"/>
+              <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(48,209,88,.7)" stroke-width="1.8" stroke-dasharray="4,3" id="det-rear"/>
+              <text y="-30" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#30d158" font-weight="700" id="lbl-rear">DETECTED</text>
+            </g>
+
+            <!-- Motorcycle LEFT (blind spot) -->
+            <g id="veh-ml" filter="url(#vglow)" transform="translate(148,215)">
+              <ellipse cx="0" cy="0"   rx="7" ry="16" fill="#4b5563" stroke="#9ca3af" stroke-width="1"/>
+              <circle  cx="0" cy="-8"  r="6.5" fill="#374151" stroke="#9ca3af" stroke-width="1"/>
+              <ellipse cx="0" cy="-20" rx="4.5" ry="5.5" fill="#1f2937" stroke="#4b5563" stroke-width=".8"/>
+              <ellipse cx="0" cy="20"  rx="4.5" ry="5.5" fill="#1f2937" stroke="#4b5563" stroke-width=".8"/>
+              <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(255,59,48,.8)" stroke-width="2" stroke-dasharray="4,3" id="det-ml"/>
+              <text x="0" y="-30" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#ff453a" font-weight="700" id="lbl-ml">BLIND SPOT</text>
+            </g>
+
+            <!-- Motorcycle RIGHT (blind spot) -->
+            <g id="veh-mr" filter="url(#vglow)" transform="translate(292,215)">
+              <ellipse cx="0" cy="0"   rx="7" ry="16" fill="#4b5563" stroke="#9ca3af" stroke-width="1"/>
+              <circle  cx="0" cy="-8"  r="6.5" fill="#374151" stroke="#9ca3af" stroke-width="1"/>
+              <ellipse cx="0" cy="-20" rx="4.5" ry="5.5" fill="#1f2937" stroke="#4b5563" stroke-width=".8"/>
+              <ellipse cx="0" cy="20"  rx="4.5" ry="5.5" fill="#1f2937" stroke="#4b5563" stroke-width=".8"/>
+              <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(255,59,48,.8)" stroke-width="2" stroke-dasharray="4,3" id="det-mr"/>
+              <text x="0" y="-30" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#ff453a" font-weight="700" id="lbl-mr">BLIND SPOT</text>
+            </g>
+
+            <!-- Pedestrian front-right -->
+            <g id="veh-ped" filter="url(#vglow)" transform="translate(310,145)">
+              <circle cx="0" cy="-12" r="7"  fill="#4b5563" stroke="#9ca3af" stroke-width="1"/>
+              <rect   x="-5" y="-6"  width="10" height="16" rx="3" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+              <circle cx="0" cy="0" r="16" fill="none" stroke="rgba(48,209,88,.6)" stroke-width="1.5" stroke-dasharray="4,3" id="det-ped"/>
+              <text x="0" y="-24" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#30d158" font-weight="700" id="lbl-ped">DETECTED</text>
+            </g>
+
+            <!-- Navixar vehicle -->
+            <g transform="translate(220,230)">
+              <rect x="-22" y="-44" width="44" height="88" rx="12" fill="#0f172a" stroke="#0071e3" stroke-width="2"/>
+              <rect x="-19" y="-42" width="38" height="22" rx="6" fill="#1e3a8a" opacity=".55"/>
+              <rect x="-19" y="20"  width="38" height="18" rx="5" fill="#1e3a8a" opacity=".35"/>
+              <rect x="-22" y="-8"  width="44" height="4" fill="#0071e3" opacity=".4"/>
+              <circle cx="-14" cy="-42" r="3" fill="#38bdf8" opacity=".9"/>
+              <circle cx="14"  cy="-42" r="3" fill="#38bdf8" opacity=".9"/>
+              <circle cx="-14" cy="42"  r="3" fill="#ef4444" opacity=".7"/>
+              <circle cx="14"  cy="42"  r="3" fill="#ef4444" opacity=".7"/>
+              <rect x="-28" y="-36" width="8" height="20" rx="3" fill="#1e293b" stroke="#475569" stroke-width=".8"/>
+              <rect x="20"  y="-36" width="8" height="20" rx="3" fill="#1e293b" stroke="#475569" stroke-width=".8"/>
+              <rect x="-28" y="16"  width="8" height="20" rx="3" fill="#1e293b" stroke="#475569" stroke-width=".8"/>
+              <rect x="20"  y="16"  width="8" height="20" rx="3" fill="#1e293b" stroke="#475569" stroke-width=".8"/>
+              <rect id="sns-l" x="-30" y="-6" width="6" height="12" rx="2" fill="#0071e3" opacity="0"/>
+              <rect id="sns-r" x="24"  y="-6" width="6" height="12" rx="2" fill="#0071e3" opacity="0"/>
+              <text y="-54" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#0071e3" font-weight="900" letter-spacing="1.5">NAVIXAR</text>
+            </g>
+          </svg>
+
+          <div class="status-chip bad" id="statusChip">2 vehicles undetected</div>
+        </div>
+
+        <div class="js-reveal-right">
+          <div class="minihead">The Navixar Data Pipeline</div>
+
+          <div class="explain-list">
+            <div class="exrow">
+              <span class="exn">01</span>
+              <div>
+                <div class="ext">Drone-Based Aerial Capture</div>
+                <div class="exd">Drones flying above the vehicle see the dynamics ground sensors miss — the two-wheelers, pedestrians, and near-misses within 2 metres of the car.</div>
+              </div>
+            </div>
+            <div class="exrow">
+              <span class="exn">02</span>
+              <div>
+                <div class="ext">Gamified Traffic Challenges</div>
+                <div class="exd">Players build traffic challenges for each other inside splat-reconstructed Indian streets. Every attempt to solve one becomes labelled training data.</div>
+              </div>
+            </div>
+            <div class="exrow">
+              <span class="exn">03</span>
+              <div>
+                <div class="ext">Dashcam Footage Acquisition</div>
+                <div class="exd">Buying existing dashcam footage at scale — the fastest, cheapest way to bootstrap millions of kilometres of real Indian driving before a single Navixar vehicle hits the road.</div>
+              </div>
+            </div>
+            <div class="exrow">
+              <span class="exn">04</span>
+              <div>
+                <div class="ext">Owned Pipeline = Moat</div>
+                <div class="exd">Three independent sources feeding one proprietary dataset. Every kilometre anyone drives — on foot, by drone, or on camera — makes the model better and harder to copy.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <span class="highlight">The insight:</span> You don't need a fleet to out-data everyone. Drones, dashcams, and a game get there faster and cheaper than a garage full of sensor-laden cars.
+          </div>
+        </div>
+      </div>
+
+      <div class="inner js-reveal" style="margin-top: 64px;">
+        <div class="visual-showcase">
+          <img src="images/navixar_img2.png" alt="Navixar's drone-based and dashcam data collection strategy for dense, unstructured Indian traffic" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 06 · SIMULATION ════════════════ -->
+    <section class="sec" id="simulation" data-chapter="06" data-label="Pillar 02 · Simulation">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">06</span><span class="chl">Pillar 02 · Simulation</span></div>
+        <h2 class="headline js-reveal">Gaussian Splats Make Large-Scale Validation Possible.</h2>
+        <div class="sub js-reveal">Mesh-based simulators approximate the world with hand-built polygons. Gaussian splats reconstruct it from real captured footage — every pothole, glare, and reflection intact. That fidelity gap is what lets Navixar validate millions of scenarios before a single physical deployment.</div>
+
+        <div class="siml">
+          <div class="js-reveal-left">
+            <div class="minihead">Why Simulation-First Works</div>
+
+            <div class="wrow">
+              <span class="wi">01</span>
+              <div>
+                <div class="wt">Infinite Scenarios</div>
+                <div class="wd">Millions of edge cases that would take decades to encounter on real Indian roads — at the cost of compute.</div>
+              </div>
+            </div>
+            <div class="wrow">
+              <span class="wi">02</span>
+              <div>
+                <div class="wt">Orders of Magnitude Cheaper</div>
+                <div class="wd">One GPU cluster vs. a fleet of sensor-laden vehicles. Waymo spends $20M per car. Navixar spends compute.</div>
+              </div>
+            </div>
+            <div class="wrow">
+              <span class="wi">03</span>
+              <div>
+                <div class="wt">Safe Iteration</div>
+                <div class="wd">Test sudden cattle crossings, brake failures, and flooded roads — without any physical risk.</div>
+              </div>
+            </div>
+            <div class="wrow">
+              <span class="wi">04</span>
+              <div>
+                <div class="wt">Validation At A Scale Roads Can't Match</div>
+                <div class="wd">Splat-based scenes are photoreal enough to trust the results — every model update gets stress-tested against millions of Indian edge cases before a single real kilometre.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-panel js-reveal-right">
+            <div class="minihead">Mesh vs. Gaussian Splat</div>
+            <div class="compcard glass-card">
+              <div class="cclb">Mesh-Based Simulators (CARLA, Waymo Sim)</div>
+              <div class="ccdesc">Hand-built polygons and textures. Structured US/European traffic, 4-way intersections, lane markings. Indian roads are invisible.</div>
+            </div>
+            <div class="compcard glass-card">
+              <div class="cclb">Mesh-Based Simulators (LGSVL, Apollo)</div>
+              <div class="ccdesc">Chinese-road-optimised meshes. Misses Indian textures, pothole dynamics, and chaotic merges entirely.</div>
+            </div>
+            <div class="compcard b glass-card">
+              <div class="cclb b">Navixar's Gaussian Splat Engine</div>
+              <div class="ccdesc br">Reconstructed from real captured footage — actual potholes, actual glare, actual chaos. Validation on a splat scene is validation on the real road.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive splat playground -->
+        <div class="visual-showcase js-reveal interactive-sim" id="interactive-sim">
+          <div class="sim-controls">
+            <div class="sim-toggle-group">
+              <button class="sim-btn active" id="btn-wireframe" onclick="setSimMode('wireframe')">Mesh-Based Rendering</button>
+              <button class="sim-btn" id="btn-splat" onclick="setSimMode('splat')">Gaussian Splat Rendering</button>
+            </div>
+            <button class="sim-btn action-btn" id="btn-add-traffic" onclick="addTraffic()">+ Add Traffic (Chaos)</button>
+          </div>
+          <canvas id="splatCanvas"></canvas>
+          <div class="sim-overlay-text" id="sim-status">Rendering structured lanes &amp; basic polygons...</div>
+          <div class="sim-instruction">Move mouse to explore environment</div>
+        </div>
+
+        <div class="inner js-reveal" style="padding:0; margin-top: 32px;">
+          <div class="visual-showcase">
+            <img src="images/navixar_simulation.png" alt="Navixar Gaussian-splat simulation of dense Mumbai traffic with full perception, prediction, and risk overlay used for large-scale validation" loading="lazy">
+          </div>
+          <div class="src">Illustrative capture: full-stack perception, prediction, and risk overlay running against a splat-reconstructed dense Mumbai scene.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 07 · SIM ENV ════════════════ -->
+    <section class="sec" id="simenv" data-chapter="07" data-label="Built for India">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">07</span><span class="chl">Our Solution · Simulation</span></div>
+        <h2 class="headline js-reveal">The Simulation Environment Tailored for India</h2>
+        <div class="sub js-reveal">Current simulators focus on lanes and structured traffic. India brings challenges in roads, textures, and unknown objects that no existing tool handles.</div>
+      </div>
+      <div class="inner egrid">
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 01</div>
+          <div class="et">Road Fidelity</div>
+          <p class="ed">Pothole meshes, broken asphalt textures, flooded sections, and unmarked speed bumps. Every Indian road imperfection captured by drone and dashcam, then simulated with Gaussian splat rendering.</p>
+          <span class="etag">Gaussian Splat</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 02</div>
+          <div class="et">Traffic Chaos Engine</div>
+          <p class="ed">40+ vehicle types with behavioural models calibrated on Indian driving data. Lane-less merging, sudden cuts, pedestrians ignoring signals, livestock, and roadside vendors.</p>
+          <span class="etag">Stochastic Agent Modelling</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">Pillar 03</div>
+          <div class="et">Gamified Data Flywheel</div>
+          <p class="ed">Users build and solve traffic challenges inside splat-based Indian environments as a game. Every decision becomes training data — generating scale without fleet infrastructure cost.</p>
+          <span class="etag">Crowdsourced Training Loop</span>
+        </div>
+      </div>
+
+      <div class="inner js-reveal" style="margin-top: 64px;">
+        <div class="glass-card flywheel-card">
+          <div>
+            <div class="eyebrow">Crowdsourced scale</div>
+            <h3 class="headline" style="font-size: clamp(24px, 3.5vw, 44px); margin-bottom: 16px;">The Gamified Training Loop</h3>
+            <p class="sub" style="font-size: 15px; line-height: 1.7; color: var(--text-grey);">
+              Instead of spending hundreds of millions on test drivers and fleets, Navixar gamifies the training process. Players create traffic challenges for each other to solve inside real, reconstructed Indian roads. Every maneuver, deceleration, and path choice feeds straight into our path planning AI.
+            </p>
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="images/navixar_gameplay.jpg" alt="Navixar Gamified Data Collection Mobile App Dashboard Mockup" style="width: 100%; display: block;" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 08 · TEAM ════════════════ -->
+    <section class="sec" id="team" data-chapter="08" data-label="Why This Team">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">08</span><span class="chl">Why This Team</span></div>
+        <h2 class="headline js-reveal">Built By Someone Who's Already Sold This To India's OEMs.</h2>
+        <div class="sub js-reveal">Data collection and processing isn't a hypothesis for Navixar's founder — it's seven years of shipped work.</div>
+      </div>
+      <div class="inner" style="margin-top:40px;">
+        <div class="glass-card js-reveal" style="padding:40px;">
+          <p class="sub" style="font-size:16px; line-height:1.7; max-width:100%; color:var(--text-silver);">
+            Munish Raj has spent seven years inside India's automotive data and simulation industry. Across OEM engagements, one thing has been consistent: <strong style="color:var(--text-white)">data collection and processing is the easiest, most repeatable sell in the room</strong> — every OEM needs it, and almost none can build it well in-house. Navixar takes that exact wedge and pushes it one notch further: from selling data as a service, to owning the full data-to-deployment stack.
+          </p>
+        </div>
+      </div>
+      <div class="inner egrid" style="margin-top:24px;">
+        <div class="ec glass-card js-reveal">
+          <div class="en">7 Years</div>
+          <div class="et">Inside The Industry</div>
+          <p class="ed">Seven years building data collection and simulation pipelines for automotive OEMs in India — the same buyers Navixar now sells a full autonomy stack to.</p>
+          <span class="etag">Domain Authority</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">10 Teams</div>
+          <div class="et">aBaja SAE India</div>
+          <p class="ed">Rallied 10 student engineering teams to attack the automated-driving problem statement at aBaja — proof the problem is tractable with the right structure.</p>
+          <span class="etag">Grassroots Proof</span>
+        </div>
+        <div class="ec glass-card js-reveal">
+          <div class="en">SIH</div>
+          <div class="et">Smart India Hackathon</div>
+          <p class="ed">Personally got Automated Driving added as an official Smart India Hackathon problem statement — the same problem, put in front of the country's entire engineering talent pipeline.</p>
+          <span class="etag">National Reach</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 09 · MOMENTUM ════════════════ -->
+    <section class="sec" id="momentum" data-chapter="09" data-label="Why Now — The Evidence">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">09</span><span class="chl">Why Now — The Evidence</span></div>
+        <h2 class="headline js-reveal">The Robotaxi Race Just Went Global.<br>India Is The Exception.</h2>
+        <div class="sub js-reveal">Signals from across the industry over the last few months — the race is accelerating everywhere but here.</div>
+      </div>
+      <div class="inner twgrid">
+        <div class="tw glass-card js-reveal">
+          <div class="twt">A Governed Path Now Exists</div>
+          <p class="twd">The UN adopted the first binding global regulation for fully autonomous vehicles, effective January 2027 — mandatory simulation, testing, and safety-data recording for every signatory market.</p>
+          <span class="twtag">Source: UNECE, 2026</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Robotaxis Are Now Manufactured, Not Prototyped</div>
+          <p class="twd">Zoox unveiled a production-intent robotaxi with 100 vehicles/week manufacturing capacity. Waymo runs 3,000+ vehicles and ~500K paid rides a week across 10 US cities.</p>
+          <span class="twtag">Source: Zoox · Waymo/NHTSA filings, 2026</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">The Unbundled Playbook Is Working</div>
+          <p class="twd">Bolt + Pony.ai + Stellantis launched a driverless "Living Lab" in Luxembourg; LOXO is running driver-out operations in Bern. Vehicle, AI brain, and demand network no longer need to be one company.</p>
+          <span class="twtag">Source: Bolt · LOXO, 2026</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Autonomy At Delivery Scale, Today</div>
+          <p class="twd">10,000+ driverless delivery vans now operate daily across China via Cainiao, DiDi, and Neolix — proof autonomous fleets already run at real operational scale.</p>
+          <span class="twtag">Source: A3 Market Intelligence, 2026</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Gaussian Splatting Is Becoming The Standard</div>
+          <p class="twd">NVIDIA's AlpaGym and NuRec, and Cesium's native splat streaming, are turning the exact simulation technique Navixar is built on into shared industry infrastructure.</p>
+          <span class="twtag">Source: NVIDIA · Cesium, 2026</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">An OEM Insider Is Saying It Publicly</div>
+          <p class="twd">Maruti Suzuki's own Head of ADAS Testing says global playbooks don't automatically work on Indian roads, and calls for an India-first development strategy.</p>
+          <span class="twtag">Source: LinkedIn, Head-ADAS Testing, Maruti Suzuki, 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 10 · MARKET SIZE ════════════════ -->
+    <section class="sec" id="marketsize" data-chapter="10" data-label="The Market">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">10</span><span class="chl">The Market</span></div>
+        <h2 class="headline js-reveal">India Is Moving. Fast.</h2>
+        <div class="sub js-reveal">3M+ daily rides, zero autonomous deployments. The market gap is absolute — and it is closing.</div>
+      </div>
+      <div class="inner mstats">
+        <div class="ms glass-card js-reveal">
+          <div class="msv b"><span class="count" data-count="3" data-suffix="M+">3M+</span></div>
+          <div class="msl">Ola/Uber rides per day in India</div>
+          <div class="mss">Source: Ola/Uber India 2025</div>
+        </div>
+        <div class="ms glass-card js-reveal">
+          <div class="msv">₹0</div>
+          <div class="msl">Commercial AV deployments in India</div>
+          <div class="mss">Source: MoRTHS 2024</div>
+        </div>
+        <div class="ms glass-card js-reveal">
+          <div class="msv b"><span class="count" data-count="21" data-prefix="$" data-suffix="B">$21B</span></div>
+          <div class="msl">Global AV investment in Q1 2026 alone</div>
+          <div class="mss">Source: Crunchbase Q1 2026</div>
+        </div>
+      </div>
+      <div class="inner mcols">
+        <div class="mc glass-card js-reveal">
+          <div class="mct">Why India Is the Perfect Launch Market</div>
+          <div class="mcr"><span class="mcp">+</span><span>Highest ride-hailing density globally — demand is already proven</span></div>
+          <div class="mcr"><span class="mcp">+</span><span>Consumers already trust app-based transport for daily commutes</span></div>
+          <div class="mcr"><span class="mcp">+</span><span>Government actively building an AV testing and deployment framework</span></div>
+          <div class="mcr"><span class="mcp">+</span><span>Driver shortage gives autonomous vehicles a clear economic case</span></div>
+          <div class="mcr"><span class="mcp">+</span><span>If it works in India, it works in every emerging market on earth</span></div>
+        </div>
+        <div class="mc glass-card js-reveal">
+          <div class="mct">The Competitive Moat</div>
+          <div class="mcb">Waymo spent $3.5B with zero India presence. Mobileye and Baidu have global reach — but neither has India-native training data, local regulatory access, or a deployment roadmap for unstructured Indian traffic.</div>
+          <div class="mcb" style="margin-top:20px"><strong style="color:var(--text-white);font-weight:600">First-mover data advantage compounds.</strong> Every kilometre driven — by drone, by dashcam, or by a player inside the game — makes the model better for India, and only Navixar owns that data.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 11 · VISION / BUSINESS MODEL ════════════════ -->
+    <section class="sec" id="vision" data-chapter="11" data-label="The Business">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">11</span><span class="chl">The Vision</span></div>
+        <h2 class="vhl js-reveal">In a Country Where Chaos Is Structural,<br><span>Robotaxis Will Prove There Is Order in Chaos.</span></h2>
+        <div class="vsub js-reveal">Navixar is India's answer to the robotaxi revolution — the same technology the world is racing to build, tuned for Indian roads, opening multiple revenue streams from day one.</div>
+
+        <div class="minihead js-reveal" style="margin:64px 0 0">Revenue Streams</div>
+        <div class="rgrid">
+          <div class="rc glass-card js-reveal">
+            <div class="rt">Robotaxi Fleet</div>
+            <div class="rd">Per-ride revenue. Partner with Ola/Uber or operate directly. 3M rides per day addressable from launch.</div>
+          </div>
+          <div class="rc glass-card js-reveal">
+            <div class="rt">OEM Licensing</div>
+            <div class="rd">License the India-native AV stack to Tata, Mahindra, Maruti — zero autonomous capability today.</div>
+          </div>
+          <div class="rc glass-card js-reveal">
+            <div class="rt">Data Licensing</div>
+            <div class="rd">India road and traffic data is uniquely valuable. License to global AV companies building for emerging markets.</div>
+          </div>
+          <div class="rc glass-card js-reveal">
+            <div class="rt">City and Government</div>
+            <div class="rd">Smart city initiatives, airport shuttles, last-mile connectivity under the MoRTHS AV framework.</div>
+          </div>
+          <div class="rc glass-card js-reveal">
+            <div class="rt">Emerging Market Export</div>
+            <div class="rd">Southeast Asia, Africa, Latin America share India's unstructured road DNA. India success is the global playbook.</div>
+          </div>
+          <div class="rc glass-card js-reveal" style="background:rgba(0, 113, 227, 0.05); border-color: rgba(0, 113, 227, 0.25);">
+            <div class="rt b">Simulation-as-a-Service</div>
+            <div class="rd" style="color: var(--text-silver);">Lease access to the world's only India-specific unstructured traffic simulator. No substitute exists.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 12 · TAILWINDS ════════════════ -->
+    <section class="sec" id="tailwinds" data-chapter="12" data-label="Tailwinds">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">12</span><span class="chl">Tailwinds</span></div>
+        <h2 class="headline js-reveal">Here Is What Else Is Going for Us</h2>
+        <div class="sub js-reveal">The infrastructure is in place. The talent exists. The regulation is moving. The capital is arriving. We are timing this exactly right.</div>
+      </div>
+      <div class="inner twgrid">
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Existing ADAS Ecosystem</div>
+          <p class="twd">An underserved ADAS engineering community in India — with no domestic OEMs deploying at scale. World-class engineers exist. Navixar captures this talent at day-one cost.</p>
+          <span class="twtag">Engineering Talent</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Graduate Talent Surplus</div>
+          <p class="twd">IIT and NIT graduates specialising in robotics, AV, and AI — with nowhere to apply it in India. World-class technical talent at Indian salary scales.</p>
+          <span class="twtag">Talent Pipeline</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">EV Supply Chain Investment</div>
+          <p class="twd">Tata, Ola Electric, and the FAME II subsidy scheme are building EV infrastructure at scale. AV-ready electric platforms will follow. Navixar rides this wave.</p>
+          <span class="twtag">EV Infrastructure</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Regulatory Tailwind</div>
+          <p class="twd">MoRTHS AV testing and deployment framework (2024 gazette notification). India is actively building the legal path for autonomous vehicle deployment on public roads.</p>
+          <span class="twtag">MoRTHS Framework 2024</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Deep Tech Capital Is Flooding In</div>
+          <p class="twd">India's deep tech startup funding is growing at its fastest pace ever, with investors actively hunting for hard-tech, India-first bets.</p>
+          <span class="twtag">Deep Tech Wave</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Built For India's AI Mission</div>
+          <p class="twd">India's national AI push isn't just about generic models. Autonomous driving for unstructured Indian roads is a flagship, India-only problem — solved with an India-first mindset.</p>
+          <span class="twtag">India AI Alignment</span>
+        </div>
+        <div class="tw glass-card js-reveal">
+          <div class="twt">Compute Only Gets Cheaper</div>
+          <p class="twd">GPU and edge-compute costs keep falling every quarter. A simulation-first, compute-heavy strategy gets more viable, not less, the longer this plays out.</p>
+          <span class="twtag">Deployment Tailwind</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 13 · ROADMAP ════════════════ -->
+    <section class="sec" id="roadmap" data-chapter="13" data-label="Roadmap">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">13</span><span class="chl">The Next 24 Months</span></div>
+        <h2 class="headline js-reveal">From Raise To Road: A Milestone-Gated Plan.</h2>
+        <div class="sub js-reveal">Every phase de-risks the next. Data before simulation, simulation before models, models before metal.</div>
+
+        <div class="timeline" id="timeline">
+          <div class="tl-line" aria-hidden="true"><div class="tl-line-fill" id="tlfill"></div></div>
+
+          <div class="tl-item js-reveal">
+            <div class="tl-node"></div>
+            <div class="tl-date">Q4 2026</div>
+            <div class="tl-card glass-card">
+              <div class="tl-title">Close Pre-Seed · Assemble The Core</div>
+              <p class="tl-desc">Founding team of 5 — perception, simulation, and data engineering. First dashcam-footage acquisition partnerships signed. Drone capture pilots begin in one city corridor.</p>
+              <span class="tl-tag">Foundation</span>
+            </div>
+          </div>
+
+          <div class="tl-item js-reveal">
+            <div class="tl-node"></div>
+            <div class="tl-date">Q1–Q2 2027</div>
+            <div class="tl-card glass-card">
+              <div class="tl-title">1M+ km Of Indian Driving Data</div>
+              <p class="tl-desc">Dashcam pipeline at scale, drone capture across 3 city corridors. First Gaussian-splat reconstructions of real Indian streets — the seed of the simulator.</p>
+              <span class="tl-tag">Data Moat Begins</span>
+            </div>
+          </div>
+
+          <div class="tl-item js-reveal">
+            <div class="tl-node"></div>
+            <div class="tl-date">Q3 2027</div>
+            <div class="tl-card glass-card">
+              <div class="tl-title">Simulation Engine v1 + Gamified Beta</div>
+              <p class="tl-desc">Splat-based simulator running Indian chaos scenarios. Gamified data app in public beta — the crowdsourced flywheel starts turning.</p>
+              <span class="tl-tag">Simulation Moat</span>
+            </div>
+          </div>
+
+          <div class="tl-item js-reveal">
+            <div class="tl-node"></div>
+            <div class="tl-date">Q4 2027</div>
+            <div class="tl-card glass-card">
+              <div class="tl-title">India-Native Driving Model v1</div>
+              <p class="tl-desc">First VLA policy trained on the proprietary Indian dataset, validated against millions of simulated scenarios. OEM pilot conversations formalised into an LOI.</p>
+              <span class="tl-tag">Model Milestone</span>
+            </div>
+          </div>
+
+          <div class="tl-item js-reveal">
+            <div class="tl-node"></div>
+            <div class="tl-date">2028</div>
+            <div class="tl-card glass-card">
+              <div class="tl-title">Closed-Course Demo → Seed Round</div>
+              <p class="tl-desc">Autonomous demonstration on a closed Indian course. MoRTHS testing application filed. Raise the seed on proof, not promise.</p>
+              <span class="tl-tag">Proof Of Autonomy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CH 14 · THE ASK ════════════════ -->
+    <section class="sec" id="ask" data-chapter="14" data-label="The Ask">
+      <div class="inner">
+        <div class="chapter js-reveal"><span class="chn">14</span><span class="chl">The Ask</span></div>
+        <h2 class="headline js-reveal">Pre-Seed: <span class="grad-blue">₹XX Cr</span> To Build The Moat.</h2>
+        <div class="sub js-reveal">SAFE instrument, targeting close in Q4 2026. Every rupee goes toward the two assets nobody can copy: the dataset and the simulator.</div>
+
+        <div class="funds" id="funds">
+          <div class="fund-row js-reveal">
+            <div class="fund-meta"><span class="fund-label">Engineering Team</span><span class="fund-pct" data-pct="45">45%</span></div>
+            <div class="fund-track"><div class="fund-fill" data-w="45"></div></div>
+            <div class="fund-desc">Perception, simulation, and VLA engineers — 5 founding hires from India's ADAS and robotics talent pool.</div>
+          </div>
+          <div class="fund-row js-reveal">
+            <div class="fund-meta"><span class="fund-label">Data Acquisition</span><span class="fund-pct" data-pct="25">25%</span></div>
+            <div class="fund-track"><div class="fund-fill" data-w="25"></div></div>
+            <div class="fund-desc">Drone operations, bulk dashcam footage purchase, and the gamified collection app.</div>
+          </div>
+          <div class="fund-row js-reveal">
+            <div class="fund-meta"><span class="fund-label">Compute &amp; Infrastructure</span><span class="fund-pct" data-pct="20">20%</span></div>
+            <div class="fund-track"><div class="fund-fill" data-w="20"></div></div>
+            <div class="fund-desc">GPU training runs and the splat-reconstruction pipeline.</div>
+          </div>
+          <div class="fund-row js-reveal">
+            <div class="fund-meta"><span class="fund-label">Operations, Legal &amp; Regulatory</span><span class="fund-pct" data-pct="10">10%</span></div>
+            <div class="fund-track"><div class="fund-fill" data-w="10"></div></div>
+            <div class="fund-desc">Company setup, MoRTHS engagement, and drone-operation compliance.</div>
+          </div>
+          <div class="src js-reveal">Illustrative allocation — final figures confirmed with the round.</div>
+        </div>
+      </div>
+
+      <footer class="inner" style="padding-bottom: 40px;">
+        <div class="ctabar js-reveal">
+          <div>
+            <div class="ctal">Join the Mission</div>
+            <div class="ctasub">India's answer to the robotaxi revolution — VLA-powered, simulation-first, built ground-up for India's roads.</div>
+          </div>
+          <div class="cta-right">
+            <div class="ctav">₹XX Cr · SAFE · Pre-Seed · Q4 2026</div>
+            <div class="ctac">Munish Raj · munish02@gmail.com</div>
+            <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed">Get in touch</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/mapdots.js"></script>
+  <script src="js/hero3d.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
