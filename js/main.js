@@ -748,3 +748,46 @@ if (canvas) {
 // 16. RESIZE
 // ════════════════════════════════════
 window.addEventListener('resize', () => ScrollTrigger.refresh());
+
+// ════════════════════════════════════
+// 17. BRANCHING LOGIC
+// ════════════════════════════════════
+window.selectBranch = function(branch) {
+  const tech = document.getElementById('branch-tech');
+  const econ = document.getElementById('branch-econ');
+  const buttons = document.querySelectorAll('.branch-opt');
+  
+  if (!tech || !econ) return;
+
+  // Visual feedback on buttons
+  buttons.forEach(btn => {
+    btn.style.borderColor = 'rgba(255,255,255,0.1)';
+    btn.style.transform = 'scale(0.98)';
+  });
+  
+  // Find clicked button and highlight
+  const clickedBtn = branch === 'tech' ? buttons[0] : buttons[1];
+  if (clickedBtn) {
+    clickedBtn.style.borderColor = 'var(--text-white)';
+    clickedBtn.style.transform = 'scale(1)';
+  }
+
+  // Toggle sections
+  if (branch === 'tech') {
+    tech.style.display = 'block';
+    econ.style.display = 'none';
+  } else {
+    tech.style.display = 'none';
+    econ.style.display = 'block';
+  }
+
+  // Refresh ScrollTrigger to recalculate heights and trigger animations
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+    // Scroll slightly down to show the start of the section smoothly
+    const target = branch === 'tech' ? tech.firstElementChild : econ.firstElementChild;
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+};

@@ -358,9 +358,32 @@ body::before {
 }
 
 .headline span.grad-blue {
-  background: linear-gradient(135deg, var(--marigold) 0%, var(--holi-pink) 50%, var(--peacock-blue) 100%);
+  /* Holi splash: powder splotches layered over banded colour — bands sit
+     next to friendly neighbours so no muddy purple blends ever appear */
+  background:
+    radial-gradient(circle at 12% 25%, var(--holi-magenta) 0 6%, transparent 16%),
+    radial-gradient(circle at 38% 78%, var(--peacock-teal) 0 5%, transparent 14%),
+    radial-gradient(circle at 64% 18%, var(--marigold) 0 5%, transparent 15%),
+    radial-gradient(circle at 87% 70%, var(--vermillion) 0 6%, transparent 16%),
+    linear-gradient(100deg,
+      var(--marigold) 0%, var(--turmeric) 16%,
+      var(--vermillion) 32%, var(--holi-magenta) 46%,
+      var(--holi-pink) 55%, var(--turmeric) 70%,
+      var(--peacock-teal) 85%, var(--peacock-blue) 100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: holiDrift 9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 18px rgba(255, 20, 147, 0.18));
+}
+@keyframes holiDrift {
+  0%   { background-position: 0% 40%; }
+  100% { background-position: 100% 60%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .headline span.grad-blue, .vhl span { animation: none; }
 }
 
 .sub {
@@ -740,7 +763,7 @@ body::before {
   margin-bottom: 16px;
 }
 .cn.b { color: var(--accent-blue); text-shadow: 0 0 40px rgba(0, 113, 227, 0.25); }
-.cn.p { color: var(--accent-purple); text-shadow: 0 0 40px rgba(175, 82, 222, 0.25); }
+.cn.p { color: var(--holi-magenta); text-shadow: 0 0 40px rgba(255, 0, 110, 0.25); }
 
 .cb { font-size: 15px; color: var(--text-grey); line-height: 1.6; }
 
@@ -1201,10 +1224,21 @@ body::before {
   color: var(--text-white);
 }
 .vhl span {
-  background: linear-gradient(135deg, var(--marigold) 0%, var(--holi-pink) 50%, var(--peacock-blue) 100%);
+  background:
+    radial-gradient(circle at 18% 30%, var(--holi-magenta) 0 6%, transparent 16%),
+    radial-gradient(circle at 55% 75%, var(--peacock-teal) 0 5%, transparent 14%),
+    radial-gradient(circle at 80% 22%, var(--vermillion) 0 5%, transparent 15%),
+    linear-gradient(100deg,
+      var(--marigold) 0%, var(--turmeric) 16%,
+      var(--vermillion) 32%, var(--holi-magenta) 46%,
+      var(--holi-pink) 55%, var(--turmeric) 70%,
+      var(--peacock-teal) 85%, var(--peacock-blue) 100%);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.15));
+  animation: holiDrift 9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.15));
 }
 .vsub { font-size: 16px; color: var(--text-grey); line-height: 1.6; max-width: 600px; margin-top: 24px; }
 
