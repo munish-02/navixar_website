@@ -6,13 +6,14 @@
   <title>Navixar: India's Answer to the Robotaxi Revolution</title>
   <meta name="description" content="Every robotaxi company in the world skipped India. Navixar is building India's autonomous vehicle stack using drone and dashcam-sourced data, Gaussian-splat simulation, purpose-built for unstructured Indian roads.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700;900&family=Rozha+One&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="css/immersive.css" rel="stylesheet">
-  <link href="css/interactive.css" rel="stylesheet">
-  <link href="css/economics.css" rel="stylesheet">
-  <link href="css/theme.css" rel="stylesheet">
-  <link href="css/breaks.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700;900&family=Rozha+One&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260712">
+  <link href="css/immersive.css?v=20260712" rel="stylesheet">
+  <link href="css/interactive.css?v=20260712" rel="stylesheet">
+  <link href="css/economics.css?v=20260712" rel="stylesheet">
+  <link href="css/theme.css?v=20260712" rel="stylesheet">
+  <link href="css/breaks.css?v=20260712" rel="stylesheet">
+  <link href="css/cinematic.css?v=20260712" rel="stylesheet">
   <script>
     /* Apply saved theme before first paint (default: dark) */
     try {
@@ -41,7 +42,7 @@
 
   <!-- Topbar -->
   <header id="tb">
-    <span class="logo">Navixar</span>
+    <span class="logo" data-scan="FOUNDER SIGNAL · LOCKED">Navixar</span>
     <span style="display:flex;align-items:center;gap:16px">
       <button id="themeToggle" aria-label="Toggle light or dark theme"></button>
       <span id="sname">Pre-Seed · Q4 2026</span>
@@ -88,7 +89,7 @@
         <div class="hero-kicker js-reveal">
           <span class="hk-dot"></span> Rebuilding this scene from raw points, the way Navixar rebuilds Indian streets
         </div>
-        <div class="hlogo js-reveal">NAVIXAR</div>
+        <div class="hlogo js-reveal" data-scramble="400">NAVIXAR</div>
         <h1 class="hsub js-reveal">
           <strong>Every robotaxi company in the world skipped India.</strong><br>
           Navixar is India's answer to the robotaxi revolution.
@@ -97,6 +98,7 @@
           <span class="pill a">India-Native</span>
           <span class="pill">VLA-Powered</span>
           <span class="pill">Simulation-First</span>
+          <span class="pill cin-live" data-scan="DEMAND · STREAMING LIVE"><span class="cin-ldot"></span><span class="cin-liven" data-live-rate="34.722">0</span>&nbsp;Indian taxi rides since you arrived</span>
         </div>
         <p class="hstmt js-reveal">
           The world's robotaxi players have raised <strong>$21B+</strong> and now operate in every major auto market but one.
@@ -132,11 +134,11 @@
         <div class="chapter js-reveal"><span class="chn">01</span><span class="chl">The Opportunity</span></div>
         <h2 class="headline js-reveal"><span class="grad-blue count" data-count="21.4" data-prefix="$" data-suffix="B" data-decimals="1">$21.4B</span> Raised. Not One In India.</h2>
         <div class="sub js-reveal">
-          The world is racing to build robotaxis. Waymo, Zoox, Waabi, Wayve, Baidu Apollo, WeRide, Pony.ai, Momenta: every major geography already has a credible autonomous player.
+          The world is racing to build robotaxis. Waymo, Zoox, Waabi, Wayve, Baidu Apollo, WeRide, Pony.ai, Momenta, Tier IV: every major geography already has a credible autonomous player.
           <strong>India, the world's 3rd largest auto market, has none.</strong>
         </div>
 
-        <div class="map-showcase js-reveal">
+        <div class="map-showcase js-reveal" data-scan="COMPETITOR SCAN · 4 CONTINENTS · 0 IN INDIA">
           <svg id="worldmap" viewBox="0 0 1010 545" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="mg" cx="50%" cy="50%" r="65%">
@@ -198,6 +200,17 @@
                 <animate attributeName="opacity" values=".4;0;.4" dur="2.2s" repeatCount="indefinite"/>
               </circle>
             </g>
+            <!-- Japan: Tier IV (Tokyo) -->
+            <g id="g-jp" class="cmarker" data-card="card-jp">
+              <circle cx="870" cy="347" r="18" class="ring" stroke="#00bcd4"/>
+              <circle cx="870" cy="347" r="18" fill="rgba(0, 188, 212, 0.1)"/>
+              <circle cx="870" cy="347" r="7.5" class="dot" fill="#00bcd4"/>
+              <circle cx="870" cy="347" r="3.8" fill="#fff" opacity=".9"/>
+              <circle cx="870" cy="347" r="18" fill="none" stroke="#00bcd4" stroke-width=".8" opacity=".35">
+                <animate attributeName="r" values="18;30;18" dur="2.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".35;0;.35" dur="2.6s" repeatCount="indefinite"/>
+              </circle>
+            </g>
             <!-- India: GAP marker -->
             <g id="g-in" class="cmarker" data-card="card-in">
               <circle cx="698" cy="396" r="17" fill="rgba(255,59,48,0.12)" stroke="rgba(255,59,48,0.5)" stroke-width="1.5"/>
@@ -217,8 +230,10 @@
               <text x="118" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">UK / Europe</text>
               <circle cx="208" cy="8" r="6" fill="rgba(233, 30, 99, 0.3)"   stroke="#e91e63"  stroke-width="1"/>
               <text x="218" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">China</text>
-              <circle cx="268" cy="8" r="6" fill="rgba(255, 59, 48, 0.3)"   stroke="#ff3b30"  stroke-width="1"/>
-              <text x="278" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">India: The Gap</text>
+              <circle cx="268" cy="8" r="6" fill="rgba(0, 188, 212, 0.3)"   stroke="#00bcd4"  stroke-width="1"/>
+              <text x="278" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">Japan</text>
+              <circle cx="322" cy="8" r="6" fill="rgba(255, 59, 48, 0.3)"   stroke="#ff3b30"  stroke-width="1"/>
+              <text x="332" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">India: The Gap</text>
             </g>
           </svg>
 
@@ -255,6 +270,12 @@
             <div class="ccard-co" style="font-size:12px;margin-top:4px">Momenta &nbsp;·&nbsp; $1.5B GM/Benz</div>
             <div class="ccard-co" style="font-size:12px;margin-top:4px">Pony.ai &nbsp;·&nbsp; $1.22B Nasdaq</div>
           </div>
+          <div class="ccard" id="card-jp" style="right:3%;top:48%">
+            <div class="ccard-flag">Japan</div>
+            <div class="ccard-co">Tier IV</div>
+            <div class="ccard-raise">$243M raised · Toyota-backed</div>
+            <div class="ccard-desc">Creator of Autoware, the open-source AV OS used by 100+ companies. Japan targets Level 4 services in 100 locations by fiscal 2027. No India presence.</div>
+          </div>
           <div class="ccard india-card" id="card-in" style="left:48%;top:42%">
             <div class="ccard-flag">India</div>
             <div class="ccard-co">No Credible AV Player</div>
@@ -263,7 +284,7 @@
           </div>
         </div>
 
-        <div class="src js-reveal">Sources: Crunchbase Q1 2026 AV Sector Report · TechCrunch · Waymo/NHTSA filings Dec 2025 · Zoox 2026 · Waabi Jan 2026 · Wayve Series D 2026</div>
+        <div class="src js-reveal">Sources: Crunchbase Q1 2026 AV Sector Report · TechCrunch · Waymo/NHTSA filings Dec 2025 · Zoox 2026 · Waabi Jan 2026 · Wayve Series D 2026 · Tier IV Series B / Toyota filing 2026</div>
       </div>
     </section>
 
@@ -292,14 +313,14 @@
           <strong>what are the two hardest technical problems in bringing autonomy to India?</strong> Pick two.
         </div>
 
-        <div class="quiz-grid js-reveal" id="quizGrid">
-          <button class="quiz-opt" data-correct="false" data-why="Foundation driving policies, open-source stacks, and VLA architectures are converging fast. The algorithms are becoming table stakes — anyone can get them.">
+        <div class="quiz-grid js-reveal" id="quizGrid" data-scan="DECISION POINT · PICK TWO">
+          <button class="quiz-opt" data-correct="false" data-why="Foundation driving policies, open-source stacks, and VLA architectures are converging fast. The algorithms are becoming table stakes. Anyone can get them.">
             <span class="qo-letter">A</span>
             <span class="qo-title">Writing The Algorithms</span>
             <span class="qo-desc">Building the self-driving AI stack itself</span>
             <span class="qo-verdict"></span>
           </button>
-          <button class="quiz-opt" data-correct="true" data-why="No dataset on earth contains Indian traffic. 99% of AV training data is Western. You cannot download the ingredients — someone has to collect them.">
+          <button class="quiz-opt" data-correct="true" data-why="No dataset on earth contains Indian traffic. 99% of AV training data is Western. You cannot download the ingredients. Someone has to collect them.">
             <span class="qo-letter">B</span>
             <span class="qo-title">Indian Data</span>
             <span class="qo-desc">Capturing what Indian roads actually look like</span>
@@ -323,7 +344,7 @@
           <span id="quizStatusText">Select your two answers to unlock our thesis</span>
           <span class="quiz-progress"><span class="qp-dot" id="qpd1"></span><span class="qp-dot" id="qpd2"></span></span>
         </div>
-        <div class="quiz-skip js-reveal"><button id="quizSkip">I give up — show me the answer ↓</button></div>
+        <div class="quiz-skip js-reveal"><button id="quizSkip">I give up, show me the answer ↓</button></div>
       </div>
     </section>
 
@@ -340,13 +361,13 @@
           <div class="en">Pillar 01 · Data</div>
           <div class="et">Collect Data No One Else Has</div>
           <p class="ed">Drone capture, gamified crowdsourcing, and bulk dashcam acquisition are three ways to get Indian driving data fast, without waiting years on a sensor fleet.</p>
-          <span class="etag">Data Moat</span>
+          <span class="etag">Data Advantage</span>
         </div>
         <div class="ec glass-card js-reveal">
           <div class="en">Pillar 02 · Simulation</div>
           <div class="et">Validate At A Scale Roads Can't Match</div>
           <p class="ed">Gaussian-splat reconstructions of real Indian streets let us stress-test millions of scenarios before a single vehicle drives one of them.</p>
-          <span class="etag">Simulation Moat</span>
+          <span class="etag">Simulation Advantage</span>
         </div>
         <div class="ec glass-card js-reveal pillar3-card">
           <div class="en">Pillar 03 · Deployment</div>
@@ -378,7 +399,7 @@
               <button data-a="1">Effectively zero</button>
             </div>
             <div class="jxq-reveal" id="jxqReveal" hidden>
-              <p><strong>Effectively zero.</strong> The ADAS shipping in Indian cars today was designed and validated on structured Western and East-Asian roads — in junctions like this one, its features get detuned or switched off entirely. Nobody has built the stack for the road you just crossed. <strong>That gap is this company.</strong></p>
+              <p><strong>Effectively zero.</strong> The ADAS shipping in Indian cars today was designed and validated on structured Western and East-Asian roads. In junctions like this one, its features get detuned or switched off entirely. Nobody has built the stack for the road you just crossed. <strong>That gap is this company.</strong></p>
               <button class="brk-continue" id="jxqContinue">Choose your path ↓</button>
             </div>
           </div>
@@ -515,7 +536,7 @@
         </div>
         <div class="pokemon-box js-reveal glass-card">
           <div class="pk-tag">Remember Pokémon Go?</div>
-          <p>Millions of Indians walked every street, alley, and corner of this country chasing Pokémon — and every step fed mapping data to a foreign company building the world's most accurate maps. <strong>India already crowdsourced a country-scale dataset once. It just didn't own it.</strong> This time, the game is ours, the streets are ours, and the data stays ours.</p>
+          <p>Millions of Indians walked every street, alley, and corner of this country chasing Pokémon, and every step fed mapping data to a foreign company building the world's most accurate maps. <strong>India already crowdsourced a country-scale dataset once. It just didn't own it.</strong> This time, the game is ours, the streets are ours, and the data stays ours.</p>
         </div>
       </div>
 
@@ -658,7 +679,7 @@
             <div class="exrow">
               <span class="exn">04</span>
               <div>
-                <div class="ext">Owned Pipeline = Moat</div>
+                <div class="ext">Owned Pipeline = Owned Data</div>
                 <div class="exd">Three independent sources feeding one proprietary dataset. Every kilometre anyone drives on foot, by drone, or on camera makes the model better and harder to copy.</div>
               </div>
             </div>
@@ -822,7 +843,7 @@
       <div class="inner">
         <div class="break-eyebrow js-reveal">☕ Let's take a break</div>
         <h2 class="headline js-reveal">You Be The Perception Model.</h2>
-        <div class="sub js-reveal">For 25 seconds, do the job our AI does every millisecond: <strong>click or tap everything that crosses the road to label it</strong>. Fair warning — almost none of these classes exist in Western training data.</div>
+        <div class="sub js-reveal">For 25 seconds, do the job our AI does every millisecond: <strong>click or tap everything that crosses the road to label it</strong>. Fair warning: almost none of these classes exist in Western training data.</div>
 
         <div class="break-stage glass-card js-reveal" id="lbStage">
           <div class="lb-road" id="lbRoad"></div>
@@ -970,13 +991,13 @@
         <div class="mc glass-card js-reveal">
           <div class="mct">Why India Is the Perfect Launch Market</div>
           <div class="mcr"><span class="mcp">+</span><span>Highest ride-hailing density globally: demand is already proven</span></div>
-          <div class="mcr"><span class="mcp">+</span><span>2.2M truck-driver shortfall — 55 drivers per 100 trucks — costing the economy ~$60B/yr</span></div>
+          <div class="mcr"><span class="mcp">+</span><span>2.2M truck-driver shortfall (55 drivers per 100 trucks) costing the economy ~$60B/yr</span></div>
           <div class="mcr"><span class="mcp">+</span><span>Government actively building an AV testing and deployment framework</span></div>
           <div class="mcr"><span class="mcp">+</span><span>Consumers already trust app-based transport for daily commutes</span></div>
           <div class="mcr"><span class="mcp">+</span><span>If it works in India, it works in every emerging market on earth</span></div>
         </div>
         <div class="mc glass-card js-reveal">
-          <div class="mct">The Competitive Moat</div>
+          <div class="mct">The Competitive Edge</div>
           <div class="mcb">Waymo spent $3.5B with zero India presence. Mobileye and Baidu have global reach, but neither has India-native training data, local regulatory access, or a deployment roadmap for unstructured Indian traffic.</div>
           <div class="mcb" style="margin-top:20px"><strong style="color:var(--text-white);font-weight:600">First-mover data advantage compounds.</strong> Every kilometre driven by drone, by dashcam, or by a player inside the game makes the model better for India, and only Navixar owns that data.</div>
         </div>
@@ -991,7 +1012,7 @@
         <div class="chapter js-reveal"><span class="chn">12</span><span class="chl">Unit Economics</span></div>
         <h2 class="headline js-reveal">80% Of Every Fare Goes To The Driver.<br><span class="grad-blue">Autonomy Rebuilds That Entire Stack.</span></h2>
         <div class="sub js-reveal">
-          Under India's MVAG 2025 rules, aggregators keep at most 20% — <strong>at least 80% of every fare flows to the driver</strong>. But that 80% isn't wage: the driver pays for fuel, the vehicle EMI, and maintenance out of it. Autonomy doesn't just remove a salary. It replaces the entire human cost stack with machine economics — EV energy, amortised hardware, and compute that gets cheaper every year. <strong>This model is interactive: drag the sliders, stress-test our maths.</strong>
+          Under India's MVAG 2025 rules, aggregators keep at most 20%: <strong>at least 80% of every fare flows to the driver</strong>. But that 80% isn't wage: the driver pays for fuel, the vehicle EMI, and maintenance out of it. Autonomy doesn't just remove a salary. It replaces the entire human cost stack with machine economics: EV energy, amortised hardware, and compute that gets cheaper every year. <strong>This model is interactive: drag the sliders, stress-test our maths.</strong>
         </div>
 
         <div class="ue-wrap glass-card js-reveal" id="ueWrap">
@@ -1015,7 +1036,7 @@
               <div class="ue-col-title">Human-Driven Ride <em>· today</em></div>
               <div class="ue-bar" id="ueBarHuman"></div>
               <div class="ue-legend" id="ueLegendHuman"></div>
-              <div class="ue-note">The platform's 20% cap is the <strong>only</strong> margin available — the other 80% is consumed by the driver's fuel, EMI, maintenance, and living.</div>
+              <div class="ue-note">The platform's 20% cap is the <strong>only</strong> margin available. The other 80% is consumed by the driver's fuel, EMI, maintenance, and living.</div>
             </div>
             <div class="ue-col">
               <div class="ue-col-title us">Navixar Autonomous Ride <em>· EV robotaxi</em></div>
@@ -1032,7 +1053,7 @@
             <div class="ue-ro"><span class="ue-ro-val" id="roPayback">—</span><span class="ue-ro-lbl">Vehicle cash payback</span></div>
           </div>
           <div class="ue-benchmark" id="ueBenchmark"></div>
-          <div class="src" style="margin-top:16px">Illustrative model — assumptions editable above; vehicle amortised over 250,000 km. Benchmarks: MVAG 2025 (≥80% of fare to driver) · Waymo ~$1.98/mile vs US ride-share ~$2.00/mile today, projected → $0.25/mile by 2035 (Morgan Stanley / Goldman Sachs 2025).</div>
+          <div class="src" style="margin-top:16px">Illustrative model. Assumptions editable above; vehicle amortised over 250,000 km. Benchmarks: MVAG 2025 (≥80% of fare to driver) · Waymo ~$1.98/mile vs US ride-share ~$2.00/mile today, projected → $0.25/mile by 2035 (Morgan Stanley / Goldman Sachs 2025).</div>
         </div>
       </div>
     </section>
@@ -1051,11 +1072,11 @@
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">13</span><span class="chl">The Business</span></div>
         <h2 class="vhl js-reveal">The Robotaxi Is The Story.<br><span>The Ladder Is How We Fund It.</span></h2>
-        <div class="vsub js-reveal">We don't burn a decade of capital waiting for public-road approval. Each rung of the ladder generates revenue, data, and regulatory proof — and pays for the next.</div>
+        <div class="vsub js-reveal">We don't burn a decade of capital waiting for public-road approval. Each rung of the ladder generates revenue, data, and regulatory proof, and pays for the next.</div>
 
         <div class="pokemon-box js-reveal glass-card" style="margin-top:48px">
-          <div class="pk-tag">The Momenta Playbook — proven at $9B</div>
-          <p>On July 8, 2026, Momenta lists in Hong Kong at a <strong>$9B valuation</strong>. Its model: license the driving stack to OEMs — GM, Mercedes-Benz, BYD, Toyota — at roughly <strong>$500–1,500 per vehicle</strong>, and use that high-margin recurring revenue (65% of its $354M 2025 revenue, growing 82% YoY) to fund the Level-4 robotaxi program. <strong>Navixar runs the same two-leg play, tuned for India — with a rung Momenta never had: a driver crisis that makes controlled-environment autonomy an immediate, desperate purchase.</strong></p>
+          <div class="pk-tag">The Momenta Playbook: Proven At $9B</div>
+          <p>On July 8, 2026, Momenta lists in Hong Kong at a <strong>$9B valuation</strong>. Its model: license the driving stack to OEMs (GM, Mercedes-Benz, BYD, Toyota) at roughly <strong>$500–1,500 per vehicle</strong>, and use that high-margin recurring revenue (65% of its $354M 2025 revenue, growing 82% YoY) to fund the Level-4 robotaxi program. <strong>Navixar runs the same two-leg play, tuned for India, with a rung Momenta never had: a driver crisis that makes controlled-environment autonomy an immediate, desperate purchase.</strong></p>
         </div>
 
         <div class="minihead js-reveal" style="margin:64px 0 0">The Revenue Ladder <em style="color:var(--text-grey);font-style:normal">· click each rung</em></div>
@@ -1063,18 +1084,18 @@
           <div class="ladder-rung open js-reveal" data-rung="1">
             <div class="lr-head">
               <span class="lr-num">Rung 01</span>
-              <span class="lr-title">Controlled Environments — Ports, Mines, Logistics Yards</span>
+              <span class="lr-title">Controlled Environments: Ports, Mines, Logistics Yards</span>
               <span class="lr-when">2027–28 · first revenue</span>
               <span class="lr-arrow">▾</span>
             </div>
             <div class="lr-body">
               <div class="lr-cols">
                 <div>
-                  <div class="lr-fact"><span class="lr-big">55 : 100</span><span>drivers available per 100 trucks in India — a 2.2M driver shortfall costing ~$60B/yr</span></div>
+                  <div class="lr-fact"><span class="lr-big">55 : 100</span><span>drivers available per 100 trucks in India, a 2.2M driver shortfall costing ~$60B/yr</span></div>
                   <div class="lr-fact"><span class="lr-big">$4.25B → $14.7B</span><span>India autonomous trucks market by 2031, 23.1% CAGR (Mobility Foresights)</span></div>
                 </div>
                 <div class="lr-why">
-                  <p><strong>Why this rung is first:</strong> geo-fenced private land needs no public-road approval — deployment can start the moment the stack works. Buyers have brutal ROI maths: 25–30% of truck fleets sit idle for want of drivers. Revenue: per-site deployment contracts + annual per-vehicle software fees. Every autonomous kilometre also feeds the data moat.</p>
+                  <p><strong>Why this rung is first:</strong> geo-fenced private land needs no public-road approval, so deployment can start the moment the stack works. Buyers have brutal ROI maths: 25–30% of truck fleets sit idle for want of drivers. Revenue: per-site deployment contracts + annual per-vehicle software fees. Every autonomous kilometre also deepens the data advantage.</p>
                 </div>
               </div>
             </div>
@@ -1083,18 +1104,18 @@
           <div class="ladder-rung js-reveal" data-rung="2">
             <div class="lr-head">
               <span class="lr-num">Rung 02</span>
-              <span class="lr-title">OEM Stack Licensing — India's Momenta</span>
+              <span class="lr-title">OEM Stack Licensing: India's Momenta</span>
               <span class="lr-when">2028–30 · recurring royalties</span>
               <span class="lr-arrow">▾</span>
             </div>
             <div class="lr-body">
               <div class="lr-cols">
                 <div>
-                  <div class="lr-fact"><span class="lr-big">4M+</span><span>cars sold in India annually (SIAM) — with zero India-native ADAS/AD stack on offer</span></div>
+                  <div class="lr-fact"><span class="lr-big">4M+</span><span>cars sold in India annually (SIAM), with zero India-native ADAS/AD stack on offer</span></div>
                   <div class="lr-fact"><span class="lr-big">$500–1,500</span><span>per-vehicle royalty benchmark from Momenta's OEM licensing leg</span></div>
                 </div>
                 <div class="lr-why">
-                  <p><strong>Why OEMs buy from us:</strong> Tata, Mahindra, and Maruti need ADAS that understands Indian roads — global stacks trained on lane discipline fail here. Maruti's own Head of ADAS Testing says so publicly. Development contracts first, then per-vehicle royalties: high-margin, recurring, and it compounds with every model year.</p>
+                  <p><strong>Why OEMs buy from us:</strong> Tata, Mahindra, and Maruti need ADAS that understands Indian roads. Global stacks trained on lane discipline fail here. Maruti's own Head of ADAS Testing says so publicly. Development contracts first, then per-vehicle royalties: high-margin, recurring, and it compounds with every model year.</p>
                 </div>
               </div>
             </div>
@@ -1103,7 +1124,7 @@
           <div class="ladder-rung js-reveal" data-rung="3">
             <div class="lr-head">
               <span class="lr-num">Rung 03</span>
-              <span class="lr-title">The Robotaxi Fleet — The Story</span>
+              <span class="lr-title">The Robotaxi Fleet: The Story</span>
               <span class="lr-when">2030+ · the prize</span>
               <span class="lr-arrow">▾</span>
             </div>
@@ -1111,10 +1132,10 @@
               <div class="lr-cols">
                 <div>
                   <div class="lr-fact"><span class="lr-big">3M+</span><span>ride-hailing trips per day in India, today, with zero autonomous supply</span></div>
-                  <div class="lr-fact"><span class="lr-big">$400B+</span><span>global robotaxi market by 2035 (Goldman Sachs) — India's share is unclaimed</span></div>
+                  <div class="lr-fact"><span class="lr-big">$400B+</span><span>global robotaxi market by 2035 (Goldman Sachs). India's share is unclaimed</span></div>
                 </div>
                 <div class="lr-why">
-                  <p><strong>The prize the ladder pays for:</strong> per-ride revenue at the unit economics you stress-tested in Chapter 12 — machine costs against fares built for human costs. Launched corridor-by-corridor in metros, with regulatory proof and data compounded from rungs 1 and 2. Beyond India: Southeast Asia, Africa, and Latin America share our road DNA.</p>
+                  <p><strong>The prize the ladder pays for:</strong> per-ride revenue at the unit economics you stress-tested in Chapter 12: machine costs against fares built for human costs. Launched corridor-by-corridor in metros, with regulatory proof and data compounded from rungs 1 and 2. Beyond India: Southeast Asia, Africa, and Latin America share our road DNA.</p>
                 </div>
               </div>
             </div>
@@ -1156,52 +1177,11 @@
             <div class="mm-what">OEM royalty LOI + MoRTHS public-road testing application + robotaxi corridor demo.</div>
             <div class="mm-assume">
               <div class="mm-a-title">Assumptions</div>
-              <p>By 2029 the company has revenue, an OEM logo, and regulatory progress — the three things that price a Series A. Comparable path: Momenta raised its growth rounds after OEM contracts, not after robotaxis. The robotaxi corridor pilot is funded by that round, not this one.</p>
+              <p>By 2029 the company has revenue, an OEM logo, and regulatory progress: the three things that price a Series A. Comparable path: Momenta raised its growth rounds after OEM contracts, not after robotaxis. The robotaxi corridor pilot is funded by that round, not this one.</p>
             </div>
           </div>
         </div>
         <div class="src js-reveal" style="margin-top:24px">Illustrative ranges, stated as commitments to milestones rather than point forecasts. All figures pre-validation; assumptions shown per card.</div>
-      </div>
-    </section>
-
-    <!-- ════════════════ INTERVAL · VYAPAR (econ) ════════════════ -->
-    <section class="sec break-sec" id="break-vyapar" data-label="Interval">
-      <div class="inner">
-        <div class="break-eyebrow js-reveal">☕ Let's take a break</div>
-        <h2 class="headline js-reveal">A Quick Round Of <span class="grad-blue">Vyapar</span>.</h2>
-        <div class="sub js-reveal">Every Indian childhood had the Monopoly clone — Vyapar, Business, the board with Bombay and Madras on it. Here's the autonomy edition. <strong>Roll the dice. Whatever square you land on, watch who collects.</strong></div>
-
-        <div class="break-stage glass-card js-reveal vy-stage" id="vyStage">
-          <div class="vy-board" id="vyBoard">
-            <div class="vy-tile t0 go" data-amt="0" data-blurb="Pre-seed closes. The game begins."><span class="vt-name">GO ▸</span><span class="vt-sub">Pre-Seed Closes</span></div>
-            <div class="vy-tile t1" data-amt="3" data-blurb="Autonomous terminal tractors on private land — no public-road approval needed. Site contract signed."><span class="vt-name">Chennai Port Yard</span><span class="vt-sub">Rent ₹3 Cr</span></div>
-            <div class="vy-tile t2 ev" data-amt="0" data-blurb="55 drivers per 100 trucks. A quarter of the fleet is parked. Demand for autonomy jumps."><span class="vt-name">Driver Shortage</span><span class="vt-sub">Event</span></div>
-            <div class="vy-tile t3" data-amt="4" data-blurb="₹ per vehicle, on every vehicle, every model year. The Momenta leg."><span class="vt-name">OEM Royalty · Tata</span><span class="vt-sub">Rent ₹4 Cr</span></div>
-            <div class="vy-tile t4 ev" data-amt="0" data-blurb="Compute gets cheaper every quarter. A simulation-first stack's margins widen on their own."><span class="vt-name">Chance: GPU Prices Fall</span><span class="vt-sub">Event</span></div>
-            <div class="vy-tile t5" data-amt="2" data-blurb="Second controlled-environment site. The playbook repeats."><span class="vt-name">Mumbai Logistics Yard</span><span class="vt-sub">Rent ₹2 Cr</span></div>
-            <div class="vy-tile t6 ev" data-amt="0" data-blurb="MoRTHS public-road testing approval. The robotaxi rung unlocks."><span class="vt-name">MoRTHS Approval</span><span class="vt-sub">Event</span></div>
-            <div class="vy-tile t7" data-amt="1" data-blurb="The only India-native driving dataset. Everyone building for emerging markets licenses it."><span class="vt-name">Data Rent</span><span class="vt-sub">Rent ₹1 Cr</span></div>
-            <div class="vy-tile t8" data-amt="5" data-blurb="Machine costs against fares built for human costs — the Chapter 12 maths, live."><span class="vt-name">Bengaluru Robotaxi Corridor</span><span class="vt-sub">Rent ₹5 Cr</span></div>
-            <div class="vy-tile t9 ev" data-amt="0" data-blurb="Human drivers idle in the jam. The stack doesn't get tired, doesn't strike, doesn't quit."><span class="vt-name">Stuck In Traffic</span><span class="vt-sub">Event</span></div>
-            <div class="vy-tile t10" data-amt="6" data-blurb="Development contract first, royalties after — the exact sequence Momenta IPO'd on."><span class="vt-name">Maruti Dev Contract</span><span class="vt-sub">Rent ₹6 Cr</span></div>
-            <div class="vy-tile t11" data-amt="3" data-blurb="Jakarta, Lagos, São Paulo share India's road DNA. Win here, export everywhere."><span class="vt-name">Emerging-Market Export</span><span class="vt-sub">Rent ₹3 Cr</span></div>
-
-            <div class="vy-center">
-              <div class="vy-title">VYAPAR<span>The Autonomy Edition</span></div>
-              <div class="vy-dice" id="vyDice">⚄</div>
-              <button class="brk-continue" id="vyRoll">Roll the dice <em id="vyRollsLeft">· 4 rolls</em></button>
-              <div class="vy-treasury">Stack owner's treasury<span id="vyTreasury">₹0 Cr</span></div>
-              <div class="vy-log" id="vyLog">Land anywhere. The stack owner collects.</div>
-            </div>
-          </div>
-          <div class="lb-overlay" id="vyEnd" hidden>
-            <div class="lb-end-card">
-              <div class="jxq-title" id="vyEndTitle"></div>
-              <p id="vyEndText"></p>
-              <button class="brk-continue" id="vyContinue">Continue the pitch ↓</button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1256,7 +1236,7 @@
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">16</span><span class="chl">The Next 24 Months</span></div>
         <h2 class="headline js-reveal">From Raise To Road: <span class="grad-blue">Guess The Timeline.</span></h2>
-        <div class="sub js-reveal">Every phase de-risks the next. Data before simulation, simulation before models, models before metal. But how fast? <strong>For each milestone, guess when we hit it</strong> — then see the actual plan.</div>
+        <div class="sub js-reveal">Every phase de-risks the next. Data before simulation, simulation before models, models before metal. But how fast? <strong>For each milestone, guess when we hit it</strong>, then see the actual plan.</div>
 
         <div class="rm-scorebar js-reveal" id="rmScorebar">
           <span id="rmScore">0 / 5 guessed</span>
@@ -1283,7 +1263,7 @@
             <div class="tl-card glass-card">
               <div class="tl-title">1M+ km Of Indian Driving Data</div>
               <p class="tl-desc">Dashcam pipeline at scale, drone capture across 3 city corridors, gamified crowdsourcing loops live. First Gaussian-splat reconstructions of real Indian streets, forming the seed of the simulator.</p>
-              <span class="tl-tag">Data Moat Begins</span>
+              <span class="tl-tag">Data Advantage Begins</span>
               <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
@@ -1294,7 +1274,7 @@
             <div class="tl-card glass-card">
               <div class="tl-title">Simulation Engine v1 + Gamified Beta</div>
               <p class="tl-desc">Splat-based simulator running Indian chaos scenarios. Gamified data app in public beta, accelerating the crowdsourced flywheel.</p>
-              <span class="tl-tag">Simulation Moat</span>
+              <span class="tl-tag">Simulation Advantage</span>
               <div class="tl-guess"><span class="tg-label">Your guess:</span><span class="tg-chips"></span><span class="tg-verdict"></span></div>
             </div>
           </div>
@@ -1335,7 +1315,7 @@
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">17</span><span class="chl">The Return</span></div>
         <h2 class="headline js-reveal">Every Major Market's AV Leader Is Worth Billions.<br><span class="grad-blue">India's Seat Is Empty.</span></h2>
-        <div class="sub js-reveal">This is what the market pays for a national AV champion — companies that were pre-seed less than a decade ago. Hover the bars.</div>
+        <div class="sub js-reveal">This is what the market pays for a national AV champion: companies that were pre-seed less than a decade ago. Hover the bars.</div>
 
         <div class="rp-chart glass-card js-reveal" id="rpChart">
           <div class="rp-row" data-note="Alphabet's AV champion. 3,000+ vehicles, ~500K paid rides/week across 10 US cities.">
@@ -1343,7 +1323,7 @@
             <div class="rp-track"><div class="rp-fill" data-w="100"></div></div>
             <span class="rp-val">$160B+</span>
           </div>
-          <div class="rp-row" data-note="Lists in Hong Kong July 8, 2026. OEM licensing (GM, Mercedes, BYD, Toyota) funds its robotaxi leg — the playbook Navixar runs for India.">
+          <div class="rp-row" data-note="Lists in Hong Kong July 8, 2026. OEM licensing (GM, Mercedes, BYD, Toyota) funds its robotaxi leg. The playbook Navixar runs for India.">
             <span class="rp-name">Momenta <em>· China</em></span>
             <div class="rp-track"><div class="rp-fill hl" data-w="24"></div></div>
             <span class="rp-val">$9B</span>
@@ -1358,12 +1338,12 @@
             <div class="rp-track"><div class="rp-fill" data-w="12"></div></div>
             <span class="rp-val">$3.5B</span>
           </div>
-          <div class="rp-row" data-note="Nasdaq-listed, operating in 30+ cities across 10 countries — none of them Indian.">
+          <div class="rp-row" data-note="Nasdaq-listed, operating in 30+ cities across 10 countries. None of them Indian.">
             <span class="rp-name">WeRide <em>· China</em></span>
             <div class="rp-track"><div class="rp-fill" data-w="8"></div></div>
             <span class="rp-val">$1.8B</span>
           </div>
-          <div class="rp-row rp-india" data-note="1.4 billion people. World's 3rd largest auto market. 3M+ daily rides. The only major market whose AV champion seat is still open — this is the seat Navixar is built to take.">
+          <div class="rp-row rp-india" data-note="1.4 billion people. World's 3rd largest auto market. 3M+ daily rides. The only major market whose AV champion seat is still open. This is the seat Navixar is built to take.">
             <span class="rp-name">India <em>· ?</em></span>
             <div class="rp-track"><div class="rp-fill india" data-w="3"></div></div>
             <span class="rp-val">Unclaimed</span>
@@ -1381,7 +1361,7 @@
           </div>
           <div class="mc glass-card js-reveal">
             <div class="mct">The Pre-Seed Return Case</div>
-            <div class="mcb">Momenta was founded in 2016 and lists at $9B in 2026 — a decade from seed to IPO on the exact licensing-funds-robotaxi model. Wayve went from research lab to $8.5B in eight years without meaningful revenue.</div>
+            <div class="mcb">Momenta was founded in 2016 and lists at $9B in 2026, a decade from seed to IPO on the exact licensing-funds-robotaxi model. Wayve went from research lab to $8.5B in eight years without meaningful revenue.</div>
             <div class="mcb" style="margin-top:20px"><strong style="color:var(--text-white);font-weight:600">The pattern:</strong> each major market prices in exactly one AV champion at billions. India's is the last seat open, and it costs ₹27 Cr to sit down at the table.</div>
           </div>
         </div>
@@ -1393,8 +1373,8 @@
     <section class="sec" id="ask" data-chapter="18" data-label="The Ask">
       <div class="inner">
         <div class="chapter js-reveal"><span class="chn">18</span><span class="chl">The Ask</span></div>
-        <h2 class="headline js-reveal">Pre-Seed: <span class="grad-blue" id="askTotalHead">$3.2M</span> To Build The Moat.</h2>
-        <div class="sub js-reveal">SAFE instrument, targeting close in Q4 2026. Every dollar goes toward the assets nobody can copy: the dataset, the simulator, and the bot. <strong>This budget is interactive</strong> — flip the toggles, watch the total move, and see exactly what takes a hit.</div>
+        <h2 class="headline js-reveal">Pre-Seed: <span class="grad-blue" id="askTotalHead">$3.2M</span> To Own The Hard Part.</h2>
+        <div class="sub js-reveal">SAFE instrument, targeting close in Q4 2026. Every dollar goes toward the assets nobody can copy: the dataset, the simulator, and the bot. <strong>This budget is interactive</strong>: flip the toggles, watch the total move, and see exactly what takes a hit.</div>
 
         <div class="budget-wrap" id="funds">
           <div class="budget-rows">
@@ -1411,7 +1391,7 @@
               <div class="bi-desc">Battery pack, compute hardware, and an attention-grabbing bot India can't ignore. Pillar 03 made physical.</div>
               <div class="bi-toggle" data-toggle="bot">
                 <button class="bt-opt on" data-cost="150" data-hit="">Attention-Grabbing Bot · $150k</button>
-                <button class="bt-opt" data-cost="80" data-hit="Saves $70k — but the bot IS the brand moment. A bare test mule demos autonomy and nobody films it.">Bare Test Mule · $80k</button>
+                <button class="bt-opt" data-cost="80" data-hit="Saves $70k, but the bot IS the brand moment. A bare test mule demos autonomy and nobody films it.">Bare Test Mule · $80k</button>
               </div>
             </div>
 
@@ -1420,8 +1400,8 @@
               <div class="bi-track"><div class="bi-fill"></div></div>
               <div class="bi-desc">The VLA policy trained on the proprietary Indian dataset. The classic trade-off: rent the compute or own it.</div>
               <div class="bi-toggle" data-toggle="train">
-                <button class="bt-opt on" data-cost="500" data-hit="Elastic and fast to start — but every retraining run costs again, forever. At scale, the meter never stops.">Train On Cloud · $500k</button>
-                <button class="bt-opt" data-cost="750" data-hit="+$250k upfront for an in-house cluster — slower start, but retraining becomes nearly free and no cloud vendor owns our cadence.">In-House Compute · $750k</button>
+                <button class="bt-opt on" data-cost="500" data-hit="Elastic and fast to start, but every retraining run costs again, forever. At scale, the meter never stops.">Train On Cloud · $500k</button>
+                <button class="bt-opt" data-cost="750" data-hit="+$250k upfront for an in-house cluster: slower start, but retraining becomes nearly free and no cloud vendor owns our cadence.">In-House Compute · $750k</button>
               </div>
             </div>
 
@@ -1431,7 +1411,7 @@
               <div class="bi-desc">Cloud ingestion costs, drone permissions, and deploying the gamified crowdsourcing loops across Indian cities.</div>
               <div class="bi-toggle" data-toggle="data">
                 <button class="bt-opt on" data-cost="500" data-hit="">Full Pipeline · $500k</button>
-                <button class="bt-opt" data-cost="250" data-hit="Saves $250k — but drops the gamified loops. Diversity of traffic collapses to whatever dashcams happen to see. The thesis IS diversity.">Dashcam-Only · $250k</button>
+                <button class="bt-opt" data-cost="250" data-hit="Saves $250k, but it drops the gamified loops. Diversity of traffic collapses to whatever dashcams happen to see. The thesis IS diversity.">Dashcam-Only · $250k</button>
               </div>
             </div>
 
@@ -1441,7 +1421,7 @@
               <div class="bi-desc">The Gaussian-splat simulation engine: India's chaos, reconstructed and replayable at validation scale.</div>
               <div class="bi-toggle" data-toggle="sim">
                 <button class="bt-opt on" data-cost="500" data-hit="">Build In-House · $500k</button>
-                <button class="bt-opt" data-cost="300" data-hit="Saves $200k adapting open-source — but validation depth caps out, and a rented simulator is a rented moat.">Adapt Open-Source · $300k</button>
+                <button class="bt-opt" data-cost="300" data-hit="Saves $200k adapting open-source, but validation depth caps out, and a rented simulator is a rented advantage.">Adapt Open-Source · $300k</button>
               </div>
             </div>
 
@@ -1458,7 +1438,7 @@
             </div>
           </div>
 
-          <aside class="budget-summary js-reveal" id="budgetSummary">
+          <aside class="budget-summary js-reveal cin-sweep" id="budgetSummary" data-scan="ENTRY TICKET · THE TABLE">
             <div class="bs-label">Total Ask</div>
             <div class="bs-total" id="bsTotal">$3.16M</div>
             <div class="bs-inr" id="bsInr">≈ ₹27 Cr <em>(at ₹85/$)</em></div>
@@ -1469,7 +1449,7 @@
             </div>
             <div class="bs-hits" id="bsHits">
               <div class="bs-hits-label">What takes a hit</div>
-              <div class="bs-hits-list" id="bsHitsList"><div class="bs-hit none">Nothing — this is the recommended configuration.</div></div>
+              <div class="bs-hits-list" id="bsHitsList"><div class="bs-hit none">Nothing. This is the recommended configuration.</div></div>
             </div>
             <div class="src" style="margin-top:18px">Illustrative allocation; final figures confirmed with the round.</div>
           </aside>
@@ -1485,7 +1465,7 @@
           <div class="cta-right">
             <div class="ctav"><span id="ctaTotal">$3.2M</span> · SAFE · Pre-Seed · Q4 2026</div>
             <div class="ctac">Munish Raj · munish02@gmail.com</div>
-            <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed">Get in touch</a>
+            <a class="btn primary" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed" data-scan="DIRECT LINE · FOUNDER">Get in touch</a>
           </div>
         </div>
       </footer>
@@ -1497,14 +1477,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/mapdots.js"></script>
-  <script src="js/cowpoints.js"></script>
-  <script src="js/hero3d.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/immersive.js"></script>
-  <script src="js/interactive.js"></script>
-  <script src="js/economics.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/breaks.js"></script>
+  <script src="js/mapdots.js?v=20260712"></script>
+  <script src="js/cowpoints.js?v=20260712"></script>
+  <script src="js/hero3d.js?v=20260712"></script>
+  <script src="js/main.js?v=20260712"></script>
+  <script src="js/immersive.js?v=20260712"></script>
+  <script src="js/interactive.js?v=20260712"></script>
+  <script src="js/economics.js?v=20260712"></script>
+  <script src="js/theme.js?v=20260712"></script>
+  <script src="js/breaks.js?v=20260712"></script>
+  <script>
+    window.CINE = {
+      boot: [
+        'navixar.perception v0.1 ........ ONLINE',
+        'loading 18 chapters, 2 games, 1 empty market ........ OK',
+        'beginning the deep dive '
+      ],
+      bootKey: 'nvx-boot-full',
+      tilt: '.ec, .mc, .compcard',
+      grain: true
+    };
+  </script>
+  <script src="js/cinematic.js?v=20260712"></script>
 </body>
 </html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navixar · 60 Seconds</title>
+  <meta name="description" content="Every robotaxi company in the world skipped India. 60 seconds on why that is the opportunity of the decade.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260712">
+  <style>
+    /* ═══════════ QUICK · CINEMATIC CUT ═══════════
+       This page is intentionally dark-only: it is the trailer. */
+    html { background: #030308; }
+    body { cursor: auto; background: #030308; overflow-x: hidden; }
+    .sec { min-height: auto; padding: 110px 40px; overflow: visible; position: relative; }
+
+    /* ── boot overlay ── */
+    #boot {
+      position: fixed; inset: 0; z-index: 12000; background: #030308;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .5s ease; font: 600 13px/2.1 'JetBrains Mono', monospace;
+      color: #7fe08f; letter-spacing: .04em;
+    }
+    #boot.gone { opacity: 0; pointer-events: none; }
+    #boot .bline { opacity: 0; white-space: pre; }
+    #boot .bline.on { opacity: 1; }
+    #boot .bcaret::after { content: '▌'; animation: bblink .7s steps(1) infinite; }
+    @keyframes bblink { 50% { opacity: 0; } }
+
+    /* ── progress road ── */
+    #road {
+      position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 11000;
+      background: rgba(255,255,255,.05); pointer-events: none;
+    }
+    #roadFill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #ff9933, #ffd700 55%, #ff006e);
+      box-shadow: 0 0 12px rgba(255,183,77,.8);
+      position: relative;
+    }
+    #roadCar {
+      position: absolute; right: -3px; top: 50%; width: 10px; height: 10px; border-radius: 50%;
+      transform: translateY(-50%); background: #fff;
+      box-shadow: 0 0 10px #ffd700, 0 0 22px #ff9933;
+    }
+
+    /* ── header ── */
+    #tb { background: transparent; }
+    .q-full {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 22px;
+      border: 1px solid rgba(255,183,77,.5); background: rgba(255,183,77,.07);
+      color: var(--marigold); font: 700 11px/1 'Space Grotesk', sans-serif;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      transition: all .25s ease;
+    }
+    .q-full:hover { background: rgba(255,183,77,.16); transform: translateY(-1px); }
+
+    /* ── shared type ── */
+    .q-kick {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; padding: 9px 20px;
+      border-radius: 20px; border: 1px dashed rgba(255,183,77,.55); background: rgba(255,183,77,.06);
+      font: 700 11px/1 'Space Grotesk', sans-serif; letter-spacing: 2.6px; text-transform: uppercase;
+      color: var(--marigold);
+    }
+    .q-head {
+      font: 700 clamp(40px, 6.6vw, 92px)/1.03 'Space Grotesk', sans-serif;
+      letter-spacing: -0.022em; color: var(--text-white); margin: 0 0 22px;
+    }
+    .q-head .grad-blue { display: inline-block; }
+    .headline { margin: 0; } /* reuse holi gradient via .headline .grad-blue */
+    .q-sub { font-size: clamp(16px, 1.9vw, 20px); line-height: 1.6; color: var(--text-grey); max-width: 640px; }
+    .q-sub strong { color: var(--text-white); }
+    .q-ghostnum {
+      position: absolute; top: 40px; right: 4vw; z-index: 0; pointer-events: none;
+      font: 700 clamp(120px, 22vw, 320px)/1 'Space Grotesk', sans-serif;
+      color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.05);
+    }
+
+    /* ── reveal system ── */
+    .q-rev { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+    .q-rev.on { opacity: 1; transform: none; }
+
+    /* ── HERO ── */
+    #hero-q {
+      height: 100svh; min-height: 660px; padding: 0 40px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero-in { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%; }
+    .hero-copy { max-width: 660px; }
+    #hx {
+      position: absolute; z-index: 2; pointer-events: none; opacity: 0;
+      transform: translate(-50%, -50%) scale(.5); transition: opacity .6s ease, transform .6s cubic-bezier(.34,1.56,.64,1);
+    }
+    #hx.on { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    #hx .hx-mark { font: 700 30px/1 'Space Grotesk', sans-serif; color: #ff3b30; text-shadow: 0 0 18px rgba(255,59,48,.8); text-align: center; }
+    #hx .hx-lbl {
+      margin-top: 8px; padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+      border: 1px solid rgba(255,59,48,.5); background: rgba(10,2,2,.75);
+      font: 600 10px/1 'JetBrains Mono', monospace; letter-spacing: 1.6px; color: #ff6b61;
+    }
+    .h-sub { margin-top: 6px; }
+    #liveWrap { margin-top: 42px; display: inline-flex; flex-direction: column; gap: 6px; }
+    #live {
+      display: inline-flex; align-items: baseline; gap: 14px; padding: 16px 22px; border-radius: 14px;
+      background: rgba(5,3,15,.55); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(6px);
+    }
+    #live .ldot {
+      width: 9px; height: 9px; border-radius: 50%; background: #ff3b30; align-self: center;
+      box-shadow: 0 0 10px rgba(255,59,48,.9); animation: lpulse 1.1s ease-in-out infinite;
+    }
+    @keyframes lpulse { 50% { opacity: .35; } }
+    #liveN {
+      font: 700 clamp(30px, 3.6vw, 44px)/1 'Space Grotesk', sans-serif; color: var(--text-white);
+      font-variant-numeric: tabular-nums; min-width: 4ch;
+    }
+    #live .llbl { font-size: 12.5px; color: var(--text-grey); max-width: 240px; line-height: 1.45; }
+    #live .llbl strong { color: var(--text-white); }
+    .lfoot { font: 600 11px/1.5 'JetBrains Mono', monospace; color: rgba(255,255,255,.35); letter-spacing: .06em; padding-left: 4px; }
+    .lfoot em { color: #ff6b61; font-style: normal; }
+    #scrollCue {
+      position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font: 700 10px/1 'Space Grotesk', sans-serif; letter-spacing: 2.4px; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    #scrollCue .chev { animation: chev 1.6s ease-in-out infinite; color: var(--marigold); font-size: 16px; }
+    @keyframes chev { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(7px); opacity: 1; } }
+
+    /* ── MAP section ── */
+    #market-q .inner { position: relative; z-index: 1; }
+    .map-showcase { position: relative; margin-top: 44px; width: 100%; }
+    #dotmap g { opacity: 0; transition: opacity .55s ease; }
+    #indiaDots { opacity: 0; transition: opacity 1s ease .9s; }
+    .cmarker { transform-box: fill-box; transform-origin: center; opacity: 0; transform: scale(.35); transition: opacity .5s cubic-bezier(.34,1.56,.64,1), transform .5s cubic-bezier(.34,1.56,.64,1); }
+    #g-legend { opacity: 0; transition: opacity .8s ease 1.9s; }
+    .map-on #dotmap g, .map-on #indiaDots, .map-on .cmarker, .map-on #g-legend { opacity: 1; }
+    .map-on .cmarker { transform: scale(1); }
+
+    /* ── stat placards ── */
+    .tz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 46px; }
+    .tz-card { padding: 32px; position: relative; }
+    .tz-title { font: 700 11px/1 'Space Grotesk', sans-serif; letter-spacing: 2.6px; text-transform: uppercase; color: var(--text-grey); margin-bottom: 16px; }
+    .tz-num { font: 700 clamp(40px, 5vw, 64px)/1 'Space Grotesk', sans-serif; color: var(--text-white); font-variant-numeric: tabular-nums; }
+    .tz-num.pink { color: var(--holi-magenta); }
+    .tz-num.green { color: #30d158; }
+    .tz-num.gold { color: var(--marigold); }
+    .tz-lbl { font-size: 14.5px; line-height: 1.6; color: var(--text-grey); margin-top: 14px; }
+    .tz-lbl strong { color: var(--text-white); }
+    #offNum.flick { animation: neonOff 2.4s steps(1) .3s 1 forwards; }
+    @keyframes neonOff {
+      0% { opacity: 1; } 8% { opacity: .2; } 12% { opacity: 1; } 20% { opacity: .15; }
+      26% { opacity: .9; } 34% { opacity: .1; } 42% { opacity: .8; } 55% { opacity: .12; }
+      70% { opacity: .55; } 100% { opacity: .28; }
+    }
+
+    /* ── 3D tilt + glare ── */
+    .tilt { transform-style: preserve-3d; will-change: transform; transition: transform .18s ease-out; overflow: hidden; }
+    .tilt::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.10), transparent 45%);
+    }
+    .tilt:hover::after { opacity: 1; }
+
+    /* ── proof checks ── */
+    .q-lines { display: flex; flex-direction: column; margin-top: 44px; max-width: 900px; }
+    .q-line {
+      display: grid; grid-template-columns: 46px 1fr; gap: 20px; align-items: center;
+      padding: 18px 0; border-bottom: 1px dashed rgba(255,183,77,.2);
+      font-size: clamp(15px, 1.9vw, 19px); line-height: 1.5; color: var(--text-silver);
+      opacity: 0; transform: translateX(-26px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .q-line.on { opacity: 1; transform: none; }
+    .q-line:last-of-type { border-bottom: none; }
+    .q-line strong { color: var(--text-white); }
+    .q-check-svg { width: 34px; height: 34px; }
+    .q-check-svg circle { stroke: rgba(48,209,88,.45); stroke-dasharray: 88; stroke-dashoffset: 88; transition: stroke-dashoffset .7s ease .15s; }
+    .q-check-svg path { stroke: #30d158; stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .45s ease .75s; }
+    .q-line.on .q-check-svg circle, .q-line.on .q-check-svg path { stroke-dashoffset: 0; }
+
+    /* ── ask ── */
+    #ask-q { padding-bottom: 130px; }
+    .ask-fig-wrap { margin: 10px 0 6px; }
+    .ask-fig {
+      font: 700 clamp(72px, 13vw, 170px)/1 'Space Grotesk', sans-serif; letter-spacing: -0.03em;
+    }
+    .ask-under { font: 600 13px/1.6 'JetBrains Mono', monospace; letter-spacing: 2px; color: var(--text-grey); text-transform: uppercase; }
+    .tz-ask {
+      margin-top: 46px; padding: 30px 34px; border-radius: 16px; position: relative;
+      background: rgba(5,3,15,.5); border: 1px solid rgba(255,215,0,.35);
+      display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between;
+    }
+    .tz-ask::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 16px; padding: 1px; pointer-events: none;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,215,0,.75) 42%, rgba(255,0,110,.6) 52%, transparent 75%) 0 0/250% 100%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: borderSweep 3.4s linear infinite;
+    }
+    @keyframes borderSweep { to { background-position: 250% 0; } }
+    .ask-line { font: 800 clamp(17px, 2.2vw, 24px)/1.35 'Space Grotesk', sans-serif; color: var(--text-white); max-width: 380px; }
+    .ask-line span { color: var(--text-grey); display: block; font: 500 13px/1.6 Inter, sans-serif; margin-top: 6px; }
+    .tz-cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn.primary { position: relative; will-change: transform; }
+    .btn.primary::after {
+      content: ''; position: absolute; inset: -3px; border-radius: 100px; z-index: -1;
+      background: linear-gradient(135deg, #ff9933, #ffd700); filter: blur(14px); opacity: .55;
+      animation: ctaGlow 2.2s ease-in-out infinite;
+    }
+    @keyframes ctaGlow { 50% { opacity: .95; } }
+    .q-more { margin-top: 26px; font-size: 13px; color: var(--text-grey); }
+    .q-more a { color: var(--marigold); text-decoration: none; border-bottom: 1px dashed rgba(255,183,77,.5); }
+    .hconf { margin-top: 24px; }
+
+    /* ── grain + vignette ── */
+    #grain {
+      position: fixed; inset: 0; z-index: 10000; pointer-events: none; opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    #vig { position: fixed; inset: 0; z-index: 9999; pointer-events: none; background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+
+    @media (max-width: 860px) {
+      .sec { padding: 72px 22px; }
+      #hero-q { padding: 0 22px; }
+      .tz-grid { grid-template-columns: 1fr; }
+      .q-ghostnum { display: none; }
+      #live .llbl { max-width: 170px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .q-rev, .q-line, .cmarker, #dotmap g, #indiaDots, #g-legend { transition: none !important; opacity: 1 !important; transform: none !important; }
+      #boot { display: none; }
+      .tz-ask::before, .btn.primary::after, #scrollCue .chev, #live .ldot { animation: none; }
+      #offNum.flick { animation: none; opacity: .3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- boot -->
+  <div id="boot" aria-hidden="true">
+    <div>
+      <div class="bline">&gt; navixar.perception v0.1 ........ ONLINE</div>
+      <div class="bline">&gt; scanning for autonomous vehicles in India ........ 0 FOUND</div>
+      <div class="bline bcaret">&gt; playing the 60-second pitch </div>
+    </div>
+  </div>
+
+  <div id="road"><div id="roadFill"><div id="roadCar"></div></div></div>
+  <div id="grain"></div><div id="vig"></div>
+
+  <header id="tb">
+    <span class="logo" data-scan="FOUNDER SIGNAL · LOCKED">Navixar</span>
+    <a class="q-full" href="index.html" data-scan="FULL PITCH · 15 CHAPTERS">Full pitch →</a>
+  </header>
+
+  <main>
+    <!-- ═══ 0 · HERO ═══ -->
+    <section class="sec" id="hero-q">
+      <canvas id="heroCanvas"></canvas>
+      <div id="hx"><div class="hx-mark">✕</div><div class="hx-lbl">0 AUTONOMOUS DEPLOYMENTS</div></div>
+      <div class="hero-in">
+        <div class="hero-copy">
+          <div class="q-kick q-rev">Pre-Seed · Closing Q4 2026 · The 60-Second Cut</div>
+          <h1 class="q-head headline" data-scan="MARKET GAP · CLASS: ONCE A DECADE">
+            <span id="scr1">Every Robotaxi Company</span><br>
+            <span id="scr2">In The World</span><br>
+            <span class="grad-blue" id="scr3">Skipped India.</span>
+          </h1>
+          <div class="q-sub h-sub q-rev">
+            <strong>$21B+</strong> deployed across the US, Europe, Japan, and China.
+            Then the money stopped at one border. <strong>Navixar is what happens next.</strong>
+          </div>
+          <div id="liveWrap" class="q-rev">
+            <div id="live" data-scan="DEMAND · STREAMING LIVE">
+              <span class="ldot"></span>
+              <span id="liveN">0</span>
+              <span class="llbl">taxi rides taken in India <strong>since you opened this page</strong></span>
+            </div>
+            <span class="lfoot">3M+ every single day · autonomous share: <em>zero</em></span>
+          </div>
+        </div>
+      </div>
+      <div id="scrollCue"><span>Your 60 seconds start now</span><span class="chev">▼</span></div>
+    </section>
+
+    <!-- ═══ 1 · THE RACE ═══ -->
+    <section class="sec" id="market-q">
+      <div class="q-ghostnum">01</div>
+      <div class="inner">
+        <div class="q-kick q-rev">01 · The Race</div>
+        <h2 class="q-head headline q-rev"><span data-count="21.4" data-prefix="$" data-suffix="B" data-decimals="1" class="cnum">$0.0B</span> Raised.<br><span class="grad-blue">₹0 In India.</span></h2>
+        <div class="q-sub q-rev">Hover the markers. Every one of them said no to 1.4 billion people.</div>
+
+        <div class="map-showcase q-rev" id="mapWrap" data-scan="COMPETITOR SCAN · 4 CONTINENTS · 0 IN INDIA">
+          <svg id="worldmap" viewBox="0 0 1010 545" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="mg" cx="50%" cy="50%" r="65%">
+                <stop offset="0%" stop-color="#0b0b0f" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#020204" stop-opacity="1"/>
+              </radialGradient>
+              <filter id="india-glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="1010" height="545" fill="url(#mg)" rx="16"/>
+            <g id="dotmap"></g>
+            <g id="indiaDots" filter="url(#india-glow)"></g>
+            <g id="g-usa" class="cmarker" data-card="card-usa">
+              <circle cx="127" cy="340" r="26" class="ring" stroke="#ff9933"/>
+              <circle cx="127" cy="340" r="26" fill="rgba(255, 153, 51, 0.12)"/>
+              <circle cx="127" cy="340" r="9" class="dot" fill="#ff9933"/>
+              <circle cx="127" cy="340" r="4.5" fill="#fff" opacity=".9"/>
+              <circle cx="127" cy="340" r="26" fill="none" stroke="#ff9933" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="26;42;26" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <g id="g-ca" class="cmarker" data-card="card-ca">
+              <circle cx="249" cy="318" r="15" class="ring" stroke="#ffb300"/>
+              <circle cx="249" cy="318" r="15" fill="rgba(255, 179, 0, 0.1)"/>
+              <circle cx="249" cy="318" r="6.5" class="dot" fill="#ffb300"/>
+              <circle cx="249" cy="318" r="3.2" fill="#fff" opacity=".9"/>
+              <circle cx="249" cy="318" r="15" fill="none" stroke="#ffb300" stroke-width=".8" opacity=".35">
+                <animate attributeName="r" values="15;25;15" dur="2.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".35;0;.35" dur="2.8s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <g id="g-uk" class="cmarker" data-card="card-uk">
+              <circle cx="474" cy="289" r="20" class="ring" stroke="#138808"/>
+              <circle cx="474" cy="289" r="20" fill="rgba(19, 136, 8, 0.12)"/>
+              <circle cx="474" cy="289" r="8" class="dot" fill="#138808"/>
+              <circle cx="474" cy="289" r="4" fill="#fff" opacity=".9"/>
+              <circle cx="474" cy="289" r="20" fill="none" stroke="#138808" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="20;34;20" dur="2.3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.3s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <g id="g-cn" class="cmarker" data-card="card-cn">
+              <circle cx="804" cy="332" r="28" class="ring" stroke="#e91e63"/>
+              <circle cx="804" cy="332" r="28" fill="rgba(233, 30, 99, 0.1)"/>
+              <circle cx="804" cy="332" r="11" class="dot" fill="#e91e63"/>
+              <circle cx="804" cy="332" r="5.5" fill="#fff" opacity=".9"/>
+              <circle cx="804" cy="332" r="28" fill="none" stroke="#e91e63" stroke-width=".8" opacity=".4">
+                <animate attributeName="r" values="28;46;28" dur="2.2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".4;0;.4" dur="2.2s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <g id="g-jp" class="cmarker" data-card="card-jp">
+              <circle cx="870" cy="347" r="18" class="ring" stroke="#00bcd4"/>
+              <circle cx="870" cy="347" r="18" fill="rgba(0, 188, 212, 0.1)"/>
+              <circle cx="870" cy="347" r="7.5" class="dot" fill="#00bcd4"/>
+              <circle cx="870" cy="347" r="3.8" fill="#fff" opacity=".9"/>
+              <circle cx="870" cy="347" r="18" fill="none" stroke="#00bcd4" stroke-width=".8" opacity=".35">
+                <animate attributeName="r" values="18;30;18" dur="2.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".35;0;.35" dur="2.6s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <g id="g-in" class="cmarker" data-card="card-in">
+              <circle cx="698" cy="396" r="17" fill="rgba(255,59,48,0.12)" stroke="rgba(255,59,48,0.5)" stroke-width="1.5"/>
+              <circle cx="698" cy="396" r="17" fill="none" stroke="#ff3b30" stroke-width=".8" opacity=".5">
+                <animate attributeName="r" values="17;29;17" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".5;0;.5" dur="1.8s" repeatCount="indefinite"/>
+              </circle>
+              <line x1="690.5" y1="388.5" x2="705.5" y2="403.5" stroke="#ff3b30" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="705.5" y1="388.5" x2="690.5" y2="403.5" stroke="#ff3b30" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <g id="g-legend" transform="translate(24,505)">
+              <circle cx="8"   cy="8" r="6" fill="rgba(255, 153, 51, 0.3)"  stroke="#ff9933"  stroke-width="1"/>
+              <text x="18"  y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">USA / Canada</text>
+              <circle cx="108" cy="8" r="6" fill="rgba(19, 136, 8, 0.3)"  stroke="#138808"  stroke-width="1"/>
+              <text x="118" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">UK / Europe</text>
+              <circle cx="208" cy="8" r="6" fill="rgba(233, 30, 99, 0.3)"   stroke="#e91e63"  stroke-width="1"/>
+              <text x="218" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">China</text>
+              <circle cx="268" cy="8" r="6" fill="rgba(0, 188, 212, 0.3)"   stroke="#00bcd4"  stroke-width="1"/>
+              <text x="278" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">Japan</text>
+              <circle cx="322" cy="8" r="6" fill="rgba(255, 59, 48, 0.3)"   stroke="#ff3b30"  stroke-width="1"/>
+              <text x="332" y="12" fill="#86868b" font-family="Inter,sans-serif" font-size="9" font-weight="600">India: The Gap</text>
+            </g>
+          </svg>
+
+          <div class="ccard" id="card-usa" style="left:5%;top:30%">
+            <div class="ccard-flag">USA / Canada</div>
+            <div class="ccard-co">Waymo (Alphabet)</div>
+            <div class="ccard-raise">$160B+ Valuation</div>
+            <div class="ccard-desc">3,000+ vehicles, ~500K paid rides/week across 10 US cities. Zero India presence.</div>
+            <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:10px;padding-top:10px">
+              <div class="ccard-co" style="font-size:12px">Zoox (Amazon)</div>
+              <div class="ccard-raise" style="font-size:12px">$1.4B raised · production-intent robotaxi</div>
+            </div>
+          </div>
+          <div class="ccard" id="card-ca" style="left:12%;top:10%">
+            <div class="ccard-flag">Canada</div>
+            <div class="ccard-co">Waabi</div>
+            <div class="ccard-raise">$750M · Uber-backed</div>
+            <div class="ccard-desc">Canadian-founded, US-focused. North American highway AV. No Asia operations.</div>
+          </div>
+          <div class="ccard" id="card-uk" style="left:36%;top:8%">
+            <div class="ccard-flag">UK / Europe</div>
+            <div class="ccard-co">Wayve</div>
+            <div class="ccard-raise">$1.3B · NVIDIA &amp; Microsoft</div>
+            <div class="ccard-desc">Embodied AI approach. UK-focused testing. Emerging market expansion not on roadmap.</div>
+          </div>
+          <div class="ccard" id="card-cn" style="right:8%;top:10%">
+            <div class="ccard-flag">China</div>
+            <div class="ccard-co">Baidu Apollo</div>
+            <div class="ccard-raise">$1.8B · 17M rides</div>
+            <div class="ccard-desc">China-specific. Structured road assumptions. No India presence.</div>
+            <div style="border-top:1px solid rgba(255,255,255,.08);margin:8px 0;"></div>
+            <div class="ccard-co" style="font-size:12px">WeRide &nbsp;·&nbsp; $1.44B Nasdaq</div>
+            <div class="ccard-co" style="font-size:12px;margin-top:4px">Momenta &nbsp;·&nbsp; $1.5B GM/Benz</div>
+            <div class="ccard-co" style="font-size:12px;margin-top:4px">Pony.ai &nbsp;·&nbsp; $1.22B Nasdaq</div>
+          </div>
+          <div class="ccard" id="card-jp" style="right:3%;top:48%">
+            <div class="ccard-flag">Japan</div>
+            <div class="ccard-co">Tier IV</div>
+            <div class="ccard-raise">$243M raised · Toyota-backed</div>
+            <div class="ccard-desc">Creator of Autoware, the open-source AV OS used by 100+ companies. Japan targets Level 4 services in 100 locations by fiscal 2027. No India presence.</div>
+          </div>
+          <div class="ccard india-card" id="card-in" style="left:48%;top:42%">
+            <div class="ccard-flag">India</div>
+            <div class="ccard-co">No Credible AV Player</div>
+            <div class="ccard-raise">₹0 Deployed</div>
+            <div class="ccard-desc">3M+ rides/day. Zero autonomous deployments. This is the gap Navixar was built to close.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 2 · WHY ═══ -->
+    <section class="sec" id="why-q">
+      <div class="q-ghostnum">02</div>
+      <div class="inner">
+        <div class="q-kick q-rev">02 · Why</div>
+        <h2 class="q-head headline q-rev">India Wasn't Skipped<br><span class="grad-blue">By Accident.</span></h2>
+        <div class="tz-grid">
+          <div class="glass-card tz-card tilt q-rev" data-scan="BLIND SPOT · CONF 0.99">
+            <div class="tz-title">Data</div>
+            <div class="tz-num pink"><span data-count="99" data-suffix="%" class="cnum">0%</span></div>
+            <div class="tz-lbl">of AV training data is Western. <strong>None of it looks like India.</strong></div>
+          </div>
+          <div class="glass-card tz-card tilt q-rev" data-scan="VALIDATION VOID · CONF 1.00">
+            <div class="tz-title">Simulator</div>
+            <div class="tz-num gold">0</div>
+            <div class="tz-lbl">simulators can validate a vehicle for Indian traffic. <strong>No validation, no deployment.</strong></div>
+          </div>
+          <div class="glass-card tz-card tilt q-rev" data-scan="ADAS STATUS · DISABLED">
+            <div class="tz-title">Default ADAS Mode</div>
+            <div class="tz-num pink" id="offNum">Off</div>
+            <div class="tz-lbl">ADAS built for structured roads gets <strong>detuned or disabled</strong> in India.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3 · THE PLAN ═══ -->
+    <section class="sec" id="plan-q">
+      <div class="q-ghostnum">03</div>
+      <div class="inner">
+        <div class="q-kick q-rev">03 · The Plan</div>
+        <h2 class="q-head headline q-rev"><span class="grad-blue">Collect. Validate. Deploy.</span></h2>
+        <div class="tz-grid">
+          <div class="glass-card tz-card tilt q-rev" data-scan="DATA ENGINE · ARMED">
+            <div class="tz-title">Data</div>
+            <div class="tz-num green">Collect</div>
+            <div class="tz-lbl">Drones, dashcams, and <strong>a game where players drive in Indian traffic for fun.</strong></div>
+          </div>
+          <div class="glass-card tz-card tilt q-rev" data-scan="SIM ENGINE · ARMED">
+            <div class="tz-title">Simulator</div>
+            <div class="tz-num green">Validate</div>
+            <div class="tz-lbl">Photoreal 3D copies of real Indian streets. <strong>Millions of test drives before one real one.</strong></div>
+          </div>
+          <div class="glass-card tz-card tilt q-rev" data-scan="REVENUE LADDER · ARMED">
+            <div class="tz-title">Revenue Ladder</div>
+            <div class="tz-num green">Deploy</div>
+            <div class="tz-lbl">Ports and logistics yards first, OEM licensing next, <strong>robotaxis as the prize.</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 4 · PROOF ═══ -->
+    <section class="sec" id="proof-q">
+      <div class="q-ghostnum">04</div>
+      <div class="inner">
+        <div class="q-kick q-rev">04 · Why It Works</div>
+        <h2 class="q-head headline q-rev">Proven Elsewhere.<br><span class="grad-blue">Unclaimed Here.</span></h2>
+        <div class="q-lines">
+          <div class="q-line"><svg class="q-check-svg" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke-width="2"/><path d="M11 17.5l4 4 8-9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Algorithms are commoditizing. <strong>Indian data and validation are not.</strong></span></div>
+          <div class="q-line"><svg class="q-check-svg" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke-width="2"/><path d="M11 17.5l4 4 8-9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Country-scale data for <strong>under $1M</strong>, not Waymo's $20M+ per city.</span></div>
+          <div class="q-line"><svg class="q-check-svg" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke-width="2"/><path d="M11 17.5l4 4 8-9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Revenue starts on private land, <strong>years before robotaxis.</strong> India is short 2.2M truck drivers.</span></div>
+          <div class="q-line"><svg class="q-check-svg" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke-width="2"/><path d="M11 17.5l4 4 8-9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Momenta just IPO'd at $9B</strong> on this exact playbook. India's seat is empty.</span></div>
+          <div class="q-line"><svg class="q-check-svg" viewBox="0 0 34 34"><circle cx="17" cy="17" r="14" fill="none" stroke-width="2"/><path d="M11 17.5l4 4 8-9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Founder: <strong>7 years</strong> building data and simulation for India's own OEMs.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 5 · THE ASK ═══ -->
+    <section class="sec" id="ask-q">
+      <div class="q-ghostnum">05</div>
+      <div class="inner">
+        <div class="q-kick q-rev">05 · The Ask</div>
+        <div class="ask-fig-wrap q-rev headline" data-scan="ENTRY TICKET · THE TABLE">
+          <div class="ask-fig"><span class="grad-blue">₹27 Cr</span></div>
+          <div class="ask-under">$3.2M · Pre-Seed · SAFE · Closing Q4 2026</div>
+        </div>
+        <div class="tz-ask q-rev">
+          <div class="ask-line">One pre-seed buys the empty seat at a table the world already priced.<span>Momenta $9B · Wayve $8.5B · Waymo $160B+ · India: unclaimed</span></div>
+          <div class="tz-cta-row">
+            <a class="btn primary" id="ctaMain" href="index.html" data-scan="NEXT ACTION · P=0.99">Explore the interactive deep-dive →</a>
+            <a class="btn ghost" href="mailto:munish02@gmail.com?subject=Navixar%20Pre-Seed%3A%20Send%20me%20the%20full%20pitch" data-scan="DIRECT LINE · FOUNDER">Get the full pitch</a>
+          </div>
+        </div>
+        <div class="q-more q-rev">Have three minutes? <a href="teaser.html">Read the slightly longer version</a></div>
+        <div class="hconf q-rev">Munish Raj · Founder &amp; CEO · munish02@gmail.com · Strictly Confidential</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/mapdots.js?v=20260712"></script>
+  <script>
+  (function () {
+    'use strict';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    const mobile = window.matchMedia('(max-width: 860px)').matches;
+
+    /* ═══ BOOT ═══ */
+    const boot = document.getElementById('boot');
+    if (reduce) { boot.remove(); }
+    else {
+      const lines = boot.querySelectorAll('.bline');
+      lines.forEach((l, i) => setTimeout(() => l.classList.add('on'), 150 + i * 380));
+      const kill = () => { boot.classList.add('gone'); setTimeout(() => boot.remove(), 600); };
+      setTimeout(kill, 1650);
+      boot.addEventListener('click', kill);
+    }
+
+    /* ═══ REVEALS ═══ */
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    }), { threshold: 0.18 });
+    document.querySelectorAll('.q-rev').forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 90 + 'ms';
+      io.observe(el);
+    });
+    // proof lines: stagger within the group
+    const lio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const ls = [...document.querySelectorAll('.q-line')];
+      ls.forEach((l, i) => setTimeout(() => l.classList.add('on'), i * 180));
+      lio.disconnect();
+    }), { threshold: 0.25 });
+    const firstLine = document.querySelector('.q-line');
+    if (firstLine) lio.observe(firstLine);
+    // OFF flicker
+    const offN = document.getElementById('offNum');
+    const oio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { offN.classList.add('flick'); oio.disconnect(); }
+    }), { threshold: 0.6 });
+    if (offN) oio.observe(offN);
+
+    /* ═══ COUNT-UPS ═══ */
+    document.querySelectorAll('.cnum').forEach(el => {
+      const end = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0);
+      const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      const cio = new IntersectionObserver(es => es.forEach(e => {
+        if (!e.isIntersecting) return; cio.disconnect();
+        if (reduce) { el.textContent = pre + end.toFixed(dec) + suf; return; }
+        const t0 = performance.now(), dur = 1600;
+        (function tick(t) {
+          const p = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = pre + (end * ease).toFixed(dec) + suf;
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }), { threshold: 0.6 });
+      cio.observe(el);
+    });
+
+    /* ═══ SCRAMBLE HEADLINE ═══ */
+    const CHARS = '▪▫◧◨01ADXZ$#';
+    function scramble(el, delay) {
+      const fin = el.textContent;
+      if (reduce) return;
+      el.textContent = '';
+      el.style.opacity = 1;
+      setTimeout(() => {
+        const t0 = performance.now(), dur = 900;
+        (function tick(t) {
+          const p = Math.min(1, (t - t0) / dur);
+          const solved = Math.floor(fin.length * p);
+          let out = fin.slice(0, solved);
+          for (let i = solved; i < fin.length; i++) {
+            out += fin[i] === ' ' ? ' ' : CHARS[(Math.random() * CHARS.length) | 0];
+          }
+          el.textContent = out;
+          if (p < 1) requestAnimationFrame(tick); else el.textContent = fin;
+        })(t0);
+      }, delay);
+    }
+    scramble(document.getElementById('scr1'), 350);
+    scramble(document.getElementById('scr2'), 750);
+    scramble(document.getElementById('scr3'), 1150);
+
+    /* ═══ LIVE RIDE COUNTER ═══ */
+    const RATE = 3000000 / 86400; // 3M+ rides per day
+    const t0 = performance.now();
+    const liveN = document.getElementById('liveN');
+    setInterval(() => {
+      const n = Math.floor((performance.now() - t0) / 1000 * RATE);
+      liveN.textContent = n.toLocaleString('en-IN');
+    }, 120);
+
+    /* ═══ PROGRESS ROAD ═══ */
+    const fill = document.getElementById('roadFill');
+    let ticking = false;
+    function road() {
+      const h = document.documentElement;
+      const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+      fill.style.width = (p * 100).toFixed(2) + '%';
+      ticking = false;
+    }
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(road); } }, { passive: true });
+    road();
+
+    /* ═══ WORLD MAP: build + sweep ═══ */
+    (function () {
+      const landG = document.getElementById('dotmap');
+      const indiaG = document.getElementById('indiaDots');
+      if (!landG || typeof MAP_DOTS === 'undefined') return;
+      const NS = 'http://www.w3.org/2000/svg';
+      const { cols, rows, cell, land, india } = MAP_DOTS;
+      const hexw = Math.ceil(cols / 4);
+      const colG = [];
+      for (let c = 0; c < cols; c++) {
+        const g = document.createElementNS(NS, 'g');
+        g.style.transitionDelay = (c * 9) + 'ms';
+        landG.appendChild(g); colG.push(g);
+      }
+      function rowBits(hex, r) { return BigInt('0x' + hex.substr(r * hexw, hexw)); }
+      for (let r = 0; r < rows; r++) {
+        const lb = rowBits(land, r), ib = rowBits(india, r);
+        const cy = ((r + 0.5) * cell).toFixed(1);
+        for (let c = 0; c < cols; c++) {
+          const isIn = (ib >> BigInt(c)) & 1n, isLa = (lb >> BigInt(c)) & 1n;
+          if (!isIn && !isLa) continue;
+          const d = document.createElementNS(NS, 'circle');
+          d.setAttribute('cx', ((c + 0.5) * cell).toFixed(1));
+          d.setAttribute('cy', cy);
+          d.setAttribute('r', isIn ? '2.5' : '1.7');
+          (isIn ? indiaG : colG[c]).appendChild(d);
+        }
+      }
+      // marker pop order after sweep
+      ['g-usa', 'g-ca', 'g-uk', 'g-cn', 'g-jp', 'g-in'].forEach((id, i) => {
+        const m = document.getElementById(id);
+        if (m) m.style.transitionDelay = (1500 + i * 260) + 'ms';
+      });
+      const mw = document.getElementById('mapWrap');
+      const mio = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { mw.classList.add('map-on'); mio.disconnect(); }
+      }), { threshold: 0.3 });
+      mio.observe(mw);
+      // hover cards
+      const cards = document.querySelectorAll('.ccard');
+      const hide = () => cards.forEach(c => c.classList.remove('show'));
+      document.querySelectorAll('.cmarker').forEach(m => {
+        const card = document.getElementById(m.getAttribute('data-card'));
+        if (!card) return;
+        m.addEventListener('mouseenter', () => { hide(); card.classList.add('show'); });
+        m.addEventListener('mouseleave', () => card.classList.remove('show'));
+        m.addEventListener('click', e => { e.stopPropagation(); hide(); card.classList.add('show'); });
+      });
+      indiaG.addEventListener('mouseenter', () => { hide(); document.getElementById('card-in').classList.add('show'); });
+      indiaG.addEventListener('mouseleave', hide);
+      document.addEventListener('click', e => { if (!e.target.closest('.cmarker') && !e.target.closest('.ccard')) hide(); });
+    })();
+
+    /* ═══ HERO: INDIA POINT-CLOUD ═══ */
+    (function () {
+      const cv = document.getElementById('heroCanvas');
+      if (!cv || typeof MAP_DOTS === 'undefined') return;
+      const ctx = cv.getContext('2d');
+      const DPR = Math.min(devicePixelRatio || 1, 2);
+      let W = 0, H = 0, parts = [], dust = [], cxq = 0, cyq = 0, spanq = 0;
+      const mouse = { x: -9999, y: -9999 };
+
+      // decode india cells once
+      const { cols, rows, india } = MAP_DOTS;
+      const hexw = Math.ceil(cols / 4);
+      const cells = [];
+      for (let r = 0; r < rows; r++) {
+        const ib = BigInt('0x' + india.substr(r * hexw, hexw));
+        for (let c = 0; c < cols; c++) if ((ib >> BigInt(c)) & 1n) cells.push([c, r]);
+      }
+      let minC = 1e9, maxC = -1e9, minR = 1e9, maxR = -1e9;
+      cells.forEach(([c, r]) => { minC = Math.min(minC, c); maxC = Math.max(maxC, c); minR = Math.min(minR, r); maxR = Math.max(maxR, r); });
+      const gw = maxC - minC + 1, gh = maxR - minR + 1;
+
+      // glow sprites
+      function sprite(color) {
+        const s = document.createElement('canvas'); s.width = s.height = 22;
+        const g = s.getContext('2d');
+        const rg = g.createRadialGradient(11, 11, 0, 11, 11, 11);
+        rg.addColorStop(0, color); rg.addColorStop(.35, color + 'cc'); rg.addColorStop(1, color + '00');
+        g.fillStyle = rg; g.fillRect(0, 0, 22, 22);
+        return s;
+      }
+      const SPR = [sprite('#ff9933'), sprite('#ffd700'), sprite('#2997ff'), sprite('#ff9933')];
+
+      function layout() {
+        W = cv.clientWidth; H = cv.clientHeight;
+        cv.width = W * DPR; cv.height = H * DPR;
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        // india region: right side on desktop, centered dim on mobile
+        const span = mobile ? Math.min(W, H) * 0.72 : Math.min(W * 0.42, H * 0.8);
+        const ox = mobile ? W / 2 : W * 0.73;
+        const oy = H * (mobile ? 0.44 : 0.5);
+        const sc = span / Math.max(gw, gh);
+        const per = mobile ? 6 : 13;
+        parts = [];
+        cells.forEach(([c, r]) => {
+          for (let i = 0; i < per; i++) {
+            const jx = (Math.random() + Math.random() - 1) * 0.62;
+            const jy = (Math.random() + Math.random() - 1) * 0.62;
+            const tx = ox + (c - minC - gw / 2 + 0.5 + jx) * sc;
+            const ty = oy + (r - minR - gh / 2 + 0.5 + jy) * sc;
+            parts.push({
+              tx, ty,
+              x: Math.random() * W, y: Math.random() * H,
+              vx: 0, vy: 0,
+              d: 400 + Math.random() * 1100,          // assemble delay ms
+              s: SPR[(Math.random() * SPR.length) | 0],
+              r: 4 + Math.random() * 7,               // sprite draw size
+              tw: Math.random() * Math.PI * 2         // twinkle phase
+            });
+          }
+        });
+        dust = [];
+        const nd = mobile ? 40 : 110;
+        for (let i = 0; i < nd; i++) dust.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12,
+          a: .04 + Math.random() * .10, r: 1 + Math.random() * 2
+        });
+        cxq = ox; cyq = oy; spanq = span;
+        // place the ✕ marker at the constellation center
+        const hx = document.getElementById('hx');
+        hx.style.left = ox + 'px'; hx.style.top = oy + 'px';
+      }
+      layout();
+      addEventListener('resize', layout);
+
+      if (fine) addEventListener('pointermove', e => {
+        const b = cv.getBoundingClientRect();
+        mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top;
+      });
+
+      const start = performance.now();
+      let ringT = 2600; // first lidar sweep
+      setTimeout(() => document.getElementById('hx').classList.add('on'), 2300);
+
+      if (reduce) {
+        // static final frame
+        parts.forEach(p => { p.x = p.tx; p.y = p.ty; });
+        ctx.clearRect(0, 0, W, H);
+        parts.forEach(p => ctx.drawImage(p.s, p.x - p.r / 2, p.y - p.r / 2, p.r, p.r));
+        document.getElementById('hx').classList.add('on');
+        return;
+      }
+
+      let heroH = innerHeight;
+      function frame(now) {
+        const el = now - start;
+        const scr = Math.min(1.4, scrollY / heroH);      // scatter as hero leaves
+        ctx.clearRect(0, 0, W, H);
+
+        // dust
+        ctx.fillStyle = '#ffffff';
+        dust.forEach(d => {
+          d.x += d.vx; d.y += d.vy;
+          if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+          if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+          ctx.globalAlpha = d.a;
+          ctx.fillRect(d.x, d.y, d.r, d.r);
+        });
+        ctx.globalAlpha = 1;
+
+        // lidar ring
+        ringT += 16.7;
+        const ringP = (ringT % 4500) / 4500;
+        const ringR = ringP * spanq * 0.9;
+
+        for (let i = 0; i < parts.length; i++) {
+          const p = parts[i];
+          if (el > p.d) {
+            // spring to target
+            p.vx += (p.tx - p.x) * 0.016; p.vy += (p.ty - p.y) * 0.016;
+          } else {
+            p.vx += (Math.random() - .5) * .3; p.vy += (Math.random() - .5) * .3;
+          }
+          // cursor repulsion
+          if (fine) {
+            const dx = p.x - mouse.x, dy = p.y - mouse.y, dq = dx * dx + dy * dy;
+            if (dq < 8100 && dq > 1) { const f = 90 / Math.sqrt(dq) * 0.35; p.vx += dx * f * 0.02; p.vy += dy * f * 0.02; }
+          }
+          // scroll scatter
+          if (scr > 0.02) {
+            const dx = p.x - cxq, dy = p.y - cyq;
+            p.vx += dx * 0.0016 * scr; p.vy += dy * 0.0016 * scr - 0.02 * scr;
+          }
+          p.vx *= 0.90; p.vy *= 0.90;
+          p.x += p.vx; p.y += p.vy;
+
+          // brightness: twinkle + lidar boost
+          let a = 0.55 + 0.35 * Math.sin(now * 0.002 + p.tw);
+          const dr = Math.abs(Math.hypot(p.x - cxq, p.y - cyq) - ringR);
+          if (dr < 26) a = Math.min(1, a + (1 - dr / 26) * 0.9);
+          ctx.globalAlpha = Math.max(0, a * (1 - scr * 0.6));
+          ctx.drawImage(p.s, p.x - p.r / 2, p.y - p.r / 2, p.r, p.r);
+        }
+        ctx.globalAlpha = 1;
+
+        // faint ring stroke
+        if (ringP < 0.96) {
+          ctx.beginPath();
+          ctx.arc(cxq, cyq, ringR, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(41,151,255,' + (0.28 * (1 - ringP)) + ')';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+
+    /* ═══ TILT CARDS ═══ */
+    if (fine && !reduce) document.querySelectorAll('.tilt').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const b = card.getBoundingClientRect();
+        const px = (e.clientX - b.left) / b.width, py = (e.clientY - b.top) / b.height;
+        card.style.transform = 'perspective(900px) rotateX(' + ((0.5 - py) * 8).toFixed(2) + 'deg) rotateY(' + ((px - 0.5) * 10).toFixed(2) + 'deg) translateY(-4px)';
+        card.style.setProperty('--gx', (px * 100) + '%');
+        card.style.setProperty('--gy', (py * 100) + '%');
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+
+    /* ═══ MAGNETIC CTA ═══ */
+    const cta = document.getElementById('ctaMain');
+    if (cta && fine && !reduce) {
+      cta.addEventListener('pointermove', e => {
+        const b = cta.getBoundingClientRect();
+        const dx = e.clientX - (b.left + b.width / 2), dy = e.clientY - (b.top + b.height / 2);
+        cta.style.transform = 'translate(' + dx * 0.18 + 'px,' + (dy * 0.24 - 2) + 'px)';
+      });
+      cta.addEventListener('pointerleave', () => { cta.style.transform = ''; });
+    }
+
+    /* Perception reticle removed: laggy and blocked interaction. */
+  })();
+  </script>
+</body>
+</html>

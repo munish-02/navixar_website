@@ -53,7 +53,7 @@
       unlocked = true;
       setTimeout(assemblePillars, 100);
       quizGrid.querySelectorAll('.quiz-opt[data-correct="true"]').forEach(o => o.classList.add('locked-in'));
-      if (statusText) statusText.textContent = 'Already solved — Data and Validation. Scroll on.';
+      if (statusText) statusText.textContent = 'Already solved: Data and Validation. Scroll on.';
       qpDots.forEach(d => d && d.classList.add('lit'));
     }
 
@@ -75,7 +75,7 @@
           if (!rm) miniBurst(r.left + r.width / 2, r.top + r.height / 2);
 
           if (correctCount >= 2) {
-            if (statusText) statusText.innerHTML = '<strong>Exactly. Data and Validation.</strong> The tech is table stakes — the moat is Indian. Loading our thesis…';
+            if (statusText) statusText.innerHTML = '<strong>Exactly. Data and Validation.</strong> The tech is table stakes. The advantage is Indian. Loading our thesis…';
             document.getElementById('whynot').classList.add('solved');
             unlockThesis(true, true);
           } else {
@@ -84,7 +84,7 @@
         } else {
           opt.classList.add('wrong', 'cooling');
           if (verdict) verdict.textContent = '✕ ' + why;
-          if (statusText) statusText.textContent = 'Not quite — that one is getting easier every year.';
+          if (statusText) statusText.textContent = 'Not quite. That one is getting easier every year.';
           setTimeout(() => { opt.classList.remove('wrong'); }, 2600);
           setTimeout(() => { opt.classList.remove('cooling'); const v = opt.querySelector('.qo-verdict'); if (v) v.textContent = ''; }, 4000);
         }
@@ -302,8 +302,8 @@
       if (verdict) {
         if (pickedIdx === null) verdict.textContent = '';
         else if (pickedIdx === ai) { verdict.textContent = 'Spot on. That\'s the plan.'; verdict.className = 'tg-verdict hit'; spotOn++; }
-        else if (pickedIdx > ai) { verdict.textContent = `Faster than you guessed — ${actual}.`; verdict.className = 'tg-verdict fast'; }
-        else { verdict.textContent = `Love the ambition — plan says ${actual}.`; verdict.className = 'tg-verdict slow'; }
+        else if (pickedIdx > ai) { verdict.textContent = `Faster than you guessed: ${actual}.`; verdict.className = 'tg-verdict fast'; }
+        else { verdict.textContent = `Love the ambition. The plan says ${actual}.`; verdict.className = 'tg-verdict slow'; }
         if (pickedIdx !== null) totalDelta += (pickedIdx - ai);
       }
       guessed++;
@@ -318,8 +318,8 @@
       if (sumBig) sumBig.textContent = spotOn > 0 ? `${spotOn}/${items.length} spot on` : 'Raise → Road: 12 months';
       if (sumText) {
         sumText.innerHTML = totalDelta > 0
-          ? `You expected this to take longer. Most people do — that's the point. <strong>Pre-seed to closed-course autonomy in ${months} months</strong>, because the data pipeline is crowdsourced, the validation is simulated, and India's talent density makes this cadence possible.`
-          : `You believe in the pace — good, because we're committing to it. <strong>Pre-seed to closed-course autonomy in ${months} months</strong>, milestone-gated so every phase de-risks the next.`;
+          ? `You expected this to take longer. Most people do. That's the point. <strong>Pre-seed to closed-course autonomy in ${months} months</strong>, because the data pipeline is crowdsourced, the validation is simulated, and India's talent density makes this cadence possible.`
+          : `You believe in the pace. Good, because we're committing to it. <strong>Pre-seed to closed-course autonomy in ${months} months</strong>, milestone-gated so every phase de-risks the next.`;
       }
       if (typeof ScrollTrigger !== 'undefined') setTimeout(() => ScrollTrigger.refresh(), 500);
     }
@@ -340,7 +340,7 @@
     if (revealAll) revealAll.addEventListener('click', () => {
       items.forEach(item => { if (!item.classList.contains('guessed')) revealItem(item, null); });
       if (sumBig) sumBig.textContent = 'Raise → Road: 12 months';
-      if (sumText) sumText.innerHTML = '<strong>Pre-seed to closed-course autonomy in 12 months</strong> — crowdsourced data, simulated validation, milestone-gated spending. Every phase de-risks the next.';
+      if (sumText) sumText.innerHTML = '<strong>Pre-seed to closed-course autonomy in 12 months</strong>: crowdsourced data, simulated validation, milestone-gated spending. Every phase de-risks the next.';
     });
   })();
 
@@ -400,7 +400,7 @@
       if (list) {
         list.innerHTML = hits.length
           ? hits.map(h => `<div class="bs-hit">${h}</div>`).join('')
-          : '<div class="bs-hit none">Nothing — this is the recommended configuration.</div>';
+          : '<div class="bs-hit none">Nothing. This is the recommended configuration.</div>';
       }
       if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     }

@@ -1,7 +1,6 @@
 /* ─── Navixar — "Let's Take A Break" Intervals ───
    1. The Junction — survive the crossing, then the ADAS question
    2. You Be The Model — label Indian traffic before it escapes
-   3. Vyapar — the autonomy Monopoly where the stack owner collects
 */
 (function () {
   'use strict';
@@ -209,7 +208,7 @@
       if (done) return;
       done = true; running = false;
       titleEl.textContent = crossed
-        ? 'You made it across — with ' + nearMisses + ' near-miss' + (nearMisses === 1 ? '' : 'es') + '.'
+        ? 'You made it across with ' + nearMisses + ' near-miss' + (nearMisses === 1 ? '' : 'es') + '.'
         : nearMisses + ' near-misses, and the junction is still not done with you.';
       quizEl.hidden = false;
     }
@@ -316,7 +315,7 @@
       document.getElementById('lbEndTitle').textContent =
         'You labelled ' + score + ' of ' + total + ' (' + acc + '%).';
       document.getElementById('lbEndText').innerHTML =
-        'Every object you just tagged — the cattle, the handcart, the triple-riding bike — is a class that barely exists in Western training data. <strong>Now imagine a million Indians doing this daily, inside a game, on real reconstructed streets.</strong> That is Navixar’s gamified flywheel: your 25 seconds of fun is our labelled training data, at a scale no sensor fleet can buy.';
+        'Every object you just tagged (the cattle, the handcart, the triple-riding bike) is a class that barely exists in Western training data. <strong>Now imagine a million Indians doing this daily, inside a game, on real reconstructed streets.</strong> That is Navixar’s gamified flywheel: your 25 seconds of fun is our labelled training data, at a scale no sensor fleet can buy.';
       document.getElementById('lbEnd').hidden = false;
     }
 
@@ -336,75 +335,4 @@
     });
   })();
 
-  /* ════════════════════════════════════
-     3. VYAPAR
-  ════════════════════════════════════ */
-  (function vyapar() {
-    const board = document.getElementById('vyBoard');
-    if (!board) return;
-    const tiles = [];
-    for (let i = 0; i < 12; i++) tiles.push(board.querySelector('.t' + i));
-    const dice = document.getElementById('vyDice');
-    const rollBtn = document.getElementById('vyRoll');
-    const rollsEl = document.getElementById('vyRollsLeft');
-    const treasuryEl = document.getElementById('vyTreasury');
-    const logEl = document.getElementById('vyLog');
-    const FACES = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
-    let pos = 0, treasury = 0, rollsLeft = 4, busy = false;
-    tiles[0].classList.add('here');
-
-    function land() {
-      const tile = tiles[pos];
-      const amt = +tile.dataset.amt;
-      if (amt > 0) {
-        treasury += amt;
-        treasuryEl.textContent = '₹' + treasury + ' Cr';
-        logEl.innerHTML = '<strong style="color:#30d158">+₹' + amt + ' Cr</strong> — ' + tile.dataset.blurb;
-      } else {
-        logEl.textContent = tile.dataset.blurb;
-      }
-      if (rollsLeft <= 0) {
-        setTimeout(() => {
-          document.getElementById('vyEndTitle').textContent =
-            'Four rolls. ₹' + treasury + ' Cr to the stack owner.';
-          document.getElementById('vyEndText').innerHTML =
-            'However the dice fall, the bank collects — that’s the whole point of owning the board. In India’s autonomy game the bank seat is <strong>still open</strong>, and this pre-seed is the price of sitting down at the table.';
-          document.getElementById('vyEnd').hidden = false;
-        }, 1600);
-      }
-    }
-
-    rollBtn.addEventListener('click', () => {
-      if (busy || rollsLeft <= 0) return;
-      busy = true; rollsLeft--;
-      rollsEl.textContent = '· ' + rollsLeft + ' roll' + (rollsLeft === 1 ? '' : 's');
-      dice.classList.add('rolling');
-      let spins = 0;
-      const spin = setInterval(() => {
-        dice.textContent = FACES[Math.floor(Math.random() * 6)];
-        if (++spins >= 8) {
-          clearInterval(spin);
-          dice.classList.remove('rolling');
-          const n = 1 + Math.floor(Math.random() * 6);
-          dice.textContent = FACES[n - 1];
-          let steps = 0;
-          const walk = setInterval(() => {
-            tiles[pos].classList.remove('here');
-            pos = (pos + 1) % 12;
-            tiles[pos].classList.add('here');
-            if (++steps >= n) {
-              clearInterval(walk);
-              land();
-              busy = false;
-            }
-          }, 260);
-        }
-      }, 90);
-    });
-
-    document.getElementById('vyContinue').addEventListener('click', () => {
-      const t = document.getElementById('tailwinds');
-      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  })();
 })();

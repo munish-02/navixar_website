@@ -227,7 +227,7 @@ document.querySelectorAll('.count').forEach(el => {
   if (!reduceMotion) {
     gsap.set(colGroups, { opacity: 0 });
     gsap.set(indiaG, { opacity: 0 });
-    const markers = ['#g-usa', '#g-ca', '#g-uk', '#g-cn'];
+    const markers = ['#g-usa', '#g-ca', '#g-uk', '#g-cn', '#g-jp'];
     markers.concat(['#g-in']).forEach(m => gsap.set(m, { opacity: 0, scale: 0.4, transformOrigin: 'center' }));
 
     const tl = gsap.timeline({
@@ -396,7 +396,7 @@ window.setSensor = function (mode) {
     // Drone appears overhead with its capture cone
     gsap.to('#drone', { attr: { opacity: 1 }, duration: 0.45, ease: 'power2.out' });
     gsap.to('#drone-cone', { attr: { opacity: 1 }, duration: 0.6, delay: 0.15 });
-    statusChip.textContent = 'Full 360° coverage — aerial view active';
+    statusChip.textContent = 'Full 360° coverage: aerial view active';
     statusChip.className = 'status-chip good';
   } else {
     gsap.to('#zone-left', { duration: 0.4, ease: 'power2.out', attr: { fill: 'rgba(255,59,48,.12)', stroke: 'rgba(255,59,48,.4)' } });
@@ -636,51 +636,51 @@ if (canvas) {
   const ELI10 = {
     hero: {
       emoji: '🚕',
-      text: `A <strong>robotaxi</strong> is a taxi with no driver — the car watches the road with cameras and drives you itself, like a very careful robot chauffeur. Rich countries already have thousands of them. Nobody has built one that can handle India's wonderfully wild roads. We want to be the first.`
+      text: `A <strong>robotaxi</strong> is a taxi with no driver. The car watches the road with cameras and drives you itself, like a very careful robot chauffeur. Rich countries already have thousands of them. Nobody has built one that can handle India's wonderfully wild roads. We want to be the first.`
     },
     market: {
       emoji: '🗺️',
-      text: `The glowing dots are countries where robot taxis <strong>already drive around every day</strong>. See the red ✕? That's India — millions of taxi rides a day, and not a single robot taxi. It's like every city in the world got an ice-cream shop except the city with the most kids. We're opening that shop.`
+      text: `The glowing dots are countries where robot taxis <strong>already drive around every day</strong>. See the red ✕? That's India: millions of taxi rides a day, and not a single robot taxi. It's like every city in the world got an ice-cream shop except the city with the most kids. We're opening that shop.`
     },
     whynot: {
       emoji: '🧩',
-      text: `Quick puzzle! Everyone else built robot taxis — why not India? Hint: it's <strong>not</strong> because the robot brain is hard to write (those recipes are basically free now). It's the two things you can't download: <strong>videos of Indian roads</strong>, and a way to <strong>prove the robot is safe</strong> in Indian chaos. Pick the two right cards and the answer unlocks!`
+      text: `Quick puzzle! Everyone else built robot taxis, so why not India? Hint: it's <strong>not</strong> because the robot brain is hard to write (those recipes are basically free now). It's the two things you can't download: <strong>videos of Indian roads</strong>, and a way to <strong>prove the robot is safe</strong> in Indian chaos. Pick the two right cards and the answer unlocks!`
     },
     thesis: {
       emoji: '📖',
-      text: `The <strong>recipe</strong> for making a car drive itself used to be a big secret. Now it's basically in free cookbooks anyone can read. But you can't download the <strong>ingredients</strong>: what Indian roads actually look like — the cows, the potholes, the traffic. Whoever collects those ingredients first wins. That's our whole plan.`
+      text: `The <strong>recipe</strong> for making a car drive itself used to be a big secret. Now it's basically in free cookbooks anyone can read. But you can't download the <strong>ingredients</strong>: what Indian roads actually look like: the cows, the potholes, the traffic. Whoever collects those ingredients first wins. That's our whole plan.`
     },
     problem: {
       emoji: '🎮',
-      text: `Robot cars learned to drive in America, where roads are neat and everyone stays in their lane. Indian roads are a completely different game — like a player who only ever practiced the easy level suddenly getting dropped into the <strong>hardest level in the world</strong>. The robot has to learn India first, from scratch.`
+      text: `Robot cars learned to drive in America, where roads are neat and everyone stays in their lane. Indian roads are a completely different game, like a player who only ever practiced the easy level suddenly getting dropped into the <strong>hardest level in the world</strong>. The robot has to learn India first, from scratch.`
     },
     datagap: {
       emoji: '📼',
-      text: `Robot cars learn by watching millions of hours of driving videos — the way you get better at a game by playing it a lot. But <strong>99 out of every 100 videos</strong> they've watched are from America or Europe. Almost none show a cow crossing, an auto squeezing through a gap, or five bikes sharing one lane. We're going to film India for them.`
+      text: `Robot cars learn by watching millions of hours of driving videos, the way you get better at a game by playing it a lot. But <strong>99 out of every 100 videos</strong> they've watched are from America or Europe. Almost none show a cow crossing, an auto squeezing through a gap, or five bikes sharing one lane. We're going to film India for them.`
     },
     traffic: {
       emoji: '🚁',
-      text: `Remember Pokémon Go? Millions of people walked <strong>everywhere</strong> playing it — and all those walks secretly drew a super-accurate map for someone else. We're doing that, but for India, and keeping the treasure: drones film from the sky, a fun game lets players teach our robot, and dashcams already riding in cars send us their videos. Way faster and cheaper than buying thousands of robot cars!`
+      text: `Remember Pokémon Go? Millions of people walked <strong>everywhere</strong> playing it, and all those walks secretly drew a super-accurate map for someone else. We're doing that, but for India, and keeping the treasure: drones film from the sky, a fun game lets players teach our robot, and dashcams already riding in cars send us their videos. Way faster and cheaper than buying thousands of robot cars!`
     },
     simulation: {
       emoji: '🕹️',
-      text: `Before our robot drives a real street, it practices inside a <strong>video-game copy</strong> of that street — because crashing in a game is free! Old game-worlds look like LEGO: too fake to trust. Our trick (called <strong>Gaussian splats</strong>) builds the game world out of real photos, so it looks exactly like the real street — potholes, glare, chaos and all.`
+      text: `Before our robot drives a real street, it practices inside a <strong>video-game copy</strong> of that street, because crashing in a game is free! Old game-worlds look like LEGO: too fake to trust. Our trick (called <strong>Gaussian splats</strong>) builds the game world out of real photos, so it looks exactly like the real street: potholes, glare, chaos and all.`
     },
     simenv: {
       emoji: '🐄',
-      text: `We're building the practice-world specifically for India: bumpy roads, cows that wander in, autos that squeeze into impossible gaps, people crossing wherever they like. And there's a game version — when you play it, <strong>you're secretly teaching our robot how Indians drive</strong>. Every player becomes a teacher.`
+      text: `We're building the practice-world specifically for India: bumpy roads, cows that wander in, autos that squeeze into impossible gaps, people crossing wherever they like. And there's a game version: when you play it, <strong>you're secretly teaching our robot how Indians drive</strong>. Every player becomes a teacher.`
     },
     team: {
       emoji: '🧑‍🔧',
-      text: `Our founder has spent <strong>7 years doing exactly one thing</strong>: collecting driving data and building practice-worlds for India's biggest car companies. He's not guessing this will work — companies have already paid him to do it, again and again. Now he's building the whole robot, not just the homework.`
+      text: `Our founder has spent <strong>7 years doing exactly one thing</strong>: collecting driving data and building practice-worlds for India's biggest car companies. He's not guessing this will work. Companies have already paid him to do it, again and again. Now he's building the whole robot, not just the homework.`
     },
     momentum: {
       emoji: '🏁',
-      text: `The starting gun already fired. Robot taxis carry <strong>half a million people a week</strong> in America. Ten thousand robot delivery vans roll through China every day. The UN even wrote the official rulebook. Everyone is running the race — and India's lane is still completely empty. That empty lane is ours.`
+      text: `The starting gun already fired. Robot taxis carry <strong>half a million people a week</strong> in America. Ten thousand robot delivery vans roll through China every day. The UN even wrote the official rulebook. Everyone is running the race, and India's lane is still completely empty. That empty lane is ours.`
     },
     marketsize: {
       emoji: '🇮🇳',
-      text: `Every single day, Indians take <strong>3 million+ taxi rides</strong> — imagine a queue of customers stretching across the whole country, already waiting. And how many robot taxis serve them today? <strong>Zero.</strong> The first one to show up gets the whole queue.`
+      text: `Every single day, Indians take <strong>3 million+ taxi rides</strong>. Imagine a queue of customers stretching across the whole country, already waiting. And how many robot taxis serve them today? <strong>Zero.</strong> The first one to show up gets the whole queue.`
     },
     vision: {
       emoji: '💰',
@@ -692,11 +692,11 @@ if (canvas) {
     },
     roadmap: {
       emoji: '🗓️',
-      text: `Our plan works like game levels — and you get to guess how fast we clear them! <strong>Level 1:</strong> get the money and the team. <strong>Level 2:</strong> collect a million kilometres of Indian driving video. <strong>Level 3:</strong> build the practice-world. <strong>Level 4:</strong> teach the robot brain. <strong>Boss level (end of 2027):</strong> a real car drives itself on a test track — then we raise more money to go bigger.`
+      text: `Our plan works like game levels, and you get to guess how fast we clear them! <strong>Level 1:</strong> get the money and the team. <strong>Level 2:</strong> collect a million kilometres of Indian driving video. <strong>Level 3:</strong> build the practice-world. <strong>Level 4:</strong> teach the robot brain. <strong>Boss level (end of 2027):</strong> a real car drives itself on a test track. Then we raise more money to go bigger.`
     },
     ask: {
       emoji: '🫙',
-      text: `We're asking investors for about <strong>$3 million</strong>. Most pays brilliant engineers for 3 whole years; the rest builds a cool robot bot, buys computer power to teach the brain, collects driving videos, and builds the practice-world — plus a safety jar in case things take longer. Try the switches: you can see exactly what breaks if we spend less on something!`
+      text: `We're asking investors for about <strong>$3 million</strong>. Most pays brilliant engineers for 3 whole years; the rest builds a cool robot bot, buys computer power to teach the brain, collects driving videos, and builds the practice-world, plus a safety jar in case things take longer. Try the switches: you can see exactly what breaks if we spend less on something!`
     }
   };
 

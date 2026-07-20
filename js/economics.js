@@ -85,8 +85,8 @@
 
       document.getElementById('ueBarHuman').innerHTML =
         seg('Platform (20% cap)', platform, COLORS.platform, fare) +
-        seg('Fuel — paid by driver', C.humanFuel, COLORS.fuel, fare) +
-        seg('Vehicle EMI + upkeep — paid by driver', C.humanVehicle, COLORS.vehicle, fare) +
+        seg('Fuel (paid by driver)', C.humanFuel, COLORS.fuel, fare) +
+        seg('Vehicle EMI + upkeep (paid by driver)', C.humanVehicle, COLORS.vehicle, fare) +
         seg('Driver take-home', takeHome, COLORS.takehome, fare);
       document.getElementById('ueLegendHuman').innerHTML = legend([
         ['Platform (20% cap)', COLORS.platform],
@@ -135,10 +135,10 @@
       const multiple = platform > 0 ? (margin / platform) : 0;
       document.getElementById('ueBenchmark').innerHTML =
         margin > 0
-          ? 'At these settings a Navixar ride earns <strong>₹' + margin.toFixed(1) + '/km</strong> — <strong>' +
+          ? 'At these settings a Navixar ride earns <strong>₹' + margin.toFixed(1) + '/km</strong>, <strong>' +
             multiple.toFixed(1) + '×</strong> the ₹' + platform.toFixed(1) + '/km an aggregator can legally earn on a human-driven ride. ' +
-            'Or: undercut today’s fare by <strong>' + Math.min(marginPct, 99).toFixed(0) + '%</strong> and still break even — a price no human-driven fleet can follow.'
-          : 'At these settings the ride loses money — push utilisation up or vehicle cost down. This honesty is the point: the model shows exactly which assumptions matter.';
+            'Or: undercut today’s fare by <strong>' + Math.min(marginPct, 99).toFixed(0) + '%</strong> and still break even, a price no human-driven fleet can follow.'
+          : 'At these settings the ride loses money. Push utilisation up or vehicle cost down. This honesty is the point: the model shows exactly which assumptions matter.';
     }
 
     ['input', 'change'].forEach(ev => {
